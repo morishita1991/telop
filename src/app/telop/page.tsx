@@ -1,18 +1,13 @@
 'use client';
 import "./sample.css";
-import CanvasArea from "./js/CanvasArea";
+import HeaderArea from "./ts/HeaderArea";
+import CanvasArea from "./ts/CanvasArea";
 // require('./js/main.js');
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="p-1 m-3">
-        <p className="p-1 h2 mx-auto text-white bg-secondary">テロップ制作サイト（仮）</p>
-        <div className="p-1 h5 text-secondary m-auto">
-          <p>テロップやデザインタイトルを自由に作成できます。</p>
-          <p>文章を入力して好みのデザインを選択すれば、簡単にpng形式でダウンロード可能です。</p>
-        </div>
-      </div>
+      <HeaderArea></HeaderArea>
       <div className="ms-4" style={{ maxHeight: '30px' }}>
         <span className="h4 m-3 align-top">テキスト</span>
       </div>
