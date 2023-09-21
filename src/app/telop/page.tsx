@@ -1,4 +1,6 @@
+'use client';
 import "./sample.css";
+import CanvasArea from "./js/CanvasArea";
 // require('./js/main.js');
 
 export default function Home() {
@@ -116,12 +118,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="row">
-          <canvas id="canvas" width="1920" height="350"></canvas>
-        </div>
-        <div className="d-flex flex-row ms-3 mt-4">
-          <button className="btn btn-primary" type="submit" id="download">画像ダウンロード</button>
-        </div>
+        <CanvasArea></CanvasArea>
       </div>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
