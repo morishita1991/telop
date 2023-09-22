@@ -1,5 +1,5 @@
-import { Shadow } from './shadow.js';
-import { baseX, baseY, canvasW, canvasH } from './const.js';
+import { Shadow } from '../Areas/ShadowArea.jsx';
+import { baseX, baseY, canvasW, canvasH } from '../Areas/Const.jsx';
 
 export class Canvas {
   constructor() {
