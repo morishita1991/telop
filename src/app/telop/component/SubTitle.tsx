@@ -5,7 +5,7 @@ type Props = {
   text: string
 };
 
-function SubTitle(props: Props) {
+export default function SubTitle(props: Props) {
   return (
     <>
       <SDiv>
@@ -18,5 +18,3 @@ function SubTitle(props: Props) {
 const SDiv = styled.div`
   max-height: 30px;
 `;
-
-export default SubTitle;

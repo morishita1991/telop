@@ -25,7 +25,6 @@ export default function RangeBar(prop: Props) {
           <SSpan>{text}</SSpan>
           <SInput type="text" className="form-control ms-2"
             id={RangeBarInputId}
-            defaultValue={defaultValue}
             value={value}
             onChange={handleChange}
           ></SInput>
@@ -34,7 +33,6 @@ export default function RangeBar(prop: Props) {
           <SInput2 type="range" className="form-range"
             min={min} max={max} step={step}
             id={RangeBarId}
-            defaultValue={defaultValue}
             value={value}
             onChange={handleChange}
           ></SInput2>

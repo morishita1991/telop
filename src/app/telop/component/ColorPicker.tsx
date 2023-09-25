@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useId, useState } from "react";
 import styled from "styled-components";
 
-function ColorPicker() {
+export default function ColorPicker() {
+  const defaultValue = "#00CCFF";
+  const textInputId = useId();
+  const colorInputId = useId();
+  const [colorValue, setColorValue] = useState(defaultValue);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setColorValue(e.target.value);
+  }
   return (
     <>
       <div className="row">
         <div className="col-12 pt-2 mb-2 mt-3">
           <SSpan>色</SSpan>
-          <SInput type="text" className="form-control ms-2" id="input-color-text" defaultValue="#00CCFF"></SInput>
+          <SInput
+            type="text"
+            className="form-control ms-2"
+            id={textInputId}
+            value={colorValue}
+            onChange={handleChange}
+          ></SInput>
         </div>
         <div className="col-12">
-          <input type="color" className="form-control form-control-color" id="color-text" name="color" defaultValue="#00CCFF"></input>
+          <input
+            type="color"
+            className="form-control form-control-color"
+            id={colorInputId}
+            name="color"
+            value={colorValue}
+            onChange={handleChange}
+          ></input>
         </div>
       </div>
     </>
@@ -25,5 +45,3 @@ const SInput = styled.input`
   max-width: 100px;
   display: inline-block;
 `;
-
-export default ColorPicker;
