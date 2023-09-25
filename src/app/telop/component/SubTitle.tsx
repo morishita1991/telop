@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 type Props = {
   text: string
@@ -7,11 +8,15 @@ type Props = {
 function SubTitle(props: Props) {
   return (
     <>
-      <div style={{ maxHeight: '30px' }}>
+      <SDiv>
         <span className="h4 m-3 align-top">{ props.text }</span>
-      </div>
+      </SDiv>
     </>
   );
 }
+
+const SDiv = styled.div`
+  max-height: 30px;
+`;
 
 export default SubTitle;

@@ -4,6 +4,7 @@ import SubTitle from '../component/SubTitle';
 import TextInput from '../component/TextInput';
 import FontSelect from '../component/FontSelect';
 import RangeBar from '../component/RangeBar';
+import ColorPicker from '../component/ColorPicker';
 
 function TextArea() {
   return (
@@ -23,37 +24,13 @@ function TextArea() {
             <RangeBar text={'サイズ'} defaultValue={105} min={30} max={180} step={5}></RangeBar>
           </div>
           <div className="col-sm-3">
-            <div className="row">
-              <div className="col-12 pt-3 mb-2 mt-3">
-                <span style={{ display: 'inline-block' }}>太さ</span>
-                <input type="text" className="form-control ms-2" id="input-font-weight" defaultValue="500" style={{ maxWidth: '60px', display: 'inline-block' }}></input>
-              </div>
-              <div className="col-12">
-                <input type="range" className="form-range" min="100" max="900" step="100" id="fontWeightRange" defaultValue="500" style={{ maxWidth: '200px' }}></input>
-              </div>
-            </div>
+            <RangeBar text={'太さ'} defaultValue={500} min={100} max={900} step={100}></RangeBar>
           </div>
           <div className="col-sm-3" style={{ maxWidth: '200px' }}>
-            <div className="row">
-              <div className="col-12 pt-2 mb-2 mt-3">
-                <span style={{ display: 'inline-block' }}>色</span>
-                <input type="text" className="form-control ms-2" id="input-color-text" defaultValue="#00CCFF" style={{ maxWidth: '100px', display: 'inline-block' }}></input>
-              </div>
-              <div className="col-12">
-                <input type="color" className="form-control form-control-color" id="color-text" name="color" defaultValue="#00CCFF"></input>
-              </div>
-            </div>
+            <ColorPicker></ColorPicker>
           </div>
           <div className="col-sm-3">
-            <div className="row">
-              <div className="col-12 pt-2 mb-2 mt-4">
-                <span style={{ display: 'inline-block' }}>不透明度</span>
-                <input type="text" className="form-control ms-2" id="input-opacity-text" defaultValue="1" style={{ maxWidth: '50px', display: 'inline-block' }}></input>
-              </div>
-              <div className="col-12">
-                <input type="range" className="form-range" min="0" max="1" step="0.1" id="fontOpacityRange" defaultValue="1" style={{ maxWidth: '200px' }}></input>
-              </div>
-            </div>
+            <RangeBar text={'不透明度'} defaultValue={1} min={0} max={1} step={0.1}></RangeBar>
           </div>
         </div>
       </div>
