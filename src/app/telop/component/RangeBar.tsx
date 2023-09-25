@@ -1,5 +1,6 @@
 import React, { useId, useState } from "react";
 import styled from "styled-components";
+import createCanvas from "./Canvas";
 
 type Props = {
   text: string,
@@ -17,6 +18,7 @@ export default function RangeBar(prop: Props) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(e.target.value));
+    createCanvas();
   }
   return (
     <>

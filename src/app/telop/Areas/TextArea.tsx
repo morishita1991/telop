@@ -1,4 +1,3 @@
-import { Canvas } from '../component/canvas.js';
 import React from 'react';
 import SubTitle from '../component/SubTitle';
 import TextInput from '../component/TextInput';

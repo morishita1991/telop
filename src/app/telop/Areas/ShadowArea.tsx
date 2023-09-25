@@ -1,8 +1,7 @@
-import { Canvas } from '../component/canvas.js';
-import { baseX, baseY } from './Const.jsx';
 import React from 'react';
 
-const ShadowArea = () => {
+export default function ShadowArea()
+{
   return (
     <>
       <div className="m-2 ms-5 align-top">
@@ -69,8 +68,6 @@ const ShadowArea = () => {
     </>
   );
 }
-
-export default ShadowArea;
 
 
 // export class Shadow {
