@@ -5,6 +5,7 @@ import ShadowArea from "./Areas/ShadowArea";
 import StrokeArea from "./Areas/StrokeArea";
 import HeaderArea from "./Areas/HeaderArea";
 import CanvasArea from "./Areas/CanvasArea";
+import Canvas from "./components/Canvas";
 
 export default function Home() {
   return (

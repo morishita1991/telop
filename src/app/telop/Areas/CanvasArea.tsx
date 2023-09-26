@@ -1,5 +1,5 @@
 import React, { useState, useRef, MouseEvent } from 'react';
-import SubTitle from '../component/SubTitle';
+import SubTitle from '../components/SubTitle';
 
 const CanvasArea = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);

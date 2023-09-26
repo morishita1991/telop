@@ -1,8 +1,8 @@
-// import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
-// import React, { useId, useState } from "react";
-
-export default function createCanvas() {
-  console.log('create Canvas.');
+type CanvasProps = {
+  textValue: string;
+};
+export default function CreateCanvas(props: CanvasProps): void {
+  console.log('create Canvas.' + props.textValue);
   // let canvas = document.getElementById("canvas");
   // let ctx = canvas.getContext("2d");
   // if (!ctx) {
