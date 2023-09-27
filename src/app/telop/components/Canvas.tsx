@@ -1,15 +1,85 @@
-type CanvasProps = {
-  textValue: string;
-};
-export default function CreateCanvas(props: CanvasProps): void {
-  console.log('create Canvas.' + props.textValue);
-  // let canvas = document.getElementById("canvas");
-  // let ctx = canvas.getContext("2d");
-  // if (!ctx) {
-  //   return;
-  // }
-  // // 合成ルール
-  // ctx.globalCompositeOperation = true;
+import React, { useRef, MouseEvent, useContext, useEffect } from 'react';
+import { TextInputContext } from "./providers/TextInputProvider";
+import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
+
+export default function Canvas() {
+  const { textValue } = useContext(TextInputContext);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const onClickEvent = (e: MouseEvent<HTMLButtonElement>) => {
+    if (!canvasRef.current) return;
+    const canvas = canvasRef.current;
+
+    // TODO: 画像ダウンロード
+    let link = document.createElement("a");
+    link.href = canvas.toDataURL();
+    link.download = "telop.png";
+    link.click();
+  }
+
+  useEffect(() => {
+    const canvas = document.getElementById('canvas') as HTMLCanvasElement
+    let ctx = canvas.getContext('2d')
+    if (!ctx) return;
+
+    // 合成ルール
+    ctx.globalCompositeOperation = 'source-over';
+    // 現在の描画をクリア
+    ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
+    // 背景を描画
+    createBackGroudColor(ctx);
+    // テキスト描画
+    fillText(textValue, ctx);
+  }, [textValue]);
+
+  function fillText(textValue: string, ctx: CanvasRenderingContext2D) {
+    // 不透明度
+    const fontOpacity = 1;
+    ctx.globalAlpha = fontOpacity;
+    // フォント
+    const fontWeight = '700';
+    const fontSize = '100px';
+    const fontFamily = 'Kosugi';
+    ctx.font = `${fontWeight} ${fontSize} ${fontFamily}`;
+    // 色
+    const fontColor = '#000000';
+    ctx.fillStyle = fontColor;
+    ctx.fillText(textValue, baseX, baseY);
+  }
+
+  function createBackGroudColor(ctx: CanvasRenderingContext2D) {
+    if (!ctx) return;
+    // 背景色クリア
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#000000';
+    ctx.clearRect(0, 0, canvasW, canvasH);
+    ctx.strokeRect(0, 0, canvasW, canvasH);
+    const bgColorCheck = document.getElementById('bgColorCheck') as HTMLInputElement;
+    if (!bgColorCheck?.checked) {
+      return;
+    }
+
+    // 背景色描画
+    const bgOpacity = (document.getElementById('bgOpacityRange') as HTMLInputElement).value;
+    ctx.globalAlpha = Number(bgOpacity);
+    ctx.beginPath();
+    ctx.fillStyle = (document.getElementById('bg-color') as HTMLInputElement).value;
+    ctx.fillRect(0, 0, canvasW, canvasH);
+    ctx.strokeRect(0, 0, canvasW, canvasH);
+  }
+
+  return (
+    <>
+      <div className="row">
+        <canvas id="canvas" width="1920" height="350" ref={canvasRef}></canvas>
+      </div>
+      <div className="d-flex flex-row ms-3 mt-4">
+        <button className="btn btn-primary" id="download" onClick={onClickEvent}>
+          画像ダウンロード
+        </button>
+      </div>
+    </>
+  );
+
 
   // // 現在の描画をクリア
   // ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
@@ -158,27 +228,5 @@ export default function CreateCanvas(props: CanvasProps): void {
 //     const fontWeightSelect = document.getElementById('fontWeightRange').value;
 
 //     return fontFamily === '' ? `${fontWeightSelect} ${currentFont}` : `${fontWeightSelect} ${fontSize} ${fontFamily}`;
-//   }
-
-//   static createBackGroudColor(canvas = null)
-//   {
-//     let ctx = canvas.getContext("2d");
-//     // 背景色クリア
-//     ctx.lineWidth = '1';
-//     ctx.strokeStyle = '#000000';
-//     ctx.clearRect(0, 0, canvasW, canvasH);
-//     ctx.strokeRect(0, 0, canvasW, canvasH);
-//     const bgColorCheck = document.getElementById('bgColorCheck');
-//     if (!bgColorCheck.checked) {
-//       return;
-//     }
-
-//     // 背景色描画
-//     const bgOpacity = document.getElementById('bgOpacityRange').value;
-//     ctx.globalAlpha = bgOpacity;
-//     ctx.beginPath();
-//     ctx.fillStyle = document.getElementById('bg-color').value;
-//     ctx.fillRect(0, 0, canvasW, canvasH);
-//     ctx.strokeRect(0, 0, canvasW, canvasH);
 //   }
 // }

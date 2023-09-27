@@ -1,13 +1,11 @@
 import React, { useId, useContext } from "react";
 import { TextInputContext } from "./providers/TextInputProvider";
-import CreateCanvas from "./Canvas";
 
 export default function TextInput() {
   const textInputId = useId();
   const { textValue, setTextValue } = useContext(TextInputContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextValue(e.target.value);
-    CreateCanvas({textValue: e.target.value});
   };
   return (
     <>

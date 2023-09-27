@@ -5,16 +5,18 @@ import ShadowArea from "./Areas/ShadowArea";
 import StrokeArea from "./Areas/StrokeArea";
 import HeaderArea from "./Areas/HeaderArea";
 import CanvasArea from "./Areas/CanvasArea";
-import Canvas from "./components/Canvas";
+import { TextInputProvider } from "./components/providers/TextInputProvider";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <HeaderArea></HeaderArea>
-      <TextArea></TextArea>
-      <CanvasArea></CanvasArea>
-      <StrokeArea></StrokeArea>
-      <ShadowArea></ShadowArea>
+      <TextInputProvider>
+        <HeaderArea></HeaderArea>
+        <TextArea></TextArea>
+        <CanvasArea></CanvasArea>
+        <StrokeArea></StrokeArea>
+        <ShadowArea></ShadowArea>
+      </TextInputProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">

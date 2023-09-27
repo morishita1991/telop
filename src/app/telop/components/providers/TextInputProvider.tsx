@@ -2,7 +2,7 @@ import { createContext, useState, SetStateAction } from "react";
 
 type ValueType = {
   textValue: string,
-  setTextValue: React.Dispatch<SetStateAction<string>>;
+  setTextValue: React.Dispatch<SetStateAction<string>>,
 };
 
 export const TextInputContext = createContext<ValueType>({} as ValueType);

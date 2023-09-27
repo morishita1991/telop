@@ -4,38 +4,35 @@ import TextInput from '../components/TextInput';
 import FontSelect from '../components/FontSelect';
 import RangeBar from '../components/RangeBar';
 import ColorPicker from '../components/ColorPicker';
-import { TextInputProvider } from '../components/providers/TextInputProvider';
 
 function TextArea() {
   return (
     <>
-      <TextInputProvider>
-        <SubTitle text={'テキスト'}></SubTitle>
-        <div className="border m-3" style={{ maxWidth: '1080px' }}>
-          <div className="row mx-3 h3">
-            <div className="col-sm-4 p-3">
-              <TextInput></TextInput>
-            </div>
-            <div className="col-sm-4 p-3">
-              <FontSelect></FontSelect>
-            </div>
+      <SubTitle text={'テキスト'}></SubTitle>
+      <div className="border m-3" style={{ maxWidth: '1080px' }}>
+        <div className="row mx-3 h3">
+          <div className="col-sm-4 p-3">
+            <TextInput></TextInput>
           </div>
-          <div className="row mx-3 mb-5 h5">
-            <div className="col-sm-3">
-              <RangeBar text={'サイズ'} defaultValue={105} min={30} max={180} step={5}></RangeBar>
-            </div>
-            <div className="col-sm-3">
-              <RangeBar text={'太さ'} defaultValue={500} min={100} max={900} step={100}></RangeBar>
-            </div>
-            <div className="col-sm-3" style={{ maxWidth: '200px' }}>
-              <ColorPicker></ColorPicker>
-            </div>
-            <div className="col-sm-3">
-              <RangeBar text={'不透明度'} defaultValue={1} min={0} max={1} step={0.1}></RangeBar>
-            </div>
+          <div className="col-sm-4 p-3">
+            <FontSelect></FontSelect>
           </div>
         </div>
-      </TextInputProvider>
+        <div className="row mx-3 mb-5 h5">
+          <div className="col-sm-3">
+            <RangeBar text={'サイズ'} defaultValue={105} min={30} max={180} step={5}></RangeBar>
+          </div>
+          <div className="col-sm-3">
+            <RangeBar text={'太さ'} defaultValue={500} min={100} max={900} step={100}></RangeBar>
+          </div>
+          <div className="col-sm-3" style={{ maxWidth: '200px' }}>
+            <ColorPicker></ColorPicker>
+          </div>
+          <div className="col-sm-3">
+            <RangeBar text={'不透明度'} defaultValue={1} min={0} max={1} step={0.1}></RangeBar>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,21 +1,8 @@
-import React, { useState, useRef, MouseEvent } from 'react';
+import React from 'react';
 import SubTitle from '../components/SubTitle';
+import Canvas from '../components/Canvas';
 
 const CanvasArea = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const onClickEvent = (e: MouseEvent<HTMLButtonElement>) => {
-    if (!canvasRef.current) return;
-    const canvas = canvasRef.current;
-    console.log(canvas);
-
-    // TODO: canvas実装
-
-    // let link = document.createElement("a");
-    // link.href = canvas.toDataURL();
-    // link.download = "telop.png";
-    // link.click();
-  }
-
   return (
     <>
       <SubTitle text={'キャンバス'}></SubTitle>
@@ -49,14 +36,7 @@ const CanvasArea = () => {
             </div>
           </div>
         </div>
-        <div className="row">
-          <canvas id="canvas" width="1920" height="350" ref={canvasRef}></canvas>
-        </div>
-        <div className="d-flex flex-row ms-3 mt-4">
-          <button className="btn btn-primary" id="download" onClick={onClickEvent}>
-            画像ダウンロード
-          </button>
-        </div>
+        <Canvas></Canvas>
       </div>
     </>
   );
