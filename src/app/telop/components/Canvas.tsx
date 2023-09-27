@@ -1,26 +1,18 @@
 import React, { useRef, MouseEvent, useContext, useEffect } from 'react';
 import { TextInputContext } from "./providers/TextInputProvider";
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
+import download from './Download';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = (e: MouseEvent<HTMLButtonElement>) => {
-    if (!canvasRef.current) return;
-    const canvas = canvasRef.current;
-
-    // TODO: 画像ダウンロード
-    let link = document.createElement("a");
-    link.href = canvas.toDataURL();
-    link.download = "telop.png";
-    link.click();
+    download(canvasRef.current as HTMLCanvasElement);
   }
 
   useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
-    let ctx = canvas.getContext('2d')
-    if (!ctx) return;
-
+    let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     // 合成ルール
     ctx.globalCompositeOperation = 'source-over';
     // 現在の描画をクリア
@@ -79,13 +71,6 @@ export default function Canvas() {
       </div>
     </>
   );
-
-
-  // // 現在の描画をクリア
-  // ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
-
-  // // 背景色を描画
-  // Canvas.createBackGroudColor(canvas);
 
   // // テキスト
   // const text = document.getElementById('input-text').value;
