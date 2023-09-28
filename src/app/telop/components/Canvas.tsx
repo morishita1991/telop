@@ -72,7 +72,7 @@ export default function Canvas() {
   return (
     <>
       <div className="row">
-        <canvas id="canvas" width="1920" height="350" ref={canvasRef}></canvas>
+        <canvas id="canvas" width={canvasW} height={canvasH} ref={canvasRef}></canvas>
       </div>
       <div className="d-flex flex-row ms-3 mt-4">
         <button className="btn btn-primary" id="download" onClick={onClickEvent}>

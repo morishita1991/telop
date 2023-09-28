@@ -2,7 +2,6 @@ import React from 'react';
 import SubTitle from '../components/SubTitle';
 import TextInput from '../components/TextInput';
 import FontSelect from '../components/FontSelect';
-import RangeBar from '../components/RangeBar';
 import TextSizeRangeBar from '../components/TextSizeRangeBar';
 import TextWeightRangeBar from '../components/TextWeightRangeBar';
 import TextOpacityRangeBar from '../components/TextOpacityRangeBar';

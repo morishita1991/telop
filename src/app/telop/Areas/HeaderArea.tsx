@@ -3,7 +3,7 @@ import React from 'react';
 const HeaderArea = () => {
   return (
     <>
-      <div className="p-1 m-3">
+      <div className="row p-1 m-3">
         <p className="p-1 h2 mx-auto text-white bg-secondary">テンプレート作成</p>
         <div className="p-1 h5 text-secondary m-auto">
           <p>テロップやデザインタイトルを自由に作成できます。</p>

@@ -1,12 +1,11 @@
 import React from 'react';
-import SubTitle from '../components/SubTitle';
 import Canvas from '../components/Canvas';
+import { canvasW, canvasH } from './Const';
 
 const CanvasArea = () => {
   return (
     <>
-      <SubTitle text={'キャンバス'}></SubTitle>
-      <div className="border p-4 m-3 mb-5" style={{ maxWidth: '1920px' }}>
+      <div className="border p-4 m-3 mb-5" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
         <div className="row my-3 pb-3">
           <div className="col-sm-6 ms-3 mt-4 pt-3 h5" style={{ maxWidth: '200px' }}>
             <input className="form-check-input" type="checkbox" id="bgColorCheck"></input>
