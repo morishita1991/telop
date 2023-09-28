@@ -1,11 +1,11 @@
-import React, { useId, useState } from "react";
+import React, { useId, useState, useContext } from "react";
 import styled from "styled-components";
+import { TextColorContext } from "./providers/TextColorProvider";
 
 export default function ColorPicker() {
-  const defaultValue = "#00CCFF";
   const textInputId = useId();
   const colorInputId = useId();
-  const [colorValue, setColorValue] = useState(defaultValue);
+  const { colorValue, setColorValue } = useContext(TextColorContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColorValue(e.target.value);
   }

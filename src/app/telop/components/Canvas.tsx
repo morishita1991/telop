@@ -3,11 +3,13 @@ import { TextInputContext } from "./providers/TextInputProvider";
 import { TextSizeRangeBarContext } from './providers/RangeBar/TextSizeRangeBarProvider';
 import { TextWeightRangeBarContext } from './providers/RangeBar/TextWeightRangeBarProvider';
 import { TextOpacityRangeBarContext } from './providers/RangeBar/TextOpacityRangeBarProvider';
+import { TextColorContext } from './providers/TextColorProvider';
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
+  const { colorValue } = useContext(TextColorContext);
   const { rangeValue: textSizeValue } = useContext(TextSizeRangeBarContext);
   const { rangeValue: textWeightValue } = useContext(TextWeightRangeBarContext);
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
@@ -27,14 +29,15 @@ export default function Canvas() {
     // 背景を描画
     createBackGroudColor(ctx);
     // テキスト描画
-    fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, ctx);
-  }, [textValue, textSizeValue, textWeightValue, textOpacityValue]);
+    fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, ctx);
+  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue]);
 
   function fillText(
     textValue: string,
     textSizeValue: number,
     textWeightValue: number,
     textOpacityValue: number,
+    colorValue: string,
     ctx: CanvasRenderingContext2D
   ) {
     // 不透明度
@@ -43,8 +46,7 @@ export default function Canvas() {
     const fontFamily = 'Kosugi';
     ctx.font = `${textWeightValue} ${textSizeValue}px ${fontFamily}`;
     // 色
-    const fontColor = '#000000';
-    ctx.fillStyle = fontColor;
+    ctx.fillStyle = colorValue;
     ctx.fillText(textValue, baseX, baseY);
   }
 
