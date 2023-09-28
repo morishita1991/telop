@@ -2,9 +2,9 @@ import React from 'react';
 import SubTitle from '../components/SubTitle';
 import TextInput from '../components/TextInput';
 import FontSelect from '../components/FontSelect';
-import TextSizeRangeBar from '../components/TextSizeRangeBar';
-import TextWeightRangeBar from '../components/TextWeightRangeBar';
-import TextOpacityRangeBar from '../components/TextOpacityRangeBar';
+import TextSizeRangeBar from '../components/RangeBar/TextSizeRangeBar';
+import TextWeightRangeBar from '../components/RangeBar/TextWeightRangeBar';
+import TextOpacityRangeBar from '../components/RangeBar/TextOpacityRangeBar';
 import ColorPicker from '../components/ColorPicker';
 
 function TextArea() {

@@ -6,9 +6,9 @@ import StrokeArea from "./Areas/StrokeArea";
 import HeaderArea from "./Areas/HeaderArea";
 import CanvasArea from "./Areas/CanvasArea";
 import { TextInputProvider } from "./components/providers/TextInputProvider";
-import { TextSizeRangeBarProvider } from "./components/providers/TextSizeRangeBarProvider";
-import { TextWeightRangeBarProvider } from "./components/providers/TextWeightRangeBarProvider";
-import { TextOpacityRangeBarProvider } from "./components/providers/TextOpacityRangeBarProvider";
+import { TextSizeRangeBarProvider } from "./components/providers/RangeBar/TextSizeRangeBarProvider";
+import { TextWeightRangeBarProvider } from "./components/providers/RangeBar/TextWeightRangeBarProvider";
+import { TextOpacityRangeBarProvider } from "./components/providers/RangeBar/TextOpacityRangeBarProvider";
 
 export default function Home() {
   return (

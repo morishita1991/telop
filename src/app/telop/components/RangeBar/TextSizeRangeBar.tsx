@@ -1,5 +1,5 @@
 import React, { useId, useState, useContext } from "react";
-import { TextSizeRangeBarContext } from "./providers/TextSizeRangeBarProvider";
+import { TextSizeRangeBarContext } from "../providers/RangeBar/TextSizeRangeBarProvider";
 import styled from "styled-components";
 
 type Props = {

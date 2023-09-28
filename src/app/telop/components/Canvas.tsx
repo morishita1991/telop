@@ -1,8 +1,8 @@
 import React, { useRef, MouseEvent, useContext, useEffect } from 'react';
 import { TextInputContext } from "./providers/TextInputProvider";
-import { TextSizeRangeBarContext } from './providers/TextSizeRangeBarProvider';
-import { TextWeightRangeBarContext } from './providers/TextWeightRangeBarProvider';
-import { TextOpacityRangeBarContext } from './providers/TextOpacityRangeBarProvider';
+import { TextSizeRangeBarContext } from './providers/RangeBar/TextSizeRangeBarProvider';
+import { TextWeightRangeBarContext } from './providers/RangeBar/TextWeightRangeBarProvider';
+import { TextOpacityRangeBarContext } from './providers/RangeBar/TextOpacityRangeBarProvider';
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 
