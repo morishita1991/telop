@@ -1,18 +1,17 @@
-import React, { useId, useState, useContext } from "react";
-import { TextSizeRangeBarContext } from "./providers/TextSizeRangeBarProvider";
+import React, { useId, useContext } from "react";
+import { TextWeightRangeBarContext } from "./providers/TextWeightRangeBarProvider";
 import styled from "styled-components";
 
 type Props = {
   text: string,
-  defaultValue: number,
   min: number,
   max: number,
   step: number,
 }
 
-export default function RangeBar(prop: Props) {
+export default function TextWeightRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
-  const { rangeValue, setRangeValue } = useContext(TextSizeRangeBarContext);
+  const { rangeValue, setRangeValue } = useContext(TextWeightRangeBarContext);
   const RangeBarInputId = useId();
   const RangeBarId = useId();
 

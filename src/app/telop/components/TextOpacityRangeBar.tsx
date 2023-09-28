@@ -1,18 +1,17 @@
-import React, { useId, useState, useContext } from "react";
-import { TextSizeRangeBarContext } from "./providers/TextSizeRangeBarProvider";
+import React, { useId, useContext } from "react";
+import { TextOpacityRangeBarContext } from "./providers/TextOpacityRangeBarProvider";
 import styled from "styled-components";
 
 type Props = {
   text: string,
-  defaultValue: number,
   min: number,
   max: number,
   step: number,
 }
 
-export default function RangeBar(prop: Props) {
+export default function TextOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
-  const { rangeValue, setRangeValue } = useContext(TextSizeRangeBarContext);
+  const { rangeValue, setRangeValue } = useContext(TextOpacityRangeBarContext);
   const RangeBarInputId = useId();
   const RangeBarId = useId();
 

@@ -4,13 +4,12 @@ import styled from "styled-components";
 
 type Props = {
   text: string,
-  defaultValue: number,
   min: number,
   max: number,
   step: number,
 }
 
-export default function RangeBar(prop: Props) {
+export default function TextSizeRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(TextSizeRangeBarContext);
   const RangeBarInputId = useId();

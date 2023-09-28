@@ -6,17 +6,26 @@ import StrokeArea from "./Areas/StrokeArea";
 import HeaderArea from "./Areas/HeaderArea";
 import CanvasArea from "./Areas/CanvasArea";
 import { TextInputProvider } from "./components/providers/TextInputProvider";
+import { TextSizeRangeBarProvider } from "./components/providers/TextSizeRangeBarProvider";
+import { TextWeightRangeBarProvider } from "./components/providers/TextWeightRangeBarProvider";
+import { TextOpacityRangeBarProvider } from "./components/providers/TextOpacityRangeBarProvider";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <TextInputProvider>
-        <HeaderArea></HeaderArea>
-        <TextArea></TextArea>
-        <CanvasArea></CanvasArea>
-        <StrokeArea></StrokeArea>
-        <ShadowArea></ShadowArea>
-      </TextInputProvider>
+      <TextOpacityRangeBarProvider>
+        <TextWeightRangeBarProvider>
+          <TextSizeRangeBarProvider>
+            <TextInputProvider>
+              <HeaderArea></HeaderArea>
+              <CanvasArea></CanvasArea>
+              <TextArea></TextArea>
+              <StrokeArea></StrokeArea>
+              <ShadowArea></ShadowArea>
+            </TextInputProvider>
+          </TextSizeRangeBarProvider>
+        </TextWeightRangeBarProvider>
+      </TextOpacityRangeBarProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">

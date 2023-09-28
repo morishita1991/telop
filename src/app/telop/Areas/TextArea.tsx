@@ -3,6 +3,9 @@ import SubTitle from '../components/SubTitle';
 import TextInput from '../components/TextInput';
 import FontSelect from '../components/FontSelect';
 import RangeBar from '../components/RangeBar';
+import TextSizeRangeBar from '../components/TextSizeRangeBar';
+import TextWeightRangeBar from '../components/TextWeightRangeBar';
+import TextOpacityRangeBar from '../components/TextOpacityRangeBar';
 import ColorPicker from '../components/ColorPicker';
 
 function TextArea() {
@@ -20,16 +23,16 @@ function TextArea() {
         </div>
         <div className="row mx-3 mb-5 h5">
           <div className="col-sm-3">
-            <RangeBar text={'サイズ'} defaultValue={105} min={30} max={180} step={5}></RangeBar>
+            <TextSizeRangeBar text={'サイズ'} min={30} max={180} step={5}></TextSizeRangeBar>
           </div>
           <div className="col-sm-3">
-            <RangeBar text={'太さ'} defaultValue={500} min={100} max={900} step={100}></RangeBar>
+            <TextWeightRangeBar text={'太さ'} min={100} max={900} step={100}></TextWeightRangeBar>
           </div>
           <div className="col-sm-3" style={{ maxWidth: '200px' }}>
             <ColorPicker></ColorPicker>
           </div>
           <div className="col-sm-3">
-            <RangeBar text={'不透明度'} defaultValue={1} min={0} max={1} step={0.1}></RangeBar>
+            <TextOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></TextOpacityRangeBar>
           </div>
         </div>
       </div>
