@@ -1,5 +1,5 @@
 import React from 'react';
-import BackGroundColorPicker from '../components/BackGroundColorPicker';
+import BackGroundColorPicker from '../components/ColorPicker/BackGroundColorPicker';
 import Canvas from '../components/Canvas';
 import { canvasW, canvasH } from './Const';
 

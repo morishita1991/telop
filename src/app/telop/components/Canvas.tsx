@@ -3,11 +3,11 @@ import { TextInputContext } from "./providers/TextInputProvider";
 import { TextSizeRangeBarContext } from './providers/RangeBar/TextSizeRangeBarProvider';
 import { TextWeightRangeBarContext } from './providers/RangeBar/TextWeightRangeBarProvider';
 import { TextOpacityRangeBarContext } from './providers/RangeBar/TextOpacityRangeBarProvider';
-import { TextColorContext } from './providers/TextColorProvider';
+import { TextColorContext } from './providers/ColorPicker/TextColorProvider';
 import { TextFontContext } from './providers/TextFontProvider';
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
-import { BackGroundColorContext } from './providers/BackGroundColorProvider';
+import { BackGroundColorContext } from './providers/ColorPicker/BackGroundColorProvider';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);

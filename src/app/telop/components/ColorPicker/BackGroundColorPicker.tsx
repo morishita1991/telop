@@ -1,6 +1,6 @@
 import React, { useId, useContext } from "react";
 import styled from "styled-components";
-import { BackGroundColorContext } from "./providers/BackGroundColorProvider";
+import { BackGroundColorContext } from "../providers/ColorPicker/BackGroundColorProvider";
 
 export default function BackGroundColorPicker() {
   const textInputId = useId();

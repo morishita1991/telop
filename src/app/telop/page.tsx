@@ -9,9 +9,9 @@ import { TextInputProvider } from "./components/providers/TextInputProvider";
 import { TextSizeRangeBarProvider } from "./components/providers/RangeBar/TextSizeRangeBarProvider";
 import { TextWeightRangeBarProvider } from "./components/providers/RangeBar/TextWeightRangeBarProvider";
 import { TextOpacityRangeBarProvider } from "./components/providers/RangeBar/TextOpacityRangeBarProvider";
-import { TextColorProvider } from "./components/providers/TextColorProvider";
+import { TextColorProvider } from "./components/providers/ColorPicker/TextColorProvider";
 import { TextFontProvider } from "./components/providers/TextFontProvider";
-import { BackGroundColorProvider } from "./components/providers/BackGroundColorProvider";
+import { BackGroundColorProvider } from "./components/providers/ColorPicker/BackGroundColorProvider";
 
 export default function Home() {
   return (

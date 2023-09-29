@@ -5,7 +5,7 @@ import FontSelect from '../components/FontSelect';
 import TextSizeRangeBar from '../components/RangeBar/TextSizeRangeBar';
 import TextWeightRangeBar from '../components/RangeBar/TextWeightRangeBar';
 import TextOpacityRangeBar from '../components/RangeBar/TextOpacityRangeBar';
-import TextColorPicker from '../components/TextColorPicker';
+import TextColorPicker from '../components/ColorPicker/TextColorPicker';
 
 function TextArea() {
   return (
