@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BackGroundColorPicker from '../components/ColorPicker/BackGroundColorPicker';
 import Canvas from '../components/Canvas';
 import { canvasW, canvasH } from './Const';
 import BackGroundOpacityRangeBar from '../components/RangeBar/BackGroundOpacityRangeBar';
 import BackGroundCheckBox from '../components/CheckBox/BackGroundCheckBox';
+import { BackGroundCheckBoxContext } from '../components/providers/CheckBox/BackGroundCheckBoxProvider ';
 
-const CanvasArea = () => {
+export default function CanvasArea() {
+  const { isChecked } = useContext(BackGroundCheckBoxContext);
   return (
     <>
       <div className="border p-4 m-3 mb-5" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
@@ -14,7 +16,7 @@ const CanvasArea = () => {
             <BackGroundCheckBox></BackGroundCheckBox>
           </div>
           <div className="col-sm-6">
-            <div className="border row" style={{ maxWidth: '600px' }}>
+            <div className={`border row ${!isChecked && 'bg-light'}`} style={{ maxWidth: '600px' }}>
               <div className="col-sm-6 ms-5" style={{ maxWidth: '200px' }}>
                 <div className="row mt-4 pt-3">
                   <BackGroundColorPicker></BackGroundColorPicker>
@@ -33,8 +35,6 @@ const CanvasArea = () => {
     </>
   );
 }
-
-export default CanvasArea;
 
 // function () {
 //   const canvas = document.getElementById('canvas');
