@@ -13,31 +13,34 @@ import { TextColorProvider } from "./components/providers/ColorPicker/TextColorP
 import { TextFontProvider } from "./components/providers/TextFontProvider";
 import { BackGroundColorProvider } from "./components/providers/ColorPicker/BackGroundColorProvider";
 import { BackGroundOpacityRangeBarProvider } from "./components/providers/RangeBar/BackGroundOpacityRangeBarProvider";
+import { BackGroundCheckBoxProvider } from "./components/providers/CheckBox/BackGroundCheckBoxProvider ";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <BackGroundOpacityRangeBarProvider>
-        <BackGroundColorProvider>
-          <TextFontProvider>
-            <TextColorProvider>
-              <TextOpacityRangeBarProvider>
-                <TextWeightRangeBarProvider>
-                  <TextSizeRangeBarProvider>
-                    <TextInputProvider>
-                      <HeaderArea></HeaderArea>
-                      <CanvasArea></CanvasArea>
-                      <TextArea></TextArea>
-                      <StrokeArea></StrokeArea>
-                      <ShadowArea></ShadowArea>
-                    </TextInputProvider>
-                  </TextSizeRangeBarProvider>
-                </TextWeightRangeBarProvider>
-              </TextOpacityRangeBarProvider>
-            </TextColorProvider>
-          </TextFontProvider>
-        </BackGroundColorProvider>
-      </BackGroundOpacityRangeBarProvider>
+      <BackGroundCheckBoxProvider>
+        <BackGroundOpacityRangeBarProvider>
+          <BackGroundColorProvider>
+            <TextFontProvider>
+              <TextColorProvider>
+                <TextOpacityRangeBarProvider>
+                  <TextWeightRangeBarProvider>
+                    <TextSizeRangeBarProvider>
+                      <TextInputProvider>
+                        <HeaderArea></HeaderArea>
+                        <CanvasArea></CanvasArea>
+                        <TextArea></TextArea>
+                        <StrokeArea></StrokeArea>
+                        <ShadowArea></ShadowArea>
+                      </TextInputProvider>
+                    </TextSizeRangeBarProvider>
+                  </TextWeightRangeBarProvider>
+                </TextOpacityRangeBarProvider>
+              </TextColorProvider>
+            </TextFontProvider>
+          </BackGroundColorProvider>
+        </BackGroundOpacityRangeBarProvider>
+      </BackGroundCheckBoxProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">

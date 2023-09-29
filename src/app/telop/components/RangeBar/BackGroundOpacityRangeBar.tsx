@@ -16,7 +16,6 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
   const RangeBarId = useId();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(rangeValue);
     setRangeValue(Number(e.target.value));
   }
   return (

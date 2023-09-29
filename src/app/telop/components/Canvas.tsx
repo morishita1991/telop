@@ -9,6 +9,7 @@ import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 import { BackGroundColorContext } from './providers/ColorPicker/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/RangeBar/BackGroundOpacityRangeBarProvider';
+import { BackGroundCheckBoxContext } from './providers/CheckBox/BackGroundCheckBoxProvider ';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
@@ -19,6 +20,7 @@ export default function Canvas() {
   const { rangeValue: textWeightValue } = useContext(TextWeightRangeBarContext);
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
   const { rangeValue: bgOpacityValue } = useContext(BackGroundOpacityRangeBarContext);
+  const { isChecked: bgChecked } = useContext(BackGroundCheckBoxContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = (e: MouseEvent<HTMLButtonElement>) => {
     download(canvasRef.current as HTMLCanvasElement);
@@ -32,10 +34,10 @@ export default function Canvas() {
     // 現在の描画をクリア
     ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
     // 背景を描画
-    createBackGroudColor(bgColorValue, bgOpacityValue, ctx);
+    createBackGroudColor(bgColorValue, bgOpacityValue, bgChecked, ctx);
     // テキスト描画
     fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
-  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue, bgOpacityValue]);
+  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue, bgOpacityValue, bgChecked]);
 
   function fillText(
     textValue: string,
@@ -55,15 +57,19 @@ export default function Canvas() {
     ctx.fillText(textValue, baseX, baseY);
   }
 
-  function createBackGroudColor(bgColorValue: string, bgOpacityValue: number, ctx: CanvasRenderingContext2D) {
+  function createBackGroudColor(
+    bgColorValue: string,
+    bgOpacityValue: number,
+    bgChecked: boolean,
+    ctx: CanvasRenderingContext2D
+  ) {
     if (!ctx) return;
     // 背景色クリア
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#000000';
     ctx.clearRect(0, 0, canvasW, canvasH);
     ctx.strokeRect(0, 0, canvasW, canvasH);
-    const bgColorCheck = document.getElementById('bgColorCheck') as HTMLInputElement;
-    if (!bgColorCheck?.checked) {
+    if (!bgChecked) {
       return;
     }
 
