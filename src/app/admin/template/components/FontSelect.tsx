@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { TextFontContext } from "./providers/TextFontProvider";
-import { FormControl, InputLabel, MenuItem } from "../../../../node_modules/@mui/material/index";
-import Select, { SelectChangeEvent } from "../../../../node_modules/@mui/material/Select/Select";
+import { FormControl, InputLabel, MenuItem } from "../../../../../node_modules/@mui/material/index";
+import Select, { SelectChangeEvent } from "../../../../../node_modules/@mui/material/Select/Select";
 
 export default function FontSelect() {
   const { fontValue, setFontValue } = useContext(TextFontContext);

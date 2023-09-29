@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Checkbox from "../../../../../node_modules/@mui/material/Checkbox/Checkbox";
-import { FormGroup, FormControlLabel } from "../../../../../node_modules/@mui/material/index";
+import Checkbox from "../../../../../../node_modules/@mui/material/Checkbox/Checkbox";
+import { FormGroup, FormControlLabel } from "../../../../../../node_modules/@mui/material/index";
 import { BackGroundCheckBoxContext } from "../providers/CheckBox/BackGroundCheckBoxProvider ";
 
 export default function BackGroundCheckBox() {
