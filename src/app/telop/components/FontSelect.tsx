@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { TextFontContext } from "./providers/TextFontProvider";
-import { FormControl, InputLabel, MenuItem, Select } from "../../../../node_modules/@material-ui/core/index";
+import { FormControl, InputLabel, MenuItem } from "../../../../node_modules/@mui/material/index";
+import Select, { SelectChangeEvent } from "../../../../node_modules/@mui/material/Select/Select";
 
 export default function FontSelect() {
   const { fontValue, setFontValue } = useContext(TextFontContext);
@@ -10,21 +11,22 @@ export default function FontSelect() {
     // 英語
     'Coiny', 'Squada One', 'Audiowide', 'Abril Fatface',
   ];
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setFontValue(e.target.value);
+  const handleChange = (event: SelectChangeEvent) => {
+    setFontValue(event.target.value);
   }
   return (
     <>
       <div className="row">
         <div className="col-12">
-          <div className="mt-4 pt-2 ">
-            <FormControl fullWidth>
+          <div className="mt-4 pt-2">
+            <FormControl sx={{ m: 1, minWidth: 200 }}>
               <InputLabel id="demo-simple-select-label">フォント選択</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={fontValue}
-                autoWidth
+                style={{ fontFamily: fontValue }}
+                label={'フォント選択'}
                 onChange={handleChange}
               >
                 {fontFamily.map((font) => {
