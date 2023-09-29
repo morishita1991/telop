@@ -8,6 +8,7 @@ import { TextFontContext } from './providers/TextFontProvider';
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 import { BackGroundColorContext } from './providers/ColorPicker/BackGroundColorProvider';
+import { BackGroundOpacityRangeBarContext } from './providers/RangeBar/BackGroundOpacityRangeBarProvider';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
@@ -17,6 +18,7 @@ export default function Canvas() {
   const { rangeValue: textSizeValue } = useContext(TextSizeRangeBarContext);
   const { rangeValue: textWeightValue } = useContext(TextWeightRangeBarContext);
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
+  const { rangeValue: bgOpacityValue } = useContext(BackGroundOpacityRangeBarContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = (e: MouseEvent<HTMLButtonElement>) => {
     download(canvasRef.current as HTMLCanvasElement);
@@ -30,10 +32,10 @@ export default function Canvas() {
     // 現在の描画をクリア
     ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
     // 背景を描画
-    createBackGroudColor(bgColorValue, ctx);
+    createBackGroudColor(bgColorValue, bgOpacityValue, ctx);
     // テキスト描画
     fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
-  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue]);
+  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue, bgOpacityValue]);
 
   function fillText(
     textValue: string,
@@ -53,7 +55,7 @@ export default function Canvas() {
     ctx.fillText(textValue, baseX, baseY);
   }
 
-  function createBackGroudColor(bgColorValue: string, ctx: CanvasRenderingContext2D) {
+  function createBackGroudColor(bgColorValue: string, bgOpacityValue: number, ctx: CanvasRenderingContext2D) {
     if (!ctx) return;
     // 背景色クリア
     ctx.lineWidth = 1;
@@ -66,8 +68,7 @@ export default function Canvas() {
     }
 
     // 背景色描画
-    const bgOpacity = (document.getElementById('bgOpacityRange') as HTMLInputElement).value;
-    ctx.globalAlpha = Number(bgOpacity);
+    ctx.globalAlpha = Number(bgOpacityValue);
     ctx.beginPath();
     ctx.fillStyle = bgColorValue;
     ctx.fillRect(0, 0, canvasW, canvasH);

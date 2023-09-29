@@ -2,6 +2,7 @@ import React from 'react';
 import BackGroundColorPicker from '../components/ColorPicker/BackGroundColorPicker';
 import Canvas from '../components/Canvas';
 import { canvasW, canvasH } from './Const';
+import BackGroundOpacityRangeBar from '../components/RangeBar/BackGroundOpacityRangeBar';
 
 const CanvasArea = () => {
   return (
@@ -23,11 +24,7 @@ const CanvasArea = () => {
               </div>
               <div className="col-sm-6">
                 <div className="col-12 my-4 h5">
-                  <span style={{ display: 'inline-block' }}>不透明度</span>
-                  <input type="text" className="form-control ms-2" id="input-bg-opacity" defaultValue="1"
-                    style={{ maxWidth: '50px', display: 'inline-block' }}></input>
-                  <input type="range" className="form-range" min="0" max="1" step="0.1" id="bgOpacityRange" defaultValue="1"
-                    style={{ maxWidth: '200px' }}></input>
+                  <BackGroundOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></BackGroundOpacityRangeBar>
                 </div>
               </div>
             </div>
