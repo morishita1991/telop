@@ -1,11 +1,13 @@
 import React, { useId, useContext } from "react";
 import styled from "styled-components";
+import { BackGroundCheckBoxContext } from "../providers/CheckBox/BackGroundCheckBoxProvider ";
 import { BackGroundColorContext } from "../providers/ColorPicker/BackGroundColorProvider";
 
 export default function BackGroundColorPicker() {
   const textInputId = useId();
   const colorInputId = useId();
   const { bgColorValue, setBgColorValue } = useContext(BackGroundColorContext);
+  const { isChecked } = useContext(BackGroundCheckBoxContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBgColorValue(e.target.value);
   }
@@ -19,6 +21,7 @@ export default function BackGroundColorPicker() {
             name="color"
             value={bgColorValue}
             onChange={handleChange}
+            disabled={!isChecked}
           ></SInput>
           <SInput
             type="text"
@@ -26,6 +29,7 @@ export default function BackGroundColorPicker() {
             id={textInputId}
             value={bgColorValue}
             onChange={handleChange}
+            disabled={!isChecked}
           ></SInput>
       </div>
     </>

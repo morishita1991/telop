@@ -1,6 +1,7 @@
 import React, { useId, useContext } from "react";
 import { BackGroundOpacityRangeBarContext } from "../providers/RangeBar/BackGroundOpacityRangeBarProvider";
 import styled from "styled-components";
+import { BackGroundCheckBoxContext } from "../providers/CheckBox/BackGroundCheckBoxProvider ";
 
 type Props = {
   text: string,
@@ -12,6 +13,7 @@ type Props = {
 export default function BackGroundOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(BackGroundOpacityRangeBarContext);
+  const { isChecked } = useContext(BackGroundCheckBoxContext);
   const RangeBarInputId = useId();
   const RangeBarId = useId();
 
@@ -27,6 +29,7 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
             id={RangeBarInputId}
             value={rangeValue}
             onChange={handleChange}
+            disabled={!isChecked}
           ></SInput>
         </div>
         <div className="col-12">
@@ -35,6 +38,7 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
             id={RangeBarId}
             value={rangeValue}
             onChange={handleChange}
+            disabled={!isChecked}
           ></SInput2>
         </div>
       </div>
