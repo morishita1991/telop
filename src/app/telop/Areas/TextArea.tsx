@@ -5,7 +5,7 @@ import FontSelect from '../components/FontSelect';
 import TextSizeRangeBar from '../components/RangeBar/TextSizeRangeBar';
 import TextWeightRangeBar from '../components/RangeBar/TextWeightRangeBar';
 import TextOpacityRangeBar from '../components/RangeBar/TextOpacityRangeBar';
-import ColorPicker from '../components/ColorPicker';
+import TextColorPicker from '../components/TextColorPicker';
 
 function TextArea() {
   return (
@@ -28,7 +28,7 @@ function TextArea() {
             <TextWeightRangeBar text={'太さ'} min={100} max={900} step={100}></TextWeightRangeBar>
           </div>
           <div className="col-sm-3" style={{ maxWidth: '200px' }}>
-            <ColorPicker></ColorPicker>
+            <TextColorPicker></TextColorPicker>
           </div>
           <div className="col-sm-3">
             <TextOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></TextOpacityRangeBar>
@@ -44,17 +44,6 @@ export default TextArea;
 
 // export class Text {
 //   constructor() {
-//     // フォント選択を監視
-//     const fontSelect = document.getElementById('font-select');
-//     fontSelect.addEventListener('click', (e) => {
-//       let fontButton = document.getElementById('fontFamilyList');
-//       const selectedValue = e.target.value;
-//       fontButton.value = selectedValue;
-//       fontButton.innerText = selectedValue;
-//       fontButton.setAttribute('style', `font-family: ${selectedValue};`);
-//       Canvas.createCanvas();
-//     });
-
 //     // サイズ選択を監視
 //     const fontSizeSelect = document.getElementById('fontSizeRange');
 //     fontSizeSelect.addEventListener('change', (e) => {
@@ -76,31 +65,4 @@ export default TextArea;
 //       fontSizeSelect.value = e.target.value;
 //       Canvas.createCanvas();
 //     });
-
-
 //   }
-//   static createDropDown() {
-//     const fontFamilies = [
-//       // 日本語
-//       'Kosugi', 'Noto Sans Japanese', 'Kiwi Maru',
-//       // 英語
-//       'Coiny', 'Squada One', 'Audiowide', 'Abril Fatface',
-//     ];
-//     fontFamilies.forEach(function (element) {
-//       // button要素
-//       let button = document.createElement("button");
-//       button.setAttribute('class', 'dropdown-item');
-//       button.setAttribute('button', 'button');
-//       button.value = element;
-//       button.innerText = element;
-//       button.setAttribute('style', `font-size:20px; font-family: ${element};`);
-
-//       // li要素
-//       let list = document.createElement("li");
-//       list.appendChild(button);
-
-//       const ul = document.getElementById('font-select');
-//       ul.appendChild(list);
-//     });
-//   }
-// }

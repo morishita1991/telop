@@ -1,8 +1,8 @@
-import React, { useId, useState, useContext } from "react";
+import React, { useId, useContext } from "react";
 import styled from "styled-components";
 import { TextColorContext } from "./providers/TextColorProvider";
 
-export default function ColorPicker() {
+export default function TextColorPicker() {
   const textInputId = useId();
   const colorInputId = useId();
   const { colorValue, setColorValue } = useContext(TextColorContext);

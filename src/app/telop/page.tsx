@@ -11,27 +11,30 @@ import { TextWeightRangeBarProvider } from "./components/providers/RangeBar/Text
 import { TextOpacityRangeBarProvider } from "./components/providers/RangeBar/TextOpacityRangeBarProvider";
 import { TextColorProvider } from "./components/providers/TextColorProvider";
 import { TextFontProvider } from "./components/providers/TextFontProvider";
+import { BackGroundColorProvider } from "./components/providers/BackGroundColorProvider";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <TextFontProvider>
-        <TextColorProvider>
-          <TextOpacityRangeBarProvider>
-            <TextWeightRangeBarProvider>
-              <TextSizeRangeBarProvider>
-                <TextInputProvider>
-                  <HeaderArea></HeaderArea>
-                  <CanvasArea></CanvasArea>
-                  <TextArea></TextArea>
-                  <StrokeArea></StrokeArea>
-                  <ShadowArea></ShadowArea>
-                </TextInputProvider>
-              </TextSizeRangeBarProvider>
-            </TextWeightRangeBarProvider>
-          </TextOpacityRangeBarProvider>
-        </TextColorProvider>
-      </TextFontProvider>
+      <BackGroundColorProvider>
+        <TextFontProvider>
+          <TextColorProvider>
+            <TextOpacityRangeBarProvider>
+              <TextWeightRangeBarProvider>
+                <TextSizeRangeBarProvider>
+                  <TextInputProvider>
+                    <HeaderArea></HeaderArea>
+                    <CanvasArea></CanvasArea>
+                    <TextArea></TextArea>
+                    <StrokeArea></StrokeArea>
+                    <ShadowArea></ShadowArea>
+                  </TextInputProvider>
+                </TextSizeRangeBarProvider>
+              </TextWeightRangeBarProvider>
+            </TextOpacityRangeBarProvider>
+          </TextColorProvider>
+        </TextFontProvider>
+      </BackGroundColorProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">

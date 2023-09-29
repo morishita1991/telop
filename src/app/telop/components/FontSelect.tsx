@@ -19,7 +19,7 @@ export default function FontSelect() {
         <div className="col-12">
           <div className="mt-4 pt-2 ">
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">フォントを選択</InputLabel>
+              <InputLabel id="demo-simple-select-label">フォント選択</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"

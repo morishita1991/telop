@@ -1,4 +1,5 @@
 import React from 'react';
+import BackGroundColorPicker from '../components/BackGroundColorPicker';
 import Canvas from '../components/Canvas';
 import { canvasW, canvasH } from './Const';
 
@@ -17,10 +18,7 @@ const CanvasArea = () => {
             <div className="border row" style={{ maxWidth: '600px' }}>
               <div className="col-sm-6 ms-5" style={{ maxWidth: '200px' }}>
                 <div className="row mt-4 pt-3">
-                  <input type="color" className="form-control form-control-color" id="bg-color" name="color" defaultValue="#FFFFFF"
-                    style={{ display: 'inline-block' }}></input>
-                  <input type="text" className="form-control ms-2" id="input-bg-color" defaultValue="#FFFFFF"
-                    style={{ maxWidth: '100px', display: 'inline-block' }}></input>
+                  <BackGroundColorPicker></BackGroundColorPicker>
                 </div>
               </div>
               <div className="col-sm-6">

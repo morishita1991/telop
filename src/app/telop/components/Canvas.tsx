@@ -7,11 +7,13 @@ import { TextColorContext } from './providers/TextColorProvider';
 import { TextFontContext } from './providers/TextFontProvider';
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
+import { BackGroundColorContext } from './providers/BackGroundColorProvider';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
   const { colorValue } = useContext(TextColorContext);
   const { fontValue } = useContext(TextFontContext);
+  const { bgColorValue } = useContext(BackGroundColorContext);
   const { rangeValue: textSizeValue } = useContext(TextSizeRangeBarContext);
   const { rangeValue: textWeightValue } = useContext(TextWeightRangeBarContext);
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
@@ -28,10 +30,10 @@ export default function Canvas() {
     // 現在の描画をクリア
     ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
     // 背景を描画
-    createBackGroudColor(ctx);
+    createBackGroudColor(bgColorValue, ctx);
     // テキスト描画
     fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
-  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue]);
+  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue]);
 
   function fillText(
     textValue: string,
@@ -51,7 +53,7 @@ export default function Canvas() {
     ctx.fillText(textValue, baseX, baseY);
   }
 
-  function createBackGroudColor(ctx: CanvasRenderingContext2D) {
+  function createBackGroudColor(bgColorValue: string, ctx: CanvasRenderingContext2D) {
     if (!ctx) return;
     // 背景色クリア
     ctx.lineWidth = 1;
@@ -67,7 +69,7 @@ export default function Canvas() {
     const bgOpacity = (document.getElementById('bgOpacityRange') as HTMLInputElement).value;
     ctx.globalAlpha = Number(bgOpacity);
     ctx.beginPath();
-    ctx.fillStyle = (document.getElementById('bg-color') as HTMLInputElement).value;
+    ctx.fillStyle = bgColorValue;
     ctx.fillRect(0, 0, canvasW, canvasH);
     ctx.strokeRect(0, 0, canvasW, canvasH);
   }
