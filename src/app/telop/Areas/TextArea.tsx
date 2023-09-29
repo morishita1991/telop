@@ -22,7 +22,7 @@ function TextArea() {
         </div>
         <div className="row mx-3 mb-5 h5">
           <div className="col-sm-3">
-            <TextSizeRangeBar text={'サイズ'} min={30} max={180} step={5}></TextSizeRangeBar>
+            <TextSizeRangeBar text={'サイズ'} min={30} max={480} step={5}></TextSizeRangeBar>
           </div>
           <div className="col-sm-3">
             <TextWeightRangeBar text={'太さ'} min={100} max={900} step={100}></TextWeightRangeBar>
@@ -74,54 +74,6 @@ export default TextArea;
 
 //       const fontSizeSelect = document.getElementById('fontSizeRange');
 //       fontSizeSelect.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-
-//     // 太さ選択を監視
-//     const fontWeightSelect = document.getElementById('fontWeightRange');
-//     fontWeightSelect.addEventListener('change', (e) => {
-//       const inputFontWeight = document.getElementById('input-font-weight');
-//       inputFontWeight.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-//     const inputFontWeight = document.getElementById('input-font-weight');
-//     inputFontWeight.addEventListener('change', (e) => {
-//       const fontWeightSelect = document.getElementById('fontWeightRange');
-//       fontWeightSelect.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-
-//     // 不透明度
-//     const fontOpacityRange = document.getElementById('fontOpacityRange');
-//     fontOpacityRange.addEventListener('change', (e) => {
-//       const inputOpacityText = document.getElementById('input-opacity-text');
-//       inputOpacityText.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-//     const inputOpacityText = document.getElementById('input-opacity-text');
-//     inputOpacityText.addEventListener('change', (e) => {
-//       const fontOpacityRange = document.getElementById('fontOpacityRange');
-//       fontOpacityRange.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-
-//     // 文字入力を監視
-//     const textInput = document.getElementById('input-text');
-//     textInput.addEventListener('input', (e) => {
-//       Canvas.createCanvas();
-//     });
-
-//     // 色選択を監視
-//     const textColor = document.getElementById('color-text');
-//     textColor.addEventListener('change', (e) => {
-//       const inputColor = document.getElementById('input-color-text');
-//       inputColor.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-//     const inputColorText = document.getElementById('input-color-text');
-//     inputColorText.addEventListener('change', (e) => {
-//       const inputColor = document.getElementById('color-text');
-//       inputColor.value = e.target.value;
 //       Canvas.createCanvas();
 //     });
 

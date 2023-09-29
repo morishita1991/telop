@@ -10,25 +10,28 @@ import { TextSizeRangeBarProvider } from "./components/providers/RangeBar/TextSi
 import { TextWeightRangeBarProvider } from "./components/providers/RangeBar/TextWeightRangeBarProvider";
 import { TextOpacityRangeBarProvider } from "./components/providers/RangeBar/TextOpacityRangeBarProvider";
 import { TextColorProvider } from "./components/providers/TextColorProvider";
+import { TextFontProvider } from "./components/providers/TextFontProvider";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <TextColorProvider>
-        <TextOpacityRangeBarProvider>
-          <TextWeightRangeBarProvider>
-            <TextSizeRangeBarProvider>
-              <TextInputProvider>
-                <HeaderArea></HeaderArea>
-                <CanvasArea></CanvasArea>
-                <TextArea></TextArea>
-                <StrokeArea></StrokeArea>
-                <ShadowArea></ShadowArea>
-              </TextInputProvider>
-            </TextSizeRangeBarProvider>
-          </TextWeightRangeBarProvider>
-        </TextOpacityRangeBarProvider>
-      </TextColorProvider>
+      <TextFontProvider>
+        <TextColorProvider>
+          <TextOpacityRangeBarProvider>
+            <TextWeightRangeBarProvider>
+              <TextSizeRangeBarProvider>
+                <TextInputProvider>
+                  <HeaderArea></HeaderArea>
+                  <CanvasArea></CanvasArea>
+                  <TextArea></TextArea>
+                  <StrokeArea></StrokeArea>
+                  <ShadowArea></ShadowArea>
+                </TextInputProvider>
+              </TextSizeRangeBarProvider>
+            </TextWeightRangeBarProvider>
+          </TextOpacityRangeBarProvider>
+        </TextColorProvider>
+      </TextFontProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">

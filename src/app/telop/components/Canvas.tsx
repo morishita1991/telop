@@ -4,12 +4,14 @@ import { TextSizeRangeBarContext } from './providers/RangeBar/TextSizeRangeBarPr
 import { TextWeightRangeBarContext } from './providers/RangeBar/TextWeightRangeBarProvider';
 import { TextOpacityRangeBarContext } from './providers/RangeBar/TextOpacityRangeBarProvider';
 import { TextColorContext } from './providers/TextColorProvider';
+import { TextFontContext } from './providers/TextFontProvider';
 import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
   const { colorValue } = useContext(TextColorContext);
+  const { fontValue } = useContext(TextFontContext);
   const { rangeValue: textSizeValue } = useContext(TextSizeRangeBarContext);
   const { rangeValue: textWeightValue } = useContext(TextWeightRangeBarContext);
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
@@ -19,7 +21,6 @@ export default function Canvas() {
   }
 
   useEffect(() => {
-    console.log('fill');
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
     // 合成ルール
@@ -29,8 +30,8 @@ export default function Canvas() {
     // 背景を描画
     createBackGroudColor(ctx);
     // テキスト描画
-    fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, ctx);
-  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue]);
+    fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
+  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue]);
 
   function fillText(
     textValue: string,
@@ -38,13 +39,13 @@ export default function Canvas() {
     textWeightValue: number,
     textOpacityValue: number,
     colorValue: string,
+    fontValue: string,
     ctx: CanvasRenderingContext2D
   ) {
     // 不透明度
     ctx.globalAlpha = textOpacityValue;
     // フォント
-    const fontFamily = 'Kosugi';
-    ctx.font = `${textWeightValue} ${textSizeValue}px ${fontFamily}`;
+    ctx.font = `${textWeightValue} ${textSizeValue}px '${fontValue}'`;
     // 色
     ctx.fillStyle = colorValue;
     ctx.fillText(textValue, baseX, baseY);
