@@ -63,7 +63,9 @@ export default function Canvas() {
     bgChecked: boolean,
     ctx: CanvasRenderingContext2D
   ) {
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
     // 背景色クリア
     ctx.lineWidth = 1;
     ctx.strokeStyle = '#000000';
