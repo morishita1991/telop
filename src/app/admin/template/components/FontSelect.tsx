@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TextFontContext } from "./providers/TextFontProvider";
+import { TextFontContext } from "./providers/Text/TextFontProvider";
 import { FormControl, InputLabel, MenuItem } from "../../../../../node_modules/@mui/material/index";
 import Select, { SelectChangeEvent } from "../../../../../node_modules/@mui/material/Select/Select";
 

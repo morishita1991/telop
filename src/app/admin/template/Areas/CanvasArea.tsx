@@ -4,7 +4,7 @@ import Canvas from '../components/Canvas';
 import { canvasW, canvasH } from './Const';
 import BackGroundOpacityRangeBar from '../components/BackGround/BackGroundOpacityRangeBar';
 import BackGroundCheckBox from '../components/BackGround/BackGroundCheckBox';
-import { BackGroundCheckBoxContext } from '../components/providers/CheckBox/BackGroundCheckBoxProvider ';
+import { BackGroundCheckBoxContext } from '../components/providers/BackGround/BackGroundCheckBoxProvider ';
 
 export default function CanvasArea() {
   const { isChecked } = useContext(BackGroundCheckBoxContext);

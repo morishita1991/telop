@@ -1,18 +1,18 @@
 import React, { useRef, MouseEvent, useContext, useEffect } from 'react';
-import { TextInputContext } from "./providers/TextInputProvider";
-import { TextSizeRangeBarContext } from './providers/RangeBar/TextSizeRangeBarProvider';
-import { TextWeightRangeBarContext } from './providers/RangeBar/TextWeightRangeBarProvider';
-import { TextOpacityRangeBarContext } from './providers/RangeBar/TextOpacityRangeBarProvider';
-import { TextColorContext } from './providers/ColorPicker/TextColorProvider';
-import { TextFontContext } from './providers/TextFontProvider';
+import { TextInputContext } from "./providers/Text/TextInputProvider";
+import { TextSizeRangeBarContext } from './providers/Text/TextSizeRangeBarProvider';
+import { TextWeightRangeBarContext } from './providers/Text/TextWeightRangeBarProvider';
+import { TextOpacityRangeBarContext } from './providers/Text/TextOpacityRangeBarProvider';
+import { TextColorContext } from './providers/Text/TextColorProvider';
+import { TextFontContext } from './providers/Text/TextFontProvider';
 import { canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 import fillText from './Text/DrawingText';
 import drawOuterStroke from './Stroke/DrawingStroke';
 import createBackGroudColor from './BackGround/BackGroundColor';
-import { BackGroundColorContext } from './providers/ColorPicker/BackGroundColorProvider';
-import { BackGroundOpacityRangeBarContext } from './providers/RangeBar/BackGroundOpacityRangeBarProvider';
-import { BackGroundCheckBoxContext } from './providers/CheckBox/BackGroundCheckBoxProvider ';
+import { BackGroundColorContext } from './providers/BackGround/BackGroundColorProvider';
+import { BackGroundOpacityRangeBarContext } from './providers/BackGround/BackGroundOpacityRangeBarProvider';
+import { BackGroundCheckBoxContext } from './providers/BackGround/BackGroundCheckBoxProvider ';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);

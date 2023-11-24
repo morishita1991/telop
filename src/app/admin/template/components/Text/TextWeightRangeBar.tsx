@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TextWeightRangeBarContext } from "../providers/RangeBar/TextWeightRangeBarProvider";
+import { TextWeightRangeBarContext } from "../providers/Text/TextWeightRangeBarProvider";
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 import styled from "styled-components";

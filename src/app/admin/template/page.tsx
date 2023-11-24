@@ -5,15 +5,15 @@ import ShadowArea from "./Areas/ShadowArea";
 import StrokeArea from "./Areas/StrokeArea";
 import HeaderArea from "./Areas/HeaderArea";
 import CanvasArea from "./Areas/CanvasArea";
-import { TextInputProvider } from "./components/providers/TextInputProvider";
-import { TextSizeRangeBarProvider } from "./components/providers/RangeBar/TextSizeRangeBarProvider";
-import { TextWeightRangeBarProvider } from "./components/providers/RangeBar/TextWeightRangeBarProvider";
-import { TextOpacityRangeBarProvider } from "./components/providers/RangeBar/TextOpacityRangeBarProvider";
-import { TextColorProvider } from "./components/providers/ColorPicker/TextColorProvider";
-import { TextFontProvider } from "./components/providers/TextFontProvider";
-import { BackGroundColorProvider } from "./components/providers/ColorPicker/BackGroundColorProvider";
-import { BackGroundOpacityRangeBarProvider } from "./components/providers/RangeBar/BackGroundOpacityRangeBarProvider";
-import { BackGroundCheckBoxProvider } from "./components/providers/CheckBox/BackGroundCheckBoxProvider ";
+import { TextInputProvider } from "./components/providers/Text/TextInputProvider";
+import { TextSizeRangeBarProvider } from "./components/providers/Text/TextSizeRangeBarProvider";
+import { TextWeightRangeBarProvider } from "./components/providers/Text/TextWeightRangeBarProvider";
+import { TextOpacityRangeBarProvider } from "./components/providers/Text/TextOpacityRangeBarProvider";
+import { TextColorProvider } from "./components/providers/Text/TextColorProvider";
+import { TextFontProvider } from "./components/providers/Text/TextFontProvider";
+import { BackGroundColorProvider } from "./components/providers/BackGround/BackGroundColorProvider";
+import { BackGroundOpacityRangeBarProvider } from "./components/providers/BackGround/BackGroundOpacityRangeBarProvider";
+import { BackGroundCheckBoxProvider } from "./components/providers/BackGround/BackGroundCheckBoxProvider ";
 
 export default function Home() {
   return (

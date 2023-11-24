@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TextSizeRangeBarContext } from "../providers/RangeBar/TextSizeRangeBarProvider";
+import { TextSizeRangeBarContext } from "../providers/Text/TextSizeRangeBarProvider";
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 import styled from "styled-components";

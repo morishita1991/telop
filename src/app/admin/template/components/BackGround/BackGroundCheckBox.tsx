@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Checkbox from "../../../../../../node_modules/@mui/material/Checkbox/Checkbox";
 import { FormGroup, FormControlLabel } from "../../../../../../node_modules/@mui/material/index";
-import { BackGroundCheckBoxContext } from "../providers/CheckBox/BackGroundCheckBoxProvider ";
+import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider ";
 
 export default function BackGroundCheckBox() {
   const { isChecked, setIsChecked } = useContext(BackGroundCheckBoxContext);
