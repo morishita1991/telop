@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import BackGroundColorPicker from '../components/ColorPicker/BackGroundColorPicker';
+import BackGroundColorPicker from '../components/BackGround/BackGroundColorPicker';
 import Canvas from '../components/Canvas';
 import { canvasW, canvasH } from './Const';
-import BackGroundOpacityRangeBar from '../components/RangeBar/BackGroundOpacityRangeBar';
-import BackGroundCheckBox from '../components/CheckBox/BackGroundCheckBox';
+import BackGroundOpacityRangeBar from '../components/BackGround/BackGroundOpacityRangeBar';
+import BackGroundCheckBox from '../components/BackGround/BackGroundCheckBox';
 import { BackGroundCheckBoxContext } from '../components/providers/CheckBox/BackGroundCheckBoxProvider ';
 
 export default function CanvasArea() {
@@ -35,28 +35,3 @@ export default function CanvasArea() {
     </>
   );
 }
-
-// function () {
-//   const canvas = document.getElementById('canvas');
-//   let link = document.createElement("a");
-//   link.href = canvas.toDataURL();
-//   link.download = "telop.png";
-//   link.click();
-// }
-
-// export class Downloader {
-//   constructor() {
-//     const downloader = document.getElementById('download');
-//     downloader.addEventListener('click', (e) => {
-//       Downloader.downloadImage();
-//     });
-//   }
-//   static downloadImage()
-//   {
-    // const canvas = document.getElementById('canvas');
-    // let link = document.createElement("a");
-    // link.href = canvas.toDataURL();
-    // link.download = "telop.png";
-    // link.click();
-//   }
-// }

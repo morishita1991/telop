@@ -2,10 +2,10 @@ import React from 'react';
 import SubTitle from '../components/SubTitle';
 import TextInput from '../components/TextInput';
 import FontSelect from '../components/FontSelect';
-import TextSizeRangeBar from '../components/RangeBar/TextSizeRangeBar';
-import TextWeightRangeBar from '../components/RangeBar/TextWeightRangeBar';
-import TextOpacityRangeBar from '../components/RangeBar/TextOpacityRangeBar';
-import TextColorPicker from '../components/ColorPicker/TextColorPicker';
+import TextSizeRangeBar from '../components/Text/TextSizeRangeBar';
+import TextWeightRangeBar from '../components/Text/TextWeightRangeBar';
+import TextOpacityRangeBar from '../components/Text/TextOpacityRangeBar';
+import TextColorPicker from '../components/Text/TextColorPicker';
 
 function TextArea() {
   return (
@@ -27,7 +27,7 @@ function TextArea() {
           <div className="col-sm-3">
             <TextWeightRangeBar text={'太さ'} min={100} max={900} step={100}></TextWeightRangeBar>
           </div>
-          <div className="col-sm-3" style={{ maxWidth: '200px' }}>
+          <div className="col-sm-3 mt-5" style={{ maxWidth: '200px' }}>
             <TextColorPicker></TextColorPicker>
           </div>
           <div className="col-sm-3">

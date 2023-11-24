@@ -1,8 +1,7 @@
-import React, { useId, useContext } from "react";
+import React, { useContext } from "react";
 import { TextInputContext } from "./providers/TextInputProvider";
 
 export default function TextInput() {
-  const textInputId = useId();
   const { textValue, setTextValue } = useContext(TextInputContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextValue(e.target.value);
@@ -15,7 +14,6 @@ export default function TextInput() {
             <input
               type="text"
               className="form-control"
-              id={textInputId}
               placeholder="文字を入力"
               value={textValue}
               onChange={handleChange}

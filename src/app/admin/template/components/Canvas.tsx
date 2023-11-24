@@ -5,8 +5,11 @@ import { TextWeightRangeBarContext } from './providers/RangeBar/TextWeightRangeB
 import { TextOpacityRangeBarContext } from './providers/RangeBar/TextOpacityRangeBarProvider';
 import { TextColorContext } from './providers/ColorPicker/TextColorProvider';
 import { TextFontContext } from './providers/TextFontProvider';
-import { baseX, baseY, canvasW, canvasH } from '../Areas/Const';
+import { canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
+import fillText from './Text/DrawingText';
+import drawOuterStroke from './Stroke/DrawingStroke';
+import createBackGroudColor from './BackGround/BackGroundColor';
 import { BackGroundColorContext } from './providers/ColorPicker/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/RangeBar/BackGroundOpacityRangeBarProvider';
 import { BackGroundCheckBoxContext } from './providers/CheckBox/BackGroundCheckBoxProvider ';
@@ -22,7 +25,7 @@ export default function Canvas() {
   const { rangeValue: bgOpacityValue } = useContext(BackGroundOpacityRangeBarContext);
   const { isChecked: bgChecked } = useContext(BackGroundCheckBoxContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const onClickEvent = (e: MouseEvent<HTMLButtonElement>) => {
+  const onClickEvent = () => {
     download(canvasRef.current as HTMLCanvasElement);
   }
 
@@ -34,54 +37,19 @@ export default function Canvas() {
     // 現在の描画をクリア
     ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
     // 背景を描画
-    createBackGroudColor(bgColorValue, bgOpacityValue, bgChecked, ctx);
+    ctx = createBackGroudColor(bgColorValue, bgOpacityValue, bgChecked, ctx);
+
+    // OuterStroke
+    ctx = drawOuterStroke(textValue, 10, '#fb0909', textOpacityValue, ctx);
+    // 合成ルール設定
+    ctx.globalCompositeOperation = 'source-over';
     // テキスト描画
-    fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
-  }, [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue, bgOpacityValue, bgChecked]);
+    ctx = fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
 
-  function fillText(
-    textValue: string,
-    textSizeValue: number,
-    textWeightValue: number,
-    textOpacityValue: number,
-    colorValue: string,
-    fontValue: string,
-    ctx: CanvasRenderingContext2D
-  ) {
-    // 不透明度
-    ctx.globalAlpha = textOpacityValue;
-    // フォント
-    ctx.font = `${textWeightValue} ${textSizeValue}px '${fontValue}'`;
-    // 色
-    ctx.fillStyle = colorValue;
-    ctx.fillText(textValue, baseX, baseY);
-  }
 
-  function createBackGroudColor(
-    bgColorValue: string,
-    bgOpacityValue: number,
-    bgChecked: boolean,
-    ctx: CanvasRenderingContext2D
-  ) {
-    if (!ctx) {
-      return;
-    }
-    // 背景色クリア
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = '#000000';
-    ctx.clearRect(0, 0, canvasW, canvasH);
-    ctx.strokeRect(0, 0, canvasW, canvasH);
-    if (!bgChecked) {
-      return;
-    }
-
-    // 背景色描画
-    ctx.globalAlpha = Number(bgOpacityValue);
-    ctx.beginPath();
-    ctx.fillStyle = bgColorValue;
-    ctx.fillRect(0, 0, canvasW, canvasH);
-    ctx.strokeRect(0, 0, canvasW, canvasH);
-  }
+  },
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue, bgOpacityValue, bgChecked]
+  );
 
   return (
     <>
@@ -95,18 +63,6 @@ export default function Canvas() {
       </div>
     </>
   );
-
-  // // テキスト
-  // const text = document.getElementById('input-text').value;
-  // const textColor = document.getElementById('color-text').value;
-  // const innerStroke = document.getElementById('stroke-edge-inner-1');
-  // const outerStroke = document.getElementById('stroke-edge-outer-1');
-
-  // // フォント
-  // ctx.font = Canvas.getfontStyle(ctx);
-  // const fontOpacity = document.getElementById('fontOpacityRange').value;
-  // const strokeOpacityRange = document.getElementById('strokeOpacityRange1').value;
-  // const useStroke = document.getElementById('strokeCheckBox').checked;
 
   // if (innerStroke.checked) {
   //   // 塗り

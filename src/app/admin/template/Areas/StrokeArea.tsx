@@ -1,19 +1,36 @@
 import React from 'react';
+import styled from "styled-components";
+import StrokeEdgeRadioButtons from '../components/Stroke/StrokeEdgeRadioButtons';
+
+const SDiv1 = styled.div`
+  max-height: 50px;
+`;
+const SDiv2 = styled.div`
+  max-width: 1080px;
+`;
+const SDiv3 = styled.div`
+  max-width: 980px;
+`;
+const SDiv4 = styled.div`
+  max-width: 150px;
+`;
+const SDiv5 = styled.div`
+  max-width: 200px;
+`;
 
 export default function StrokeArea() {
   const newStrokeNum = 1;
-  const newStrokeId = 'addStroke_' + newStrokeNum;
   return (
     <>
       <div className="m-2 ms-5 align-top">
-        <div style={{ maxHeight: '50px' }}>
+        <SDiv1>
           <div className="d-flex flex-row">
             <input
               className="btn btn-default align-top"
               type="checkbox"
               id="strokeCheckBox"
               data-bs-toggle="collapse"
-              data-bs-target="#strokeAria"
+              data-bs-target="#strokeArea"
               aria-expanded="false"
               aria-controls="collapseExample"
               style={{ transform: 'scale(1.5)' }}
@@ -21,63 +38,106 @@ export default function StrokeArea() {
             </input>
             <label className="form-check-label ms-3 mt-1 h4" htmlFor='strokeCheckBox'>ストローク</label>
           </div>
-        </div>
+        </SDiv1>
       </div>
-      <div className="border ms-3 mb-5 collapse" id="strokeAria" style={{ maxWidth: '1080px' }}>
-        <div className="row" id={"stroke_" + newStrokeNum}>
-          {/* <div className="col-sm-11" style={{ maxWidth: '980px' }}>
+      <SDiv2 className="border ms-3 mb-5" id="strokeArea">
+        <div className="row">
+          <SDiv3 className="col-sm-11">
             <div className="row border m-3 me-3 h5">
               <div className="row p-3 ms-3">
-                <div className="col-sm-4 pt-4 mt-2 mb-3 me-4" style={{ maxWidth: '150px' }}>
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="strokeEdge" id={"stroke-edge-inner-" + newStrokeNum}></input>
-                    <label className="form-check-label" htmlFor={"stroke-edge-inner-" + newStrokeNum}>
-                      内側
-                    </label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="strokeEdge" checked id={"stroke-edge-outer-" + newStrokeNum}></input>
-                    <label className="form-check-label" htmlFor={"stroke-edge-outer-" + newStrokeNum}>
-                      外側
-                    </label>
-                  </div>
-                </div>
-                <div className="col-sm-4 me-5" style={{ maxWidth: '200px' }}>
+                <SDiv4 className="col-sm-4 pt-4 mt-2 mb-3 me-4">
+                  <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>
+                </SDiv4>
+                <SDiv5 className="col-sm-4 me-5">
                   <div className="row">
                     <div className="col-12 mt-4">
-                      <span className="mb-2" style={{ display: 'inline-block' }}>太さ</span>
-                      <input type="text" className="form-control ms-2" id={"input-stroke-weight-" + newStrokeNum} value="0" style={{ maxWidth: '50px', display: 'inline-block' }}></input>
-                      <input type="range" className="form-range" min="0" max="20" step="1" id={"strokeWidthRange" + newStrokeNum} value="0" style={{ maxWidth: '200px' }}></input>
+                      <span
+                        className="mb-2"
+                        style={{ display: 'inline-block' }}
+                      >
+                        太さ
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control ms-2"
+                        value="0"
+                        style={{ maxWidth: '50px', display: 'inline-block' }}
+                      >
+                      </input>
+                      <input
+                        type="range"
+                        className="form-range"
+                        min="0"
+                        max="20"
+                        step="1"
+                        value="0"
+                        style={{ maxWidth: '200px' }}
+                      >
+                      </input>
                     </div>
                   </div>
-                </div>
-                <div className="col-sm-4" style={{ maxWidth: '200px' }}>
+                </SDiv5>
+                <SDiv5 className="col-sm-4">
                   <div className="col-12 mt-3">
-                    <span style={{ display: 'inline-block' }}>色</span>
-                    <input type="text" className="form-control ms-2" id={"input-color-storke-" + newStrokeNum} value="#000000" style={{ maxWidth: '100px', display: 'inline-block' }}></input>
-                    <input type="color" className="form-control form-control-color mt-2" id={"color-stroke-" + newStrokeNum} name="color" style={{ fontSize: '20px' }} value="#000000"></input>
+                    <input
+                      type="text"
+                      className="form-control ms-2"
+                      value="#000000"
+                      style={{ maxWidth: '100px', display: 'inline-block' }}
+                    >
+                    </input>
+                    <input
+                      type="color"
+                      className="form-control form-control-color mt-2"
+                      name="color"
+                      value="#000000"
+                      style={{ fontSize: '20px' }}
+                    >
+                    </input>
                   </div>
-                </div>
-                <div className="col-sm-4 ms-3" style={{ maxWidth: '200px' }}>
+                </SDiv5>
+                <SDiv5 className="col-sm-4 ms-3">
                   <div className="row">
                     <div className="col-12 mt-4">
-                      <span style="display: inline-block">不透明度</span>
-                      <input type="text" className="form-control ms-2" id={"input-opacity-stroke-" + newStrokeNum} value="1" style={{ maxWidth: '50px', display: 'inline-block' }}></input>
-                      <input type="range" className="form-range" min="0" max="1" step="0.1" id={"strokeOpacityRange" + newStrokeNum} value="1" style={{ maxWidth: '200px' }}></input>
+                      <span
+                        style={{ display: 'inline-block' }}
+                      >
+                        不透明度
+                      </span>
+                      <input
+                        type="text"
+                        className="form-control ms-2"
+                        value="1"
+                        style={{ maxWidth: '50px', display: 'inline-block' }}
+                      ></input>
+                      <input
+                        type="range"
+                        className="form-range"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                        value="1"
+                        style={{ maxWidth: '200px' }}
+                      ></input>
                     </div>
                   </div>
-                </div>
+                </SDiv5>
               </div>
             </div>
-          </div>
+          </SDiv3>
           <div className="col-sm-1 m-2">
-            <div className="col-12 mt-4 pt-3 h6" id={"additionalStrokeDiv_" + newStrokeNum}>
+            <div className="col-12 mt-4 pt-3 h6">
               <p className="mt-2 mb-2">追加</p>
-              <button type="button" className="btn btn-secondary rounded-circle p-0" id={"addStroke_" + newStrokeNum} style={{ width: '2rem', height: '2rem' }}>＋</button>
+              <button
+                type="button"
+                className="btn btn-secondary rounded-circle p-0"
+                style={{ width: '2rem', height: '2rem' }}>
+                ＋
+              </button>
             </div>
-          </div> */}
+          </div>
         </div>
-      </div>
+      </SDiv2>
     </>
   );
 }
@@ -85,13 +145,6 @@ export default function StrokeArea() {
 
 // export class Stroke {
 //   constructor() {
-//     Stroke.addStrokeElement();
-
-//     // ストローク利用
-//     const useStrokeCheckBox = document.getElementById('strokeCheckBox');
-//     useStrokeCheckBox.addEventListener('change', () => {
-//       Canvas.createCanvas();
-//     });
 
 //     // 向きの選択を監視
 //     const edge1 = document.getElementById('stroke-edge-inner-1');

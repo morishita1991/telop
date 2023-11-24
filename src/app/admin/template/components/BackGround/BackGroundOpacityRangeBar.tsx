@@ -1,7 +1,9 @@
-import React, { useId, useContext } from "react";
+import React, { useContext } from "react";
 import { BackGroundOpacityRangeBarContext } from "../providers/RangeBar/BackGroundOpacityRangeBarProvider";
 import styled from "styled-components";
 import { BackGroundCheckBoxContext } from "../providers/CheckBox/BackGroundCheckBoxProvider ";
+import Box from '../../../../../../node_modules/@mui/material/Box/Box';
+import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 
 type Props = {
   text: string,
@@ -14,8 +16,6 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(BackGroundOpacityRangeBarContext);
   const { isChecked } = useContext(BackGroundCheckBoxContext);
-  const RangeBarInputId = useId();
-  const RangeBarId = useId();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRangeValue(Number(e.target.value));
@@ -25,21 +25,28 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
       <div className="row">
         <div className="col-12 mb-2">
           <SSpan>{text}</SSpan>
-          <SInput type="text" className="form-control ms-2"
-            id={RangeBarInputId}
+          <SInput type="number" className="form-control ms-2"
             value={rangeValue}
             onChange={handleChange}
+            step={step}
+            min={min}
+            max={max}
             disabled={!isChecked}
           ></SInput>
         </div>
         <div className="col-12">
-          <SInput2 type="range" className="form-range"
-            min={min} max={max} step={step}
-            id={RangeBarId}
-            value={rangeValue}
-            onChange={handleChange}
-            disabled={!isChecked}
-          ></SInput2>
+          <Box sx={{ width: '200px' }}>
+            <Slider
+              valueLabelDisplay="auto"
+              value={rangeValue}
+              onChange={handleChange}
+              marks
+              step={step}
+              min={min}
+              max={max}
+              disabled={!isChecked}
+            />
+          </Box>
         </div>
       </div>
     </>
@@ -51,10 +58,6 @@ const SSpan = styled.div`
 `;
 
 const SInput = styled.input`
-  max-width: 60px;
+  max-width: 80px;
   display: inline-block;
-`;
-
-const SInput2 = styled.input`
-  max-width: 200px;
 `;
