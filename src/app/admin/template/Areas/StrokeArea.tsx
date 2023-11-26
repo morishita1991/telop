@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import StrokeCheckBox from '../components/Stroke/StrokeCheckBox';
 import StrokeColorPicker from '../components/Stroke/StrokeColorPicker';
 import StrokeEdgeRadioButtons from '../components/Stroke/StrokeEdgeRadioButtons';
 import StrokeOpacityRangeBar from '../components/Stroke/StrokeOpacityRangeBar';
@@ -27,8 +28,9 @@ export default function StrokeArea() {
     <>
       <div className="m-2 ms-5 align-top">
         <SDiv1>
-          <div className="d-flex flex-row">
-            <input
+          <div className="d-flex flex-row h4">
+            <StrokeCheckBox></StrokeCheckBox>
+            {/* <input
               className="btn btn-default align-top"
               type="checkbox"
               id="strokeCheckBox"
@@ -39,7 +41,7 @@ export default function StrokeArea() {
               style={{ transform: 'scale(1.5)' }}
             >
             </input>
-            <label className="form-check-label ms-3 mt-1 h4" htmlFor='strokeCheckBox'>ストローク</label>
+            <label className="form-check-label ms-3 mt-1 h4" htmlFor='strokeCheckBox'>ストローク</label> */}
           </div>
         </SDiv1>
       </div>

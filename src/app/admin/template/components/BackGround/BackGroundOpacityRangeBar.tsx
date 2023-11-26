@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BackGroundOpacityRangeBarContext } from "../providers/BackGround/BackGroundOpacityRangeBarProvider";
 import styled from "styled-components";
-import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider ";
+import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider";
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 

@@ -12,11 +12,14 @@ import drawOuterStroke from './Stroke/DrawingStroke';
 import createBackGroudColor from './BackGround/BackGroundColor';
 import { BackGroundColorContext } from './providers/BackGround/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/BackGround/BackGroundOpacityRangeBarProvider';
-import { BackGroundCheckBoxContext } from './providers/BackGround/BackGroundCheckBoxProvider ';
+import { BackGroundCheckBoxContext } from './providers/BackGround/BackGroundCheckBoxProvider';
+import { StrokeColorContext } from './providers/Stroke/StrokeColorProvider';
+import { StrokeWidthRangeBarContext } from './providers/Stroke/StrokeWidthRangeBarProvider';
+import { StrokeOpacityRangeBarContext } from './providers/Stroke/StrokeOpacityRangeBarProvider';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
-  const { colorValue } = useContext(TextColorContext);
+  const { colorValue: textColor } = useContext(TextColorContext);
   const { fontValue } = useContext(TextFontContext);
   const { bgColorValue } = useContext(BackGroundColorContext);
   const { rangeValue: textSizeValue } = useContext(TextSizeRangeBarContext);
@@ -24,6 +27,10 @@ export default function Canvas() {
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
   const { rangeValue: bgOpacityValue } = useContext(BackGroundOpacityRangeBarContext);
   const { isChecked: bgChecked } = useContext(BackGroundCheckBoxContext);
+  const { colorValue: strokeColor } = useContext(StrokeColorContext);
+  const { rangeValue: strokeWidthValue } = useContext(StrokeWidthRangeBarContext);
+  const { rangeValue: strokeOpacityValue } = useContext(StrokeOpacityRangeBarContext);
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = () => {
     download(canvasRef.current as HTMLCanvasElement);
@@ -40,15 +47,15 @@ export default function Canvas() {
     ctx = createBackGroudColor(bgColorValue, bgOpacityValue, bgChecked, ctx);
 
     // OuterStroke
-    ctx = drawOuterStroke(textValue, 10, '#fb0909', textOpacityValue, ctx);
+    ctx = drawOuterStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
     // 合成ルール設定
     ctx.globalCompositeOperation = 'source-over';
     // テキスト描画
-    ctx = fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, ctx);
+    ctx = fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
 
 
   },
-    [textValue, textSizeValue, textWeightValue, textOpacityValue, colorValue, fontValue, bgColorValue, bgOpacityValue, bgChecked]
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, bgChecked, strokeWidthValue, strokeColor, strokeOpacityValue]
   );
 
   return (

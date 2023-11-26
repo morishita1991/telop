@@ -1,6 +1,6 @@
 import React, { useId, useContext } from "react";
 import styled from "styled-components";
-import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider ";
+import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider";
 import { BackGroundColorContext } from "../providers/BackGround/BackGroundColorProvider";
 
 export default function BackGroundColorPicker() {

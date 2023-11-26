@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Checkbox from "../../../../../../node_modules/@mui/material/Checkbox/Checkbox";
 import { FormGroup, FormControlLabel } from "../../../../../../node_modules/@mui/material/index";
-import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider";
+import { StrokeCheckBoxContext } from "../providers/Stroke/StrokeCheckBoxProvider";
 
-export default function BackGroundCheckBox() {
-  const { isChecked, setIsChecked } = useContext(BackGroundCheckBoxContext);
+export default function StrokeCheckBox() {
+  const { isChecked, setIsChecked } = useContext(StrokeCheckBoxContext);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(event.target.checked);
   };
@@ -16,7 +16,7 @@ export default function BackGroundCheckBox() {
             checked={isChecked}
             onChange={handleChange}
           />
-        } label="背景を設定"
+        } label="ストローク"
         />
       </FormGroup>
     </>
