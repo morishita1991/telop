@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
+import StrokeColorPicker from '../components/Stroke/StrokeColorPicker';
 import StrokeEdgeRadioButtons from '../components/Stroke/StrokeEdgeRadioButtons';
+import StrokeOpacityRangeBar from '../components/Stroke/StrokeOpacityRangeBar';
+import StrokeWidthRangeBar from '../components/Stroke/StrokeWidthRangeBar';
 
 const SDiv1 = styled.div`
   max-height: 50px;
@@ -49,78 +52,13 @@ export default function StrokeArea() {
                   <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>
                 </SDiv4>
                 <SDiv5 className="col-sm-4 me-5">
-                  <div className="row">
-                    <div className="col-12 mt-4">
-                      <span
-                        className="mb-2"
-                        style={{ display: 'inline-block' }}
-                      >
-                        太さ
-                      </span>
-                      <input
-                        type="text"
-                        className="form-control ms-2"
-                        value="0"
-                        style={{ maxWidth: '50px', display: 'inline-block' }}
-                      >
-                      </input>
-                      <input
-                        type="range"
-                        className="form-range"
-                        min="0"
-                        max="20"
-                        step="1"
-                        value="0"
-                        style={{ maxWidth: '200px' }}
-                      >
-                      </input>
-                    </div>
-                  </div>
+                  <StrokeWidthRangeBar text={'太さ'} min={0} max={20} step={1}></StrokeWidthRangeBar>
+                </SDiv5>
+                <SDiv5 className="col-sm-4 ms-3 mt-5">
+                  <StrokeColorPicker></StrokeColorPicker>
                 </SDiv5>
                 <SDiv5 className="col-sm-4">
-                  <div className="col-12 mt-3">
-                    <input
-                      type="text"
-                      className="form-control ms-2"
-                      value="#000000"
-                      style={{ maxWidth: '100px', display: 'inline-block' }}
-                    >
-                    </input>
-                    <input
-                      type="color"
-                      className="form-control form-control-color mt-2"
-                      name="color"
-                      value="#000000"
-                      style={{ fontSize: '20px' }}
-                    >
-                    </input>
-                  </div>
-                </SDiv5>
-                <SDiv5 className="col-sm-4 ms-3">
-                  <div className="row">
-                    <div className="col-12 mt-4">
-                      <span
-                        style={{ display: 'inline-block' }}
-                      >
-                        不透明度
-                      </span>
-                      <input
-                        type="text"
-                        className="form-control ms-2"
-                        value="1"
-                        style={{ maxWidth: '50px', display: 'inline-block' }}
-                      ></input>
-                      <input
-                        type="range"
-                        className="form-range"
-                        min="0"
-                        max="1"
-                        step="0.1"
-                        value="1"
-                        style={{ maxWidth: '200px' }}
-                      ></input>
-                    </div>
-                  </div>
+                  <StrokeOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></StrokeOpacityRangeBar>
                 </SDiv5>
               </div>
             </div>
