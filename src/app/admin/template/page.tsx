@@ -17,12 +17,12 @@ import { BackGroundCheckBoxProvider } from "./components/providers/BackGround/Ba
 import { StrokeWidthRangeBarProvider } from "./components/providers/Stroke/StrokeWidthRangeBarProvider";
 import { StrokeColorProvider } from "./components/providers/Stroke/StrokeColorProvider";
 import { StrokeOpacityRangeBarProvider } from "./components/providers/Stroke/StrokeOpacityRangeBarProvider";
-import { StrokeCheckBoxContext, StrokeCheckBoxProvider } from "./components/providers/Stroke/StrokeCheckBoxProvider";
+import { StrokeCheckButtonProvider } from "./components/providers/Stroke/StrokeCheckButtonProvider";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <StrokeCheckBoxProvider>
+      <StrokeCheckButtonProvider>
         <StrokeOpacityRangeBarProvider>
           <StrokeColorProvider>
             <StrokeWidthRangeBarProvider>
@@ -52,7 +52,7 @@ export default function Home() {
             </StrokeWidthRangeBarProvider>
           </StrokeColorProvider>
         </StrokeOpacityRangeBarProvider>
-      </StrokeCheckBoxProvider>
+      </StrokeCheckButtonProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">
