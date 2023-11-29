@@ -18,41 +18,44 @@ import { StrokeWidthRangeBarProvider } from "./components/providers/Stroke/Strok
 import { StrokeColorProvider } from "./components/providers/Stroke/StrokeColorProvider";
 import { StrokeOpacityRangeBarProvider } from "./components/providers/Stroke/StrokeOpacityRangeBarProvider";
 import { StrokeCheckButtonProvider } from "./components/providers/Stroke/StrokeCheckButtonProvider";
+import { StrokeEdgeRadioButtonProvider } from "./components/providers/Stroke/StrokeEdgeRadioButtonProvider";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <StrokeCheckButtonProvider>
-        <StrokeOpacityRangeBarProvider>
-          <StrokeColorProvider>
-            <StrokeWidthRangeBarProvider>
-              <BackGroundCheckBoxProvider>
-                <BackGroundOpacityRangeBarProvider>
-                  <BackGroundColorProvider>
-                    <TextFontProvider>
-                      <TextColorProvider>
-                        <TextOpacityRangeBarProvider>
-                          <TextWeightRangeBarProvider>
-                            <TextSizeRangeBarProvider>
-                              <TextInputProvider>
-                                <HeaderArea></HeaderArea>
-                                <CanvasArea></CanvasArea>
-                                <TextArea></TextArea>
-                                <StrokeArea></StrokeArea>
-                                <ShadowArea></ShadowArea>
-                              </TextInputProvider>
-                            </TextSizeRangeBarProvider>
-                          </TextWeightRangeBarProvider>
-                        </TextOpacityRangeBarProvider>
-                      </TextColorProvider>
-                    </TextFontProvider>
-                  </BackGroundColorProvider>
-                </BackGroundOpacityRangeBarProvider>
-              </BackGroundCheckBoxProvider>
-            </StrokeWidthRangeBarProvider>
-          </StrokeColorProvider>
-        </StrokeOpacityRangeBarProvider>
-      </StrokeCheckButtonProvider>
+      <StrokeEdgeRadioButtonProvider>
+        <StrokeCheckButtonProvider>
+          <StrokeOpacityRangeBarProvider>
+            <StrokeColorProvider>
+              <StrokeWidthRangeBarProvider>
+                <BackGroundCheckBoxProvider>
+                  <BackGroundOpacityRangeBarProvider>
+                    <BackGroundColorProvider>
+                      <TextFontProvider>
+                        <TextColorProvider>
+                          <TextOpacityRangeBarProvider>
+                            <TextWeightRangeBarProvider>
+                              <TextSizeRangeBarProvider>
+                                <TextInputProvider>
+                                  <HeaderArea></HeaderArea>
+                                  <CanvasArea></CanvasArea>
+                                  <TextArea></TextArea>
+                                  <StrokeArea></StrokeArea>
+                                  <ShadowArea></ShadowArea>
+                                </TextInputProvider>
+                              </TextSizeRangeBarProvider>
+                            </TextWeightRangeBarProvider>
+                          </TextOpacityRangeBarProvider>
+                        </TextColorProvider>
+                      </TextFontProvider>
+                    </BackGroundColorProvider>
+                  </BackGroundOpacityRangeBarProvider>
+                </BackGroundCheckBoxProvider>
+              </StrokeWidthRangeBarProvider>
+            </StrokeColorProvider>
+          </StrokeOpacityRangeBarProvider>
+        </StrokeCheckButtonProvider>
+      </StrokeEdgeRadioButtonProvider>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">

@@ -8,7 +8,7 @@ import { TextFontContext } from './providers/Text/TextFontProvider';
 import { canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 import fillText from './Text/DrawingText';
-import drawOuterStroke from './Stroke/DrawingStroke';
+import { drawOuterStroke, drawInnerStroke } from './Stroke/DrawingStroke';
 import createBackGroudColor from './BackGround/BackGroundColor';
 import { BackGroundColorContext } from './providers/BackGround/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/BackGround/BackGroundOpacityRangeBarProvider';
@@ -16,6 +16,7 @@ import { BackGroundCheckBoxContext } from './providers/BackGround/BackGroundChec
 import { StrokeColorContext } from './providers/Stroke/StrokeColorProvider';
 import { StrokeWidthRangeBarContext } from './providers/Stroke/StrokeWidthRangeBarProvider';
 import { StrokeOpacityRangeBarContext } from './providers/Stroke/StrokeOpacityRangeBarProvider';
+import { StrokeEdgeRadioButtonContext } from './providers/Stroke/StrokeEdgeRadioButtonProvider';
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
@@ -30,6 +31,7 @@ export default function Canvas() {
   const { colorValue: strokeColor } = useContext(StrokeColorContext);
   const { rangeValue: strokeWidthValue } = useContext(StrokeWidthRangeBarContext);
   const { rangeValue: strokeOpacityValue } = useContext(StrokeOpacityRangeBarContext);
+  const { value: strokeEdge } = useContext(StrokeEdgeRadioButtonContext);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = () => {
@@ -46,17 +48,31 @@ export default function Canvas() {
     // 背景を描画
     ctx = createBackGroudColor(bgColorValue, bgOpacityValue, bgChecked, ctx);
 
-    // OuterStroke
-    ctx = drawOuterStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
-    // 合成ルール設定
-    ctx.globalCompositeOperation = 'source-over';
     // テキスト描画
     ctx = fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
 
+    // ストローク描画
+    ctx = drawStroke(ctx);
 
+
+    function drawStroke(ctx: CanvasRenderingContext2D): CanvasRenderingContext2D{
+      if (strokeEdge == 'outer')
+      {
+        ctx = drawOuterStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
+        // テキスト再描画してストローク内側を塗りつぶす
+        ctx = fillText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
+      }
+      if (strokeEdge == 'inner')
+      {
+        ctx = drawInnerStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
+      }
+      return ctx;
+    };
   },
-    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, bgChecked, strokeWidthValue, strokeColor, strokeOpacityValue]
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, bgChecked, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge]
   );
+
+
 
   return (
     <>
