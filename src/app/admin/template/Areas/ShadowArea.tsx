@@ -31,7 +31,7 @@ export default function ShadowArea() {
 
   return (
     <>
-      <div className="d-flex flex-row h4">
+      <div className="d-flex flex-row mb-3 h4">
         <Button variant="outlined" color="primary" size="small" onClick={handleClick}>
           影
         </Button>
@@ -48,10 +48,10 @@ export default function ShadowArea() {
               <SDiv5 className="col-sm-3">
                 <ShadowSizeRangeBar text={'サイズ'} min={30} max={180} step={1}></ShadowSizeRangeBar>
               </SDiv5>
-              <SDiv5 className="col-sm-2 ms-2 mt-5">
+              <SDiv5 className="col-sm-3 ms-2 mt-5">
                 <ShadowColorPicker></ShadowColorPicker>
               </SDiv5>
-              <SDiv5 className="col-sm-2 ms-2">
+              <SDiv5 className="col-sm-3 ms-3">
                 <ShadowOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></ShadowOpacityRangeBar>
               </SDiv5>
             </div>

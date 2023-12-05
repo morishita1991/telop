@@ -15,8 +15,8 @@ export default function TextSizeRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(TextSizeRangeBarContext);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRangeValue(Number(e.target.value));
+  const handleChange = (event: any) => {
+    setRangeValue(Number(event.target.value));
   }
   return (
     <>
@@ -53,6 +53,6 @@ const SSpan = styled.div`
 `;
 
 const SInput = styled.input`
-  max-width: 80px;
+  max-width: 75px;
   display: inline-block;
 `;

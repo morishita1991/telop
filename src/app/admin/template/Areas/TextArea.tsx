@@ -20,7 +20,7 @@ function TextArea() {
             <FontSelect></FontSelect>
           </div>
         </div>
-        <div className="row mx-3 mb-5 h5">
+        <div className="row mx-3 mb-5 h6">
           <div className="col-sm-3">
             <TextSizeRangeBar text={'サイズ'} min={30} max={480} step={5}></TextSizeRangeBar>
           </div>

@@ -15,8 +15,8 @@ export default function ShadowOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(ShadowOpacityRangeBarContext);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRangeValue(Number(e.target.value));
+  const handleChange = (event: any) => {
+    setRangeValue(Number(event.target.value));
   }
   return (
     <>
@@ -32,7 +32,7 @@ export default function ShadowOpacityRangeBar(prop: Props) {
           ></SInput>
         </div>
         <div className="col-12">
-          <Box sx={{ width: '120px' }}>
+          <Box sx={{ width: '125px' }}>
             <Slider
               valueLabelDisplay="auto"
               value={rangeValue}
@@ -54,6 +54,6 @@ const SSpan = styled.div`
 `;
 
 const SInput = styled.input`
-  max-width: 80px;
+  max-width: 75px;
   display: inline-block;
 `;

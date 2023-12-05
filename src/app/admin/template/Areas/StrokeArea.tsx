@@ -30,7 +30,7 @@ export default function StrokeArea() {
 
   return (
     <>
-      <div className="d-flex flex-row h4">
+      <div className="d-flex flex-row mb-3 h4">
         <Button variant="outlined" color="primary" size="small" onClick={handleClick}>
           ストローク
         </Button>
@@ -39,7 +39,7 @@ export default function StrokeArea() {
           <SDiv2 className="border ms-3 mb-5">
             <div className="row">
               <SDiv3 className="col-sm-11">
-                <div className="row border m-3 me-3 h5">
+                <div className="row border m-3 me-3 h6">
                   <div className="row p-3 ms-3">
                     <SDiv4 className="col-sm-4 pt-4 mt-2 mb-3 me-4">
                       <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>

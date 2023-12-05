@@ -15,8 +15,8 @@ export default function StrokeWidthRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(StrokeWidthRangeBarContext);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRangeValue(Number(e.target.value));
+  const handleChange = (event: any) => {
+    setRangeValue(Number(event.target.value));
   }
   return (
     <>
@@ -37,7 +37,6 @@ export default function StrokeWidthRangeBar(prop: Props) {
               valueLabelDisplay="auto"
               value={rangeValue}
               onChange={handleChange}
-              marks
               step={step}
               min={min}
               max={max}
@@ -54,6 +53,6 @@ const SSpan = styled.div`
 `;
 
 const SInput = styled.input`
-  max-width: 80px;
+  max-width: 65px;
   display: inline-block;
 `;
