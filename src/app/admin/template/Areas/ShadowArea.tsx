@@ -1,70 +1,62 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import styled from "styled-components";
+import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
+import Button from '../../../../../node_modules/@mui/material/Button/Button';
+import { ShadowCheckButtonContext } from '../components/providers/Shadow/ShadowCheckButtonProvider';
+import ShadowDistanceRangeBar from '../components/Shadow/ShadowDistanceRangeBar';
+import ShadowAngleRangeBar from '../components/Shadow/ShadowAngleRangeBar';
+import ShadowSizeRangeBar from '../components/Shadow/ShadowSizeRangeBar';
+import ShadowColorPicker from '../components/Shadow/ShadowColorPicker';
+import ShadowOpacityRangeBar from '../components/Shadow/ShadowOpacityRangeBar';
 
-export default function ShadowArea()
-{
+const SDiv2 = styled.div`
+  max-width: 1080px;
+`;
+const SDiv3 = styled.div`
+  max-width: 980px;
+`;
+const SDiv4 = styled.div`
+  max-width: 150px;
+`;
+const SDiv5 = styled.div`
+  max-width: 200px;
+`;
+
+export default function ShadowArea() {
+  const { open, setOpen } = useContext(ShadowCheckButtonContext);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
-      <div className="m-2 ms-5 align-top">
-        <div style={{ maxHeight: '50px' }}>
-          <div className="d-flex flex-row">
-            <input className="btn btn-default align-top" type="checkbox" id="shadowCheckBox" data-bs-toggle="collapse" data-bs-target="#collapseShadowAria" aria-expanded="false" aria-controls="collapseExample" style={{ transform: 'scale(1.5)' }}></input>
-            <label className="form-check-label ms-3 mt-1 h4" htmlFor='shadowCheckBox'>影</label>
-          </div>
-        </div>
+      <div className="d-flex flex-row h4">
+        <Button variant="outlined" color="primary" size="small" onClick={handleClick}>
+          影
+        </Button>
       </div>
-      <div className="border ms-3 mb-5 collapse" id="collapseShadowAria" style={{ maxWidth: '1080px' }}>
-        <div className="row border m-3 h5">
-          <div className="row p-3 ms-3">
-            <div className="col-sm-3 me-5" style={{ maxWidth: '200px' }}>
-              <div className="row">
-                <div className="col-12 mt-4">
-                  <span style={{ display: 'inline-block' }}>距離</span>
-                  <input type="text" className="form-control ms-2" id="input-shadow-dis" defaultValue="0" style={{ maxWidth: '50px', display: 'inline-block' }}></input>
-                  <input type="range" className="form-range" min="0" max="50" step="1" id="shadowDisRange" defaultValue="0"></input>
-                </div>
-              </div>
+      <Collapse in={open}>
+          <SDiv2 className="border ms-3 mb-5">
+            <div className="row p-3 h6">
+              <SDiv5 className="col-sm-3 ms-3">
+                <ShadowDistanceRangeBar text={'距離'} min={0} max={50} step={1}></ShadowDistanceRangeBar>
+              </SDiv5>
+              <SDiv5 className="col-sm-3">
+                <ShadowAngleRangeBar text={'角度'} min={0} max={360} step={1}></ShadowAngleRangeBar>
+              </SDiv5>
+              <SDiv5 className="col-sm-3">
+                <ShadowSizeRangeBar text={'サイズ'} min={30} max={180} step={1}></ShadowSizeRangeBar>
+              </SDiv5>
+              <SDiv5 className="col-sm-2 ms-2 mt-5">
+                <ShadowColorPicker></ShadowColorPicker>
+              </SDiv5>
+              <SDiv5 className="col-sm-2 ms-2">
+                <ShadowOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></ShadowOpacityRangeBar>
+              </SDiv5>
             </div>
-            <div className="col-sm-3 me-5" style={{ maxWidth: '200px' }}>
-              <div className="row">
-                <div className="col-12 mt-4">
-                  <span style={{ display: 'inline-block' }}>角度</span>
-                  <input type="text" className="form-control ms-2" id="input-shadow-deg" defaultValue="0" style={{ maxWidth: '60px', display: 'inline-block' }}></input>
-                  <span style={{ display: 'inline-block' }}>°</span>
-                  <input type="range" className="form-range" min="0" max="360" step="1" id="shadowDegRange" defaultValue="0"></input>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-3 me-5" style={{ maxWidth: '200px' }}>
-              <div className="row">
-                <div className="col-12 mt-4">
-                  <span style={{ display: 'inline-block' }}>サイズ</span>
-                  <input type="text" className="form-control ms-2" id="input-shadow-size" defaultValue="105" style={{ maxWidth: '60px', display: 'inline-block' }}></input>
-                  <span style={{ display: 'inline-block' }}>px</span>
-                  <input type="range" className="form-range" min="30" max="180" step="1" id="shadowSizeRange"></input>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-3" style={{ maxWidth: '200px' }}>
-              <div className="col-12 mt-3">
-                <span style={{ display: 'inline-block' }}>色</span>
-                <input type="text" className="form-control ms-2" id="input-color-shadow" defaultValue="#000000" style={{ maxWidth: '100px', display: 'inline-block' }}></input>
-                <input type="color" className="form-control form-control-color mt-2" id="color-shadow" name="color" style={{ fontSize: '20px' }} defaultValue="#000000"></input>
-              </div>
-            </div>
-          </div>
-          <div className="row p-3 ms-3">
-            <div className="col-sm-3" style={{ maxWidth: '200px' }}>
-              <div className="row">
-                <div className="col-12 mt-4">
-                  <span style={{ display: 'inline-block' }}>不透明度</span>
-                  <input type="text" className="form-control ms-2" id="input-shadow-opacity" defaultValue="1" style={{ maxWidth: '50px', display: 'inline-block' }}></input>
-                  <input type="range" className="form-range" min="0" max="1" step="0.1" defaultValue="1" id="shadowOpacityRange"></input>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </SDiv2>
+      </Collapse>
     </>
   );
 }

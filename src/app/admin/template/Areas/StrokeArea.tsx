@@ -1,16 +1,13 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
+import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
+import Button from '../../../../../node_modules/@mui/material/Button/Button';
 import StrokeColorPicker from '../components/Stroke/StrokeColorPicker';
 import StrokeEdgeRadioButtons from '../components/Stroke/StrokeEdgeRadioButtons';
 import StrokeOpacityRangeBar from '../components/Stroke/StrokeOpacityRangeBar';
 import StrokeWidthRangeBar from '../components/Stroke/StrokeWidthRangeBar';
-import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
-import Button from '../../../../../node_modules/@mui/material/Button/Button';
 import { StrokeCheckButtonContext } from "../components/providers/Stroke/StrokeCheckButtonProvider";
 
-const SDiv1 = styled.div`
-  max-height: 50px;
-`;
 const SDiv2 = styled.div`
   max-width: 1080px;
 `;
