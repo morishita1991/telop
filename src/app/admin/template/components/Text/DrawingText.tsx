@@ -1,6 +1,6 @@
 import { baseX, baseY } from "../../Areas/Const";
 
-export default function fillText(
+export function drawText(
     textValue: string,
     textSizeValue: number,
     textWeightValue: number,
@@ -12,9 +12,17 @@ export default function fillText(
     // 不透明度
     ctx.globalAlpha = textOpacityValue;
     // フォント
-    ctx.font = `${textWeightValue} ${textSizeValue}px '${fontValue}'`;
+    ctx.font = getCtxFont(textWeightValue, textSizeValue, fontValue);
     // 色
     ctx.fillStyle = colorValue;
     ctx.fillText(textValue, baseX, baseY);
     return ctx;
-  }
+}
+
+export function getCtxFont(
+  textWeightValue: number,
+  textSizeValue: number,
+  fontValue: string,
+): string {
+  return `${textWeightValue} ${textSizeValue}px '${fontValue}'`;
+}

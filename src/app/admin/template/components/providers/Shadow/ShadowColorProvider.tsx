@@ -1,4 +1,4 @@
-import { createContext, useState, SetStateAction } from "react";
+import React, { createContext, useState, SetStateAction } from "react";
 
 type ValueType = {
   colorValue: string,
@@ -9,7 +9,7 @@ export const ShadowColorContext = createContext<ValueType>({} as ValueType);
 
 export const ShadowColorProvider = (props: { children: any; }) => {
   const { children } = props;
-  const [colorValue, setColorValue] = useState('#00CCFF');
+  const [colorValue, setColorValue] = useState('#000000');
   return (
     <ShadowColorContext.Provider value={{colorValue, setColorValue}}>
       {children}

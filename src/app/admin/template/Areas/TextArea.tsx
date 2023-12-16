@@ -40,29 +40,3 @@ function TextArea() {
 }
 
 export default TextArea;
-
-
-// export class Text {
-//   constructor() {
-//     // サイズ選択を監視
-//     const fontSizeSelect = document.getElementById('fontSizeRange');
-//     fontSizeSelect.addEventListener('change', (e) => {
-//       // テキストのサイズ変更を影のサイズに追随させる
-//       let shadowSize = document.getElementById('shadowSizeRange');
-//       shadowSize.value = e.target.value;
-
-//       const inputFontSize = document.getElementById('input-font-size');
-//       inputFontSize.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-//     const inputFontSize = document.getElementById('input-font-size');
-//     inputFontSize.addEventListener('change', (e) => {
-//       // テキストのサイズ変更を影のサイズに追随させる
-//       let shadowSize = document.getElementById('shadowSizeRange');
-//       shadowSize.value = e.target.value;
-
-//       const fontSizeSelect = document.getElementById('fontSizeRange');
-//       fontSizeSelect.value = e.target.value;
-//       Canvas.createCanvas();
-//     });
-//   }

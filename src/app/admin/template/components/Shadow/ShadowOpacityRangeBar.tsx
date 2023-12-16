@@ -32,7 +32,7 @@ export default function ShadowOpacityRangeBar(prop: Props) {
           ></SInput>
         </div>
         <div className="col-12">
-          <Box sx={{ width: '125px' }}>
+          <Box sx={{ width: '200px' }}>
             <Slider
               valueLabelDisplay="auto"
               value={rangeValue}

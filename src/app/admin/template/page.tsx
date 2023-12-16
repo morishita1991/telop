@@ -1,4 +1,5 @@
 'use client';
+import React from "react";
 import "./sample.css";
 import TextArea from "./Areas/TextArea";
 import ShadowArea from "./Areas/ShadowArea";
@@ -22,7 +23,6 @@ import { StrokeEdgeRadioButtonProvider } from "./components/providers/Stroke/Str
 import { ShadowDistanceRangeBarProvider } from "./components/providers/Shadow/ShadowDistanceRangeBarProvider";
 import { ShadowCheckButtonProvider } from "./components/providers/Shadow/ShadowCheckButtonProvider";
 import { ShadowAngleRangeBarProvider } from "./components/providers/Shadow/ShadowAngleRangeBarProvider";
-import { ShadowSizeRangeBarProvider } from "./components/providers/Shadow/ShadowSizeRangeBarProvider";
 import { ShadowColorProvider } from "./components/providers/Shadow/ShadowColorProvider";
 import { ShadowOpacityRangeBarProvider } from "./components/providers/Shadow/ShadowOpacityRangeBarProvider";
 
@@ -31,47 +31,45 @@ export default function Home() {
     <main className="flex min-h-screen flex-col p-24">
       <ShadowOpacityRangeBarProvider>
         <ShadowColorProvider>
-          <ShadowSizeRangeBarProvider>
-            <ShadowAngleRangeBarProvider>
-              <ShadowCheckButtonProvider>
-                <ShadowDistanceRangeBarProvider>
-                  <StrokeEdgeRadioButtonProvider>
-                    <StrokeCheckButtonProvider>
-                      <StrokeOpacityRangeBarProvider>
-                        <StrokeColorProvider>
-                          <StrokeWidthRangeBarProvider>
-                            <BackGroundCheckBoxProvider>
-                              <BackGroundOpacityRangeBarProvider>
-                                <BackGroundColorProvider>
-                                  <TextFontProvider>
-                                    <TextColorProvider>
-                                      <TextOpacityRangeBarProvider>
-                                        <TextWeightRangeBarProvider>
-                                          <TextSizeRangeBarProvider>
-                                            <TextInputProvider>
-                                              <HeaderArea></HeaderArea>
-                                              <CanvasArea></CanvasArea>
-                                              <TextArea></TextArea>
-                                              <StrokeArea></StrokeArea>
-                                              <ShadowArea></ShadowArea>
-                                            </TextInputProvider>
-                                          </TextSizeRangeBarProvider>
-                                        </TextWeightRangeBarProvider>
-                                      </TextOpacityRangeBarProvider>
-                                    </TextColorProvider>
-                                  </TextFontProvider>
-                                </BackGroundColorProvider>
-                              </BackGroundOpacityRangeBarProvider>
-                            </BackGroundCheckBoxProvider>
-                          </StrokeWidthRangeBarProvider>
-                        </StrokeColorProvider>
-                      </StrokeOpacityRangeBarProvider>
-                    </StrokeCheckButtonProvider>
-                  </StrokeEdgeRadioButtonProvider>
-                </ShadowDistanceRangeBarProvider>
-              </ShadowCheckButtonProvider>
-            </ShadowAngleRangeBarProvider>
-          </ShadowSizeRangeBarProvider>
+          <ShadowAngleRangeBarProvider>
+            <ShadowCheckButtonProvider>
+              <ShadowDistanceRangeBarProvider>
+                <StrokeEdgeRadioButtonProvider>
+                  <StrokeCheckButtonProvider>
+                    <StrokeOpacityRangeBarProvider>
+                      <StrokeColorProvider>
+                        <StrokeWidthRangeBarProvider>
+                          <BackGroundCheckBoxProvider>
+                            <BackGroundOpacityRangeBarProvider>
+                              <BackGroundColorProvider>
+                                <TextFontProvider>
+                                  <TextColorProvider>
+                                    <TextOpacityRangeBarProvider>
+                                      <TextWeightRangeBarProvider>
+                                        <TextSizeRangeBarProvider>
+                                          <TextInputProvider>
+                                            <HeaderArea></HeaderArea>
+                                            <CanvasArea></CanvasArea>
+                                            <TextArea></TextArea>
+                                            <StrokeArea></StrokeArea>
+                                            <ShadowArea></ShadowArea>
+                                          </TextInputProvider>
+                                        </TextSizeRangeBarProvider>
+                                      </TextWeightRangeBarProvider>
+                                    </TextOpacityRangeBarProvider>
+                                  </TextColorProvider>
+                                </TextFontProvider>
+                              </BackGroundColorProvider>
+                            </BackGroundOpacityRangeBarProvider>
+                          </BackGroundCheckBoxProvider>
+                        </StrokeWidthRangeBarProvider>
+                      </StrokeColorProvider>
+                    </StrokeOpacityRangeBarProvider>
+                  </StrokeCheckButtonProvider>
+                </StrokeEdgeRadioButtonProvider>
+              </ShadowDistanceRangeBarProvider>
+            </ShadowCheckButtonProvider>
+          </ShadowAngleRangeBarProvider>
         </ShadowColorProvider>
       </ShadowOpacityRangeBarProvider>
       <div className="m-2 ms-5 align-top">

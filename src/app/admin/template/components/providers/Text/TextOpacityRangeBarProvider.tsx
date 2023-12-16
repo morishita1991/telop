@@ -1,4 +1,4 @@
-import { createContext, useState, SetStateAction } from "react";
+import React, { createContext, useState, SetStateAction } from "react";
 
 export type ValueType = {
   rangeValue: number,

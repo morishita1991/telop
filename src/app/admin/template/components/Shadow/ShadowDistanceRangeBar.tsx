@@ -32,7 +32,7 @@ export default function ShadowDistanceRangeBar(prop: Props) {
           ></SInput>
         </div>
         <div className="col-12">
-          <Box sx={{ width: '125px' }}>
+          <Box sx={{ width: '200px' }}>
             <Slider
               valueLabelDisplay="auto"
               value={rangeValue}
@@ -53,6 +53,6 @@ const SSpan = styled.div`
 `;
 
 const SInput = styled.input`
-  max-width: 60px;
+  max-width: 75px;
   display: inline-block;
 `;
