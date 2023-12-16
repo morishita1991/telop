@@ -1,9 +1,6 @@
 'use client';
 import React from "react";
 import "./sample.css";
-import TextArea from "./Areas/TextArea";
-import ShadowArea from "./Areas/ShadowArea";
-import StrokeArea from "./Areas/StrokeArea";
 import HeaderArea from "./Areas/HeaderArea";
 import CanvasArea from "./Areas/CanvasArea";
 import { TextInputProvider } from "./components/providers/Text/TextInputProvider";
@@ -24,6 +21,7 @@ import { ShadowCheckButtonProvider } from "./components/providers/Shadow/ShadowC
 import { ShadowAngleRangeBarProvider } from "./components/providers/Shadow/ShadowAngleRangeBarProvider";
 import { ShadowColorProvider } from "./components/providers/Shadow/ShadowColorProvider";
 import { ShadowOpacityRangeBarProvider } from "./components/providers/Shadow/ShadowOpacityRangeBarProvider";
+import { TextCheckButtonProvider } from "./components/providers/Text/TextCheckButtonProvider";
 
 export default function Home() {
   return (
@@ -46,10 +44,10 @@ export default function Home() {
                                     <TextWeightRangeBarProvider>
                                       <TextSizeRangeBarProvider>
                                         <TextInputProvider>
-                                          <HeaderArea></HeaderArea>
-                                          <CanvasArea></CanvasArea>
-                                          <StrokeArea></StrokeArea>
-                                          <ShadowArea></ShadowArea>
+                                          <TextCheckButtonProvider>
+                                            <HeaderArea></HeaderArea>
+                                            <CanvasArea></CanvasArea>
+                                          </TextCheckButtonProvider>
                                         </TextInputProvider>
                                       </TextSizeRangeBarProvider>
                                     </TextWeightRangeBarProvider>

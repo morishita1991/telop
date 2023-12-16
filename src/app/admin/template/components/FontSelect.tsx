@@ -17,30 +17,28 @@ export default function FontSelect() {
   return (
     <>
       <div className="row">
-        <div className="col-12">
-          <div className="mt-4 pt-2">
-            <FormControl sx={{ m: 1, minWidth: 200 }}>
-              <InputLabel id="demo-simple-select-label">フォント選択</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={fontValue}
-                style={{ fontFamily: fontValue }}
-                label={'フォント選択'}
-                onChange={handleChange}
-              >
-                {fontFamily.map((font) => {
-                  return <MenuItem
-                      style={{ fontSize: '20px', fontFamily: font }}
-                      key={font}
-                      value={font}
-                    >
-                      {font}
-                    </MenuItem>
-                })}
-              </Select>
-            </FormControl>
-          </div>
+        <div className="col-10">
+          <FormControl sx={{ m: 1, minWidth: 200 }}>
+            <InputLabel id="demo-simple-select-label">フォント選択</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={fontValue}
+              style={{ fontFamily: fontValue }}
+              label={'フォント選択'}
+              onChange={handleChange}
+            >
+              {fontFamily.map((font) => {
+                return <MenuItem
+                    style={{ fontSize: '20px', fontFamily: font }}
+                    key={font}
+                    value={font}
+                  >
+                    {font}
+                  </MenuItem>
+              })}
+            </Select>
+          </FormControl>
         </div>
       </div>
     </>
