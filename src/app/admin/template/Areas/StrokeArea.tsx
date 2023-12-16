@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import styled from "styled-components";
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
 import Button from '../../../../../node_modules/@mui/material/Button/Button';
 import StrokeColorPicker from '../components/Stroke/StrokeColorPicker';
