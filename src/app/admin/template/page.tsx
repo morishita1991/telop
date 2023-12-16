@@ -22,50 +22,37 @@ import { ShadowAngleRangeBarProvider } from "./components/providers/Shadow/Shado
 import { ShadowColorProvider } from "./components/providers/Shadow/ShadowColorProvider";
 import { ShadowOpacityRangeBarProvider } from "./components/providers/Shadow/ShadowOpacityRangeBarProvider";
 import { TextCheckButtonProvider } from "./components/providers/Text/TextCheckButtonProvider";
+import buildProvidersTree from "./utils/buildProvidersTree";
 
 export default function Home() {
+  const ProviderTree = buildProvidersTree([
+    ShadowOpacityRangeBarProvider,
+    ShadowColorProvider,
+    ShadowAngleRangeBarProvider,
+    ShadowCheckButtonProvider,
+    ShadowDistanceRangeBarProvider,
+    StrokeEdgeRadioButtonProvider,
+    StrokeCheckButtonProvider,
+    StrokeOpacityRangeBarProvider,
+    StrokeColorProvider,
+    StrokeWidthRangeBarProvider,
+    BackGroundOpacityRangeBarProvider,
+    BackGroundColorProvider,
+    TextFontProvider,
+    TextColorProvider,
+    TextOpacityRangeBarProvider,
+    TextWeightRangeBarProvider,
+    TextSizeRangeBarProvider,
+    TextInputProvider,
+    TextCheckButtonProvider,
+  ]);
+
   return (
     <main className="flex min-h-screen flex-col p-24">
-      <ShadowOpacityRangeBarProvider>
-        <ShadowColorProvider>
-          <ShadowAngleRangeBarProvider>
-            <ShadowCheckButtonProvider>
-              <ShadowDistanceRangeBarProvider>
-                <StrokeEdgeRadioButtonProvider>
-                  <StrokeCheckButtonProvider>
-                    <StrokeOpacityRangeBarProvider>
-                      <StrokeColorProvider>
-                        <StrokeWidthRangeBarProvider>
-                          <BackGroundOpacityRangeBarProvider>
-                            <BackGroundColorProvider>
-                              <TextFontProvider>
-                                <TextColorProvider>
-                                  <TextOpacityRangeBarProvider>
-                                    <TextWeightRangeBarProvider>
-                                      <TextSizeRangeBarProvider>
-                                        <TextInputProvider>
-                                          <TextCheckButtonProvider>
-                                            <HeaderArea></HeaderArea>
-                                            <CanvasArea></CanvasArea>
-                                          </TextCheckButtonProvider>
-                                        </TextInputProvider>
-                                      </TextSizeRangeBarProvider>
-                                    </TextWeightRangeBarProvider>
-                                  </TextOpacityRangeBarProvider>
-                                </TextColorProvider>
-                              </TextFontProvider>
-                            </BackGroundColorProvider>
-                          </BackGroundOpacityRangeBarProvider>
-                        </StrokeWidthRangeBarProvider>
-                      </StrokeColorProvider>
-                    </StrokeOpacityRangeBarProvider>
-                  </StrokeCheckButtonProvider>
-                </StrokeEdgeRadioButtonProvider>
-              </ShadowDistanceRangeBarProvider>
-            </ShadowCheckButtonProvider>
-          </ShadowAngleRangeBarProvider>
-        </ShadowColorProvider>
-      </ShadowOpacityRangeBarProvider>
+      <ProviderTree>
+        <HeaderArea></HeaderArea>
+        <CanvasArea></CanvasArea>
+      </ProviderTree>
       <div className="m-2 ms-5 align-top">
         <div style={{ maxHeight: '50px' }}>
           <div className="d-flex flex-row">
