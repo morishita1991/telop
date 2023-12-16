@@ -9,7 +9,7 @@ import ShadowColorPicker from '../components/Shadow/ShadowColorPicker';
 import ShadowOpacityRangeBar from '../components/Shadow/ShadowOpacityRangeBar';
 
 const SDiv2 = styled.div`
-  max-width: 1080px;
+  max-width: 300px;
 `;
 const SDiv3 = styled.div`
   max-width: 980px;
@@ -37,17 +37,17 @@ export default function ShadowArea() {
       </div>
       <Collapse in={open}>
           <SDiv2 className="border ms-3 mb-5">
-            <div className="row mx-3 mb-4 h6">
-              <div className="col-sm-3">
+            <div className="row mx-4 my-4 h6">
+              <div className="row my-2">
                 <ShadowDistanceRangeBar text={'距離'} min={0} max={100} step={1}></ShadowDistanceRangeBar>
               </div>
-              <div className="col-sm-3">
+              <div className="row my-2">
                 <ShadowAngleRangeBar text={'角度'} min={0} max={360} step={1}></ShadowAngleRangeBar>
               </div>
-              <div className="col-sm-3 mt-5" style={{ maxWidth: '200px' }}>
+              <div className="row mt-5" style={{ maxWidth: '200px' }}>
                 <ShadowColorPicker></ShadowColorPicker>
               </div>
-              <div className="col-sm-3">
+              <div className="row my-2">
                 <ShadowOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></ShadowOpacityRangeBar>
               </div>
             </div>

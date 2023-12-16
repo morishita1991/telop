@@ -13,7 +13,6 @@ import { getShadowPosition } from './Shadow/DrawingShadow';
 import createBackGroudColor from './BackGround/BackGroundColor';
 import { BackGroundColorContext } from './providers/BackGround/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/BackGround/BackGroundOpacityRangeBarProvider';
-import { BackGroundCheckBoxContext } from './providers/BackGround/BackGroundCheckBoxProvider';
 import { StrokeColorContext } from './providers/Stroke/StrokeColorProvider';
 import { StrokeWidthRangeBarContext } from './providers/Stroke/StrokeWidthRangeBarProvider';
 import { StrokeOpacityRangeBarContext } from './providers/Stroke/StrokeOpacityRangeBarProvider';
@@ -32,7 +31,6 @@ export default function Canvas() {
   const { rangeValue: textWeightValue } = useContext(TextWeightRangeBarContext);
   const { rangeValue: textOpacityValue } = useContext(TextOpacityRangeBarContext);
   const { rangeValue: bgOpacityValue } = useContext(BackGroundOpacityRangeBarContext);
-  const { isChecked: bgChecked } = useContext(BackGroundCheckBoxContext);
   const { colorValue: strokeColor } = useContext(StrokeColorContext);
   const { rangeValue: strokeWidthValue } = useContext(StrokeWidthRangeBarContext);
   const { rangeValue: strokeOpacityValue } = useContext(StrokeOpacityRangeBarContext);
@@ -55,7 +53,7 @@ export default function Canvas() {
     // 現在の描画をクリア
     ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
     // 背景
-    ctx = createBackGroudColor(bgColorValue, bgOpacityValue, bgChecked, ctx);
+    ctx = createBackGroudColor(bgColorValue, bgOpacityValue, ctx);
     // 影
     ctx = drawShadow(ctx);
 
@@ -63,8 +61,6 @@ export default function Canvas() {
     ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
     // ストローク
     ctx = drawStroke(ctx);
-
-
 
     function drawStroke(ctx: CanvasRenderingContext2D): CanvasRenderingContext2D {
       if (strokeEdge == 'outer') {
@@ -87,7 +83,7 @@ export default function Canvas() {
       return ctx;
     }
   },
-    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, bgChecked, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue]
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue]
   );
 
 
@@ -97,7 +93,7 @@ export default function Canvas() {
       <div className="row">
         <canvas id="canvas" width={canvasW} height={canvasH} ref={canvasRef}></canvas>
       </div>
-      <div className="d-flex flex-row ms-3 mt-4">
+      <div className="row ms-3 mt-4">
         <button className="btn btn-primary" id="download" onClick={onClickEvent}>
           画像ダウンロード
         </button>

@@ -3,7 +3,6 @@ import { canvasW, canvasH } from '../../Areas/Const';
 export default function createBackGroudColor(
     bgColorValue: string,
     bgOpacityValue: number,
-    bgChecked: boolean,
     ctx: CanvasRenderingContext2D
   ): CanvasRenderingContext2D {
     if (!ctx) {
@@ -14,9 +13,6 @@ export default function createBackGroudColor(
     ctx.strokeStyle = '#000000';
     ctx.clearRect(0, 0, canvasW, canvasH);
     ctx.strokeRect(0, 0, canvasW, canvasH);
-    if (!bgChecked) {
-      return ctx;
-    }
 
     // 背景色描画
     ctx.globalAlpha = Number(bgOpacityValue);

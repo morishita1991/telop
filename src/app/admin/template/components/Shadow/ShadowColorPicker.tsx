@@ -11,23 +11,21 @@ export default function ShadowColorPicker() {
   }
   return (
     <>
-      <div className="row">
-        <SInput
-          type="color"
-          className="form-control form-control-color"
-          id={colorInputId}
-          name="color"
-          value={colorValue}
-          onChange={handleChange}
-        ></SInput>
-        <SInput
-          type="text"
-          className="form-control ms-2"
-          id={textInputId}
-          value={colorValue}
-          onChange={handleChange}
-        ></SInput>
-      </div>
+      <SInput
+        type="color"
+        className="form-control form-control-color"
+        id={colorInputId}
+        name="color"
+        value={colorValue}
+        onChange={handleChange}
+      ></SInput>
+      <SInput
+        type="text"
+        className="form-control ms-2"
+        id={textInputId}
+        value={colorValue}
+        onChange={handleChange}
+      ></SInput>
     </>
   );
 }

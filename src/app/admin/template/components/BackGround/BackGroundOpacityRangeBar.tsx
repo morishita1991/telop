@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { BackGroundOpacityRangeBarContext } from "../providers/BackGround/BackGroundOpacityRangeBarProvider";
 import styled from "styled-components";
-import { BackGroundCheckBoxContext } from "../providers/BackGround/BackGroundCheckBoxProvider";
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 
@@ -15,10 +14,9 @@ type Props = {
 export default function BackGroundOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
   const { rangeValue, setRangeValue } = useContext(BackGroundOpacityRangeBarContext);
-  const { isChecked } = useContext(BackGroundCheckBoxContext);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRangeValue(Number(e.target.value));
+  const handleChange = (event: any) => {
+    setRangeValue(Number(event.target.value));
   }
   return (
     <>
@@ -31,7 +29,6 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
             step={step}
             min={min}
             max={max}
-            disabled={!isChecked}
           ></SInput>
         </div>
         <div className="col-12">
@@ -44,7 +41,6 @@ export default function BackGroundOpacityRangeBar(prop: Props) {
               step={step}
               min={min}
               max={max}
-              disabled={!isChecked}
             />
           </Box>
         </div>

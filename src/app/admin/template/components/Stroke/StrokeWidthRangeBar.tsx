@@ -21,7 +21,7 @@ export default function StrokeWidthRangeBar(prop: Props) {
   return (
     <>
       <div className="row">
-        <div className="col-12 pt-3 mb-2 mt-3">
+        <div className="col-12">
           <SSpan>{text}</SSpan>
           <SInput type="number" className="form-control ms-2"
             value={rangeValue}

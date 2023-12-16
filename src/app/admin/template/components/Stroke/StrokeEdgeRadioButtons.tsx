@@ -15,9 +15,10 @@ export default function StrokeEdgeRadioButtons()
   return (
     <FormControl>
       <RadioGroup
-        aria-labelledby="demo-radio-buttons-group-label"
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
         defaultValue="outer"
-        name="radio-buttons-group"
+        name="row-radio-buttons-group"
         value={value}
         onChange={handleChange}
       >
