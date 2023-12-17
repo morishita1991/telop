@@ -32,7 +32,7 @@ export default function TextSizeRangeBar(prop: Props) {
           ></SInput>
         </div>
         <div className="col-12">
-          <Box sx={{ width: '200px' }}>
+          <Box sx={{ maxWidth: '200px' }}>
             <Slider
               valueLabelDisplay="auto"
               value={rangeValue}

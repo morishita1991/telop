@@ -31,12 +31,16 @@ export default function ShadowArea() {
   return (
     <>
       <div className="d-flex flex-row mb-3 h4">
-        <Button variant="outlined" color="primary" size="small" onClick={handleClick}>
+        <Button
+          component="label"
+          variant="contained"
+          color="secondary"
+          onClick={handleClick}>
           影
         </Button>
       </div>
       <Collapse in={open}>
-          <SDiv2 className="border ms-3 mb-5">
+          <SDiv2 className="border ms-3 mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row mx-4 my-3 h6">
               <div className="row mb-1">
                 <ShadowDistanceRangeBar text={'距離'} min={0} max={100} step={1}></ShadowDistanceRangeBar>

@@ -17,6 +17,7 @@ export default function TextInput() {
               placeholder="文字を入力"
               value={textValue}
               onChange={handleChange}
+              style={{ maxWidth: '300px' }}
             ></input>
           </div>
         </div>

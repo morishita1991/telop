@@ -18,7 +18,7 @@ export default function FontSelect() {
     <>
       <div className="row">
         <div className="col-10">
-          <FormControl sx={{ m: 1, minWidth: 200 }}>
+          <FormControl sx={{ m: 1, maxWidth: 200 }}>
             <InputLabel id="demo-simple-select-label">フォント選択</InputLabel>
             <Select
               labelId="demo-simple-select-label"

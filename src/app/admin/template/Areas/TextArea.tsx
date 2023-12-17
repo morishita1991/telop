@@ -18,12 +18,16 @@ function TextArea() {
   return (
     <>
       <div className="d-flex flex-row mb-3 h4">
-        <Button variant="outlined" color="primary" size="small" onClick={handleClick}>
+        <Button
+          component="label"
+          variant="contained"
+          color="secondary"
+          onClick={handleClick}>
           テキスト
         </Button>
       </div>
       <Collapse in={open}>
-        <div className="border m-3" style={{ maxWidth: '400px' }}>
+        <div className="border m-3" style={{ minWidth: '300px', maxWidth: '400px' }}>
           <div className="row ms-4 h3">
             <div className="row ms-2 p-2">
               <TextInput></TextInput>

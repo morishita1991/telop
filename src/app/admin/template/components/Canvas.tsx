@@ -21,6 +21,9 @@ import { ShadowDistanceRangeBarContext } from './providers/Shadow/ShadowDistance
 import { ShadowAngleRangeBarContext } from './providers/Shadow/ShadowAngleRangeBarProvider';
 import { ShadowColorContext } from './providers/Shadow/ShadowColorProvider';
 import { ShadowOpacityRangeBarContext } from './providers/Shadow/ShadowOpacityRangeBarProvider';
+import Button from '../../../../../node_modules/@mui/material/Button/Button';
+import CloudDownloadIcon from '../../../../../node_modules/@mui/icons-material/CloudDownload';
+
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
@@ -93,10 +96,16 @@ export default function Canvas() {
       <div className="row">
         <canvas id="canvas" width={canvasW} height={canvasH} ref={canvasRef}></canvas>
       </div>
-      <div className="row ms-3 mt-4">
-        <button className="btn btn-primary" id="download" onClick={onClickEvent}>
+      <div className="d-flex flex-row-reverse mt-4">
+        <Button
+          component="label"
+          variant="contained"
+          size="large"
+          color="primary"
+          startIcon={<CloudDownloadIcon />}
+          onClick={onClickEvent}>
           画像ダウンロード
-        </button>
+        </Button>
       </div>
     </>
   );

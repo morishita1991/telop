@@ -17,12 +17,16 @@ export default function StrokeArea() {
   return (
     <>
       <div className="d-flex flex-row mb-3 h4">
-        <Button variant="outlined" color="primary" size="small" onClick={handleClick}>
+        <Button
+          component="label"
+          variant="contained"
+          color="secondary"
+          onClick={handleClick}>
           ストローク
         </Button>
       </div>
       <Collapse in={open}>
-          <div className="border mb-5" style={{ maxWidth: '400px' }}>
+          <div className="border mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row border m-3 h6">
                 <div className="row ms-3 mt-4">
                   <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>
