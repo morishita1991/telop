@@ -1,4 +1,4 @@
-import React, { useRef, MouseEvent, useContext, useEffect } from 'react';
+import React, { useRef, useContext, useEffect } from 'react';
 import { TextInputContext } from "./providers/Text/TextInputProvider";
 import { TextSizeRangeBarContext } from './providers/Text/TextSizeRangeBarProvider';
 import { TextWeightRangeBarContext } from './providers/Text/TextWeightRangeBarProvider';
@@ -62,6 +62,8 @@ export default function Canvas() {
 
     // テキスト
     ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
+
+
     // ストローク
     ctx = drawStroke(ctx);
 
