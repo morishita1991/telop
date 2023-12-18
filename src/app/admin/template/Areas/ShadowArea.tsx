@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
-import Button from '../../../../../node_modules/@mui/material/Button/Button';
+import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
+import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
 import { ShadowCheckButtonContext } from '../components/providers/Shadow/ShadowCheckButtonProvider';
 import ShadowDistanceRangeBar from '../components/Shadow/ShadowDistanceRangeBar';
 import ShadowAngleRangeBar from '../components/Shadow/ShadowAngleRangeBar';
@@ -30,17 +31,28 @@ export default function ShadowArea() {
 
   return (
     <>
-      <div className="d-flex flex-row mb-3 h4">
-        <Button
-          component="label"
-          variant="contained"
-          color="secondary"
-          onClick={handleClick}>
-          影
-        </Button>
+      <div className="row border-bottom mx-4 h4">
+        <div className="ms-2">
+          <IconButton>
+            <ExpandCircleDownIcon
+              id="textLabel"
+              fontSize="medium"
+              color="success"
+              sx={{ display: !open ? 'block' : 'none' }}
+              onClick={handleClick} />
+            <ExpandCircleDownIcon
+              id="textLabel"
+              fontSize="medium"
+              color="success"
+              sx={{ display: open ? 'block' : 'none' }}
+              onClick={handleClick}
+              style={{ transform: 'scale(1, -1)' }} />
+          </IconButton>
+          <label className="h6" htmlFor="textLabel" onClick={handleClick}>影</label>
+        </div>
       </div>
       <Collapse in={open}>
-          <SDiv2 className="border ms-3 mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
+          <SDiv2 className="ms-3 mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row mx-4 my-3 h6">
               <div className="row mb-1">
                 <ShadowDistanceRangeBar text={'距離'} min={0} max={100} step={1}></ShadowDistanceRangeBar>

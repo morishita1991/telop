@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import TextInput from '../components/TextInput';
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
-import Button from '../../../../../node_modules/@mui/material/Button/Button';
+import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
+import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
 import FontSelect from '../components/FontSelect';
 import TextSizeRangeBar from '../components/Text/TextSizeRangeBar';
 import TextWeightRangeBar from '../components/Text/TextWeightRangeBar';
@@ -17,17 +18,28 @@ function TextArea() {
 
   return (
     <>
-      <div className="d-flex flex-row mb-3 h4">
-        <Button
-          component="label"
-          variant="contained"
-          color="secondary"
-          onClick={handleClick}>
-          テキスト
-        </Button>
+      <div className="row border-bottom mx-4 h4">
+        <div className="ms-2">
+          <IconButton>
+            <ExpandCircleDownIcon
+              id="textLabel"
+              fontSize="medium"
+              color="success"
+              sx={{ display: !open ? 'block' : 'none' }}
+              onClick={handleClick} />
+            <ExpandCircleDownIcon
+              id="textLabel"
+              fontSize="medium"
+              color="success"
+              sx={{ display: open ? 'block' : 'none' }}
+              onClick={handleClick}
+              style={{ transform: 'scale(1, -1)' }} />
+          </IconButton>
+          <label className="h6" htmlFor="textLabel" onClick={handleClick}>テキスト</label>
+        </div>
       </div>
       <Collapse in={open}>
-        <div className="border m-3" style={{ minWidth: '300px', maxWidth: '400px' }}>
+        <div className="m-3" style={{ minWidth: '300px', maxWidth: '400px' }}>
           <div className="row ms-4 h3">
             <div className="row ms-2 p-2">
               <TextInput></TextInput>

@@ -10,7 +10,7 @@ export default function TextInput() {
     <>
       <div className="row">
         <div className="col-12 mb-3">
-          <div className="mt-5">
+          <div className="mt-1">
             <input
               type="text"
               className="form-control"

@@ -29,7 +29,7 @@ export function drawText(
 
     let lineargrad = ctx.createLinearGradient(startX, startY, endX, endY);
     lineargrad.addColorStop(0, 'green');
-    lineargrad.addColorStop(0.2, 'white');
+    lineargrad.addColorStop(0.9, 'white');
     lineargrad.addColorStop(1, 'red');
     ctx.fillStyle = lineargrad;
 

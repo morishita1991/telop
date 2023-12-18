@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
-import Button from '../../../../../node_modules/@mui/material/Button/Button';
+import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
+import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
 import StrokeColorPicker from '../components/Stroke/StrokeColorPicker';
 import StrokeEdgeRadioButtons from '../components/Stroke/StrokeEdgeRadioButtons';
 import StrokeOpacityRangeBar from '../components/Stroke/StrokeOpacityRangeBar';
@@ -16,17 +17,28 @@ export default function StrokeArea() {
 
   return (
     <>
-      <div className="d-flex flex-row mb-3 h4">
-        <Button
-          component="label"
-          variant="contained"
-          color="secondary"
-          onClick={handleClick}>
-          ストローク
-        </Button>
+      <div className="row border-bottom mx-4 h4">
+        <div className="ms-2">
+          <IconButton>
+            <ExpandCircleDownIcon
+              id="textLabel"
+              fontSize="medium"
+              color="success"
+              sx={{ display: !open ? 'block' : 'none' }}
+              onClick={handleClick} />
+            <ExpandCircleDownIcon
+              id="textLabel"
+              fontSize="medium"
+              color="success"
+              sx={{ display: open ? 'block' : 'none' }}
+              onClick={handleClick}
+              style={{ transform: 'scale(1, -1)' }} />
+          </IconButton>
+          <label className="h6" htmlFor="textLabel" onClick={handleClick}>ストローク</label>
+        </div>
       </div>
       <Collapse in={open}>
-          <div className="border mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
+          <div className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row border m-3 h6">
                 <div className="row ms-3 mt-4">
                   <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>
