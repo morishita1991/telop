@@ -17,8 +17,8 @@ export default function CanvasArea() {
           <ShadowArea></ShadowArea>
         </div>
         <div className="col-sm-9">
-          <div className="border p-4 m-3 mb-5" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
-              <div className="border row m-3" >
+          <div className="px-4 mx-3 mb-5" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
+              <div className="row" >
                 <div className="col-sm-3" >
                   <div className="row ms-3 mt-5">
                     <BackGroundColorPicker></BackGroundColorPicker>
