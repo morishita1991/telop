@@ -7,7 +7,10 @@ export default function ShadowColorPicker() {
   const colorInputId = useId();
   const { colorValue, setColorValue } = useContext(ShadowColorContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setColorValue(e.target.value);
+    if (e.target.value.length < 8)
+    {
+      setColorValue(e.target.value);
+    }
   }
   return (
     <>

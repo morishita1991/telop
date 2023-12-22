@@ -7,7 +7,10 @@ export default function StrokeColorPicker() {
   const colorInputId = useId();
   const { colorValue, setColorValue } = useContext(StrokeColorContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setColorValue(e.target.value);
+    if (e.target.value.length < 8)
+    {
+      setColorValue(e.target.value);
+    }
   }
   return (
     <>

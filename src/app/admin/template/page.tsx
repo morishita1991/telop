@@ -23,9 +23,19 @@ import { ShadowColorProvider } from "./components/providers/Shadow/ShadowColorPr
 import { ShadowOpacityRangeBarProvider } from "./components/providers/Shadow/ShadowOpacityRangeBarProvider";
 import { TextCheckButtonProvider } from "./components/providers/Text/TextCheckButtonProvider";
 import buildProvidersTree from "./utils/buildProvidersTree";
+import { GradationCheckButtonProvider } from "./components/providers/Gradation/GradationCheckButtonProvider";
+import { GradationLeftColorProvider } from "./components/providers/Gradation/GradationLeftColorProvider";
+import { GradationCenterColorProvider } from "./components/providers/Gradation/GradationCenterColorProvider";
+import { GradationRightColorProvider } from "./components/providers/Gradation/GradationRightColorProvider";
+import { GradationSliderProvider } from "./components/providers/Gradation/GradationSliderProvider";
 
 export default function Home() {
   const ProviderTree = buildProvidersTree([
+    GradationSliderProvider,
+    GradationRightColorProvider,
+    GradationCenterColorProvider,
+    GradationLeftColorProvider,
+    GradationCheckButtonProvider,
     ShadowOpacityRangeBarProvider,
     ShadowColorProvider,
     ShadowAngleRangeBarProvider,

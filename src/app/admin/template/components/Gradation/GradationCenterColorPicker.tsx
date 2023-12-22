@@ -1,11 +1,11 @@
 import React, { useId, useContext } from "react";
 import styled from "styled-components";
-import { TextColorContext } from "../providers/Text/TextColorProvider";
+import { GradationCenterColorContext } from "../providers/Gradation/GradationCenterColorProvider";
 
-export default function TextColorPicker() {
+export default function GradationCenterColorPicker() {
   const textInputId = useId();
   const colorInputId = useId();
-  const { colorValue, setColorValue } = useContext(TextColorContext);
+  const { colorValue, setColorValue } = useContext(GradationCenterColorContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length < 8)
     {
@@ -15,17 +15,18 @@ export default function TextColorPicker() {
   return (
     <>
       <SInput
-        type="color"
-        className="form-control form-control-color"
-        id={colorInputId}
-        name="color"
+        type="text"
+        className="form-control m-2"
+        id={textInputId}
+        style={{ fontSize: '14px' }}
         value={colorValue}
         onChange={handleChange}
       ></SInput>
       <SInput
-        type="text"
-        className="form-control ms-2"
-        id={textInputId}
+        type="color"
+        className="form-control form-control-color ms-4"
+        id={colorInputId}
+        name="color"
         value={colorValue}
         onChange={handleChange}
       ></SInput>
@@ -34,6 +35,6 @@ export default function TextColorPicker() {
 }
 
 const SInput = styled.input`
-  max-width: 100px;
+  max-width: 88px;
   display: inline-block;
 `;

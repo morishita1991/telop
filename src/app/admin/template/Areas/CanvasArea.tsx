@@ -6,6 +6,7 @@ import BackGroundOpacityRangeBar from '../components/BackGround/BackGroundOpacit
 import TextArea from './TextArea';
 import ShadowArea from "./ShadowArea";
 import StrokeArea from "./StrokeArea";
+import GradationArea from './GradationArea';
 
 export default function CanvasArea() {
   return (
@@ -15,6 +16,7 @@ export default function CanvasArea() {
           <TextArea></TextArea>
           <StrokeArea></StrokeArea>
           <ShadowArea></ShadowArea>
+          <GradationArea></GradationArea>
         </div>
         <div className="col-sm-9">
           <div className="px-4 mx-3 mb-5" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
