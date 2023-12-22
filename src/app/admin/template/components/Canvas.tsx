@@ -23,6 +23,11 @@ import { ShadowColorContext } from './providers/Shadow/ShadowColorProvider';
 import { ShadowOpacityRangeBarContext } from './providers/Shadow/ShadowOpacityRangeBarProvider';
 import Button from '../../../../../node_modules/@mui/material/Button/Button';
 import CloudDownloadIcon from '../../../../../node_modules/@mui/icons-material/CloudDownload';
+import { GradationLeftColorContext } from './providers/Gradation/GradationLeftColorProvider';
+import { GradationCenterColorContext } from './providers/Gradation/GradationCenterColorProvider';
+import { GradationRightColorContext } from './providers/Gradation/GradationRightColorProvider';
+import { GradationSliderContext } from './providers/Gradation/GradationSliderProvider';
+import { GradationPatternRadioButtonContext } from './providers/Gradation/GradationPatternRadioButtonProvider';
 
 
 export default function Canvas() {
@@ -42,6 +47,11 @@ export default function Canvas() {
   const { rangeValue: shadowAngleValue } = useContext(ShadowAngleRangeBarContext);
   const { colorValue: shadowColor } = useContext(ShadowColorContext);
   const { rangeValue: shadowOpacityValue } = useContext(ShadowOpacityRangeBarContext);
+  const { colorValue: gradLeftColor } = useContext(GradationLeftColorContext);
+  const { colorValue: gradCenterColor } = useContext(GradationCenterColorContext);
+  const { colorValue: gradRightColor } = useContext(GradationRightColorContext);
+  const { rangeValue: gradSlideValue } = useContext(GradationSliderContext);
+  const { value: gradPattern } = useContext(GradationPatternRadioButtonContext);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = () => {
@@ -61,7 +71,7 @@ export default function Canvas() {
     ctx = drawShadow(ctx);
 
     // テキスト
-    ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
+    ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradPattern, ctx);
 
 
     // ストローク
@@ -71,7 +81,7 @@ export default function Canvas() {
       if (strokeEdge == 'outer') {
         ctx = drawOuterStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
         // テキスト再描画してストローク内側を塗りつぶす
-        ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, ctx);
+        ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradPattern, ctx);
       }
       if (strokeEdge == 'inner') {
         ctx = drawInnerStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
@@ -88,7 +98,7 @@ export default function Canvas() {
       return ctx;
     }
   },
-    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue]
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradPattern]
   );
 
 

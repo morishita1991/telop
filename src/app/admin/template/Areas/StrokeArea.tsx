@@ -39,7 +39,7 @@ export default function StrokeArea() {
       </div>
       <Collapse in={open}>
           <div className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
-            <div className="row border m-3 h6">
+            <div className="row bg-light m-3 h6">
                 <div className="row ms-3 mt-4">
                   <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>
                 </div>
@@ -49,7 +49,7 @@ export default function StrokeArea() {
                 <div className="row ms-4 mt-5" style={{ maxWidth: '200px' }}>
                   <StrokeColorPicker></StrokeColorPicker>
                 </div>
-                <div className="row ms-3">
+                <div className="row ms-3 mb-2">
                   <StrokeOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></StrokeOpacityRangeBar>
                 </div>
             </div>

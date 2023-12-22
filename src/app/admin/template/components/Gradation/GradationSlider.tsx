@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Box from '@mui/material/Box/Box';
 import Slider from '@mui/material/Slider/Slider';
-import styled from "styled-components";
 import { GradationSliderContext } from "../providers/Gradation/GradationSliderProvider";
 
 type Props = {
@@ -38,12 +37,3 @@ export default function GradationSlider(prop: Props) {
     </>
   );
 }
-
-const SSpan = styled.div`
-  display: inline-block;
-`;
-
-const SInput = styled.input`
-  max-width: 65px;
-  display: inline-block;
-`;

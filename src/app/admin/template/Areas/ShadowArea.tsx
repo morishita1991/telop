@@ -52,18 +52,18 @@ export default function ShadowArea() {
         </div>
       </div>
       <Collapse in={open}>
-          <SDiv2 className="ms-3 mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
-            <div className="row mx-4 my-3 h6">
-              <div className="row mb-1">
+          <SDiv2 className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
+            <div className="row bg-light m-3 h6">
+              <div className="row ms-3 mb-1">
                 <ShadowDistanceRangeBar text={'距離'} min={0} max={100} step={1}></ShadowDistanceRangeBar>
               </div>
-              <div className="row my-1">
+              <div className="row ms-3 my-1">
                 <ShadowAngleRangeBar text={'角度'} min={0} max={360} step={1}></ShadowAngleRangeBar>
               </div>
-              <div className="row ms-1 mt-5" style={{ maxWidth: '200px' }}>
+              <div className="row ms-4 mt-5" style={{ maxWidth: '200px' }}>
                 <ShadowColorPicker></ShadowColorPicker>
               </div>
-              <div className="row my-1">
+              <div className="row ms-3 mb-2">
                 <ShadowOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></ShadowOpacityRangeBar>
               </div>
             </div>

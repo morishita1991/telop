@@ -39,12 +39,12 @@ function TextArea() {
         </div>
       </div>
       <Collapse in={open}>
-        <div className="m-3" style={{ minWidth: '300px', maxWidth: '400px' }}>
+        <div className="mb-5 bg-light" style={{ minWidth: '300px', maxWidth: '400px' }}>
           <div className="row ms-4 h3">
-            <div className="row ms-2 p-2">
+            <div className="row ms-2 mt-3 p-2">
               <TextInput></TextInput>
             </div>
-            <div className="row ms-1 p-2">
+            <div className="row ms-1 p-3">
               <FontSelect></FontSelect>
             </div>
           </div>
@@ -58,7 +58,7 @@ function TextArea() {
             <div className="row ms-1 mt-5" style={{ maxWidth: '200px' }}>
               <TextColorPicker></TextColorPicker>
             </div>
-            <div className="row">
+            <div className="row mb-2">
               <TextOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></TextOpacityRangeBar>
             </div>
           </div>

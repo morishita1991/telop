@@ -7,14 +7,20 @@ import GradationLeftColorPicker from '../components/Gradation/GradationLeftColor
 import GradationCenterColorPicker from '../components/Gradation/GradationCenterColorPicker';
 import GradationRightColorPicker from '../components/Gradation/GradationRightColorPicker';
 import GradationSlider from '../components/Gradation/GradationSlider';
+import GradationPatternRadioButtons from '../components/Gradation/GradationPatternRadioButtons';
+import { GradationPatternRadioButtonContext } from '../components/providers/Gradation/GradationPatternRadioButtonProvider';
 
 export default function GradationArea() {
   const { open, setOpen } = useContext(GradationCheckButtonContext);
+  const { value: pattern } = useContext(GradationPatternRadioButtonContext);
 
   const handleClick = () => {
     setOpen(!open);
   };
 
+  const gradCenterColorPicker = () => {
+    return pattern === 'three' ? (<GradationCenterColorPicker></GradationCenterColorPicker>) : <></>;
+  }
   return (
     <>
       <div className="row border-bottom mx-4 h4">
@@ -39,27 +45,22 @@ export default function GradationArea() {
       </div>
       <Collapse in={open}>
           <div className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
-            <div className="row border m-3 h6">
+            <div className="row bg-light m-3 h6">
+                <div className="row m-4">
+                  <GradationPatternRadioButtons></GradationPatternRadioButtons>
+                </div>
                 <div className="col-sm-4" style={{ maxWidth: '200px' }}>
                   <GradationLeftColorPicker></GradationLeftColorPicker>
                 </div>
                 <div className="col-sm-4" style={{ maxWidth: '200px' }}>
-                  <GradationCenterColorPicker></GradationCenterColorPicker>
+                  {gradCenterColorPicker()}
                 </div>
                 <div className="col-sm-4" style={{ maxWidth: '200px' }}>
                   <GradationRightColorPicker></GradationRightColorPicker>
                 </div>
-                <div className="row ms-3">
-                  <GradationSlider min={0} max={1} step={0.1}></GradationSlider>
+                <div className="row ms-2 ps-3 mt-3">
+                  <GradationSlider min={0} max={1} step={0.05}></GradationSlider>
                 </div>
-            </div>
-            <div className="row m-4">
-              <button
-                type="button"
-                className="btn btn-secondary rounded-circle p-0"
-                style={{ width: '2rem', height: '2rem' }}>
-                ＋
-              </button>
             </div>
           </div>
       </Collapse>

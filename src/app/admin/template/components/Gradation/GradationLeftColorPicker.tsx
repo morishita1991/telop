@@ -18,7 +18,7 @@ export default function GradationLeftColorPicker() {
         type="text"
         className="form-control m-2"
         id={textInputId}
-        style={{ fontSize: '14px' }}
+        style={{ fontSize: '13px' }}
         value={colorValue}
         onChange={handleChange}
       ></SInput>
