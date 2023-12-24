@@ -19,22 +19,20 @@ export default function StrokeArea() {
     <>
       <div className="row border-bottom mx-4 h4">
         <div className="ms-2">
-          <IconButton>
+          <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
               id="textLabel"
               fontSize="medium"
               color="success"
-              sx={{ display: !open ? 'block' : 'none' }}
-              onClick={handleClick} />
+              sx={{ display: !open ? 'block' : 'none' }}/>
             <ExpandCircleDownIcon
               id="textLabel"
               fontSize="medium"
               color="success"
               sx={{ display: open ? 'block' : 'none' }}
-              onClick={handleClick}
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
-          <label className="h6" htmlFor="textLabel" onClick={handleClick}>ストローク</label>
+          <label className="h6" onClick={handleClick}>ストローク</label>
         </div>
       </div>
       <Collapse in={open}>

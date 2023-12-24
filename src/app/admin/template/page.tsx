@@ -29,9 +29,11 @@ import { GradationCenterColorProvider } from "./components/providers/Gradation/G
 import { GradationRightColorProvider } from "./components/providers/Gradation/GradationRightColorProvider";
 import { GradationSliderProvider } from "./components/providers/Gradation/GradationSliderProvider";
 import { GradationPatternRadioButtonProvider } from "./components/providers/Gradation/GradationPatternRadioButtonProvider";
+import { GradationAngleRangeBarProvider } from "./components/providers/Gradation/GradationAngleRangeBarProvider";
 
 export default function Home() {
   const ProviderTree = buildProvidersTree([
+    GradationAngleRangeBarProvider,
     GradationPatternRadioButtonProvider,
     GradationSliderProvider,
     GradationRightColorProvider,

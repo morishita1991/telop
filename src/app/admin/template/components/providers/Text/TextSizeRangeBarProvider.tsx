@@ -8,7 +8,7 @@ export const TextSizeRangeBarContext = createContext<ValueType>({} as ValueType)
 
 export const TextSizeRangeBarProvider = (props: { children: any; }) => {
   const { children } = props;
-  const [rangeValue, setRangeValue] = useState(105);
+  const [rangeValue, setRangeValue] = useState(200);
   return (
     <TextSizeRangeBarContext.Provider value={{rangeValue, setRangeValue}}>
       {children}

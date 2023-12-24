@@ -28,6 +28,7 @@ import { GradationCenterColorContext } from './providers/Gradation/GradationCent
 import { GradationRightColorContext } from './providers/Gradation/GradationRightColorProvider';
 import { GradationSliderContext } from './providers/Gradation/GradationSliderProvider';
 import { GradationPatternRadioButtonContext } from './providers/Gradation/GradationPatternRadioButtonProvider';
+import { GradationAngleRangeBarContext } from './providers/Gradation/GradationAngleRangeBarProvider';
 
 
 export default function Canvas() {
@@ -51,7 +52,8 @@ export default function Canvas() {
   const { colorValue: gradCenterColor } = useContext(GradationCenterColorContext);
   const { colorValue: gradRightColor } = useContext(GradationRightColorContext);
   const { rangeValue: gradSlideValue } = useContext(GradationSliderContext);
-  const { value: gradPattern } = useContext(GradationPatternRadioButtonContext);
+  const { value: gradColorPattern } = useContext(GradationPatternRadioButtonContext);
+  const { rangeValue: gradAngleValue } = useContext(GradationAngleRangeBarContext);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = () => {
@@ -71,7 +73,7 @@ export default function Canvas() {
     ctx = drawShadow(ctx);
 
     // テキスト
-    ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradPattern, ctx);
+    ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, ctx);
 
 
     // ストローク
@@ -81,7 +83,7 @@ export default function Canvas() {
       if (strokeEdge == 'outer') {
         ctx = drawOuterStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
         // テキスト再描画してストローク内側を塗りつぶす
-        ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradPattern, ctx);
+        ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, ctx);
       }
       if (strokeEdge == 'inner') {
         ctx = drawInnerStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
@@ -98,7 +100,7 @@ export default function Canvas() {
       return ctx;
     }
   },
-    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradPattern]
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue]
   );
 
 
