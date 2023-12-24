@@ -15,6 +15,14 @@ const SDiv2 = styled.div`
   max-width: 300px;
 `;
 
+const Div = styled.div`
+    &:hover {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .4s;
+  }
+`;
 
 export default function ShadowArea() {
   const { open, setOpen } = useContext(ShadowCheckButtonContext);
@@ -23,14 +31,14 @@ export default function ShadowArea() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
-  
+
   const handleClick = () => {
     setOpen(!open);
   };
 
   return (
     <>
-      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+      <Div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
         <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
@@ -46,15 +54,15 @@ export default function ShadowArea() {
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
         </div>
-        <div className='pt-1'>
-          <label className="h6" onClick={handleClick}>影</label>
+        <div className='pt-1 flex-fill' onClick={handleClick}>
+          <label className="h6" style={{cursor: 'pointer'}} onClick={handleClick}>影</label>
         </div>
         <div className='ms-auto'>
           <Switch
             checked={checked}
             onChange={handleChange}/>
         </div>
-      </div>
+      </Div>
       <Collapse in={open}>
           <SDiv2 className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row bg-light m-3 h6">

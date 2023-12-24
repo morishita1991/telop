@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import styled from "styled-components";
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
 import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
 import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
@@ -22,9 +23,18 @@ export default function StrokeArea() {
     setOpen(!open);
   };
 
+  const Div = styled.div`
+      &:hover {
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: .4s;
+    }
+  `;
+
   return (
     <>
-      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+      <Div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
         <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
@@ -40,15 +50,15 @@ export default function StrokeArea() {
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
         </div>
-        <div className='pt-1'>
-          <label className="h6" onClick={handleClick}>ストローク</label>
+        <div className='pt-1 flex-fill' onClick={handleClick}>
+          <label className="h6" style={{cursor: 'pointer'}} onClick={handleClick}>ストローク</label>
         </div>
-        <div className='ms-auto'>
+        <div className=''>
           <Switch
             checked={checked}
             onChange={handleChange}/>
         </div>
-      </div>
+      </Div>
       <Collapse in={open}>
           <div className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row bg-light m-3 h6">

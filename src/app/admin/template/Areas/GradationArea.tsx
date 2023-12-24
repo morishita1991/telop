@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Collapse from '@mui/material/Collapse/Collapse';
+import styled from "styled-components";
 import IconButton from '@mui/material/IconButton/IconButton';
 import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
@@ -26,12 +27,22 @@ export default function GradationArea() {
     setOpen(!open);
   };
 
+  const Div = styled.div`
+      &:hover {
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: .4s;
+    }
+  `;
+
   const gradCenterColorPicker = () => {
     return pattern === 'three' ? (<GradationCenterColorPicker></GradationCenterColorPicker>) : <></>;
   }
+
   return (
     <>
-      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+      <Div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
         <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
@@ -47,15 +58,15 @@ export default function GradationArea() {
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
         </div>
-        <div className='pt-1'>
-          <label className="h6" onClick={handleClick}>グラデーション</label>
+        <div className='pt-1 flex-fill' onClick={handleClick}>
+          <label className="h6" style={{cursor: 'pointer'}} onClick={handleClick}>グラデーション</label>
         </div>
         <div className='ms-auto'>
           <Switch
             checked={checked}
             onChange={handleChange} />
         </div>
-      </div>
+      </Div>
       <Collapse in={open}>
           <div className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row bg-light m-3 h6">

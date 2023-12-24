@@ -7,6 +7,7 @@ import TextArea from './TextArea';
 import ShadowArea from "./ShadowArea";
 import StrokeArea from "./StrokeArea";
 import GradationArea from './GradationArea';
+import { StickyNote2 } from '@mui/icons-material';
 
 export default function CanvasArea() {
   return (
@@ -19,7 +20,7 @@ export default function CanvasArea() {
           <GradationArea></GradationArea>
         </div>
         <div className="col-sm-9">
-          <div className="px-4 mx-3 mb-5" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
+          <div className="px-4 mx-3 mb-5 sticky-top" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
               <div className="row" >
                 <div className="col-sm-3" >
                   <div className="row ms-3 mt-5">

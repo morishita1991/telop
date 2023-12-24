@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import styled from "styled-components";
 import TextInput from '../components/TextInput';
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
 import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
@@ -16,9 +17,18 @@ function TextArea() {
     setOpen(!open);
   };
 
+  const Div = styled.div`
+      &:hover {
+      background-color: #f5f5f5;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: .4s;
+    }
+  `;
+
   return (
     <>
-      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+      <Div className="d-flex flex-row border-bottom mx-4 ms-4 h4" onClick={handleClick}>
         <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
@@ -35,10 +45,10 @@ function TextArea() {
           </IconButton>
         </div>
         <div className='pt-1'>
-          <label className="h6" onClick={handleClick}>テキスト</label>
+          <label className="h6" style={{cursor: 'pointer'}} onClick={handleClick}>テキスト</label>
         </div>
-      </div>
-      <Collapse in={open}>
+      </Div>
+      <Collapse in={!open}>
         <div className="mb-5 bg-light" style={{ minWidth: '300px', maxWidth: '400px' }}>
           <div className="row ms-4 h3">
             <div className="row ms-2 mt-3 p-2">
