@@ -1,15 +1,22 @@
 import React, { useContext } from 'react';
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
 import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
+import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
 import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
 import StrokeColorPicker from '../components/Stroke/StrokeColorPicker';
 import StrokeEdgeRadioButtons from '../components/Stroke/StrokeEdgeRadioButtons';
 import StrokeOpacityRangeBar from '../components/Stroke/StrokeOpacityRangeBar';
 import StrokeWidthRangeBar from '../components/Stroke/StrokeWidthRangeBar';
-import { StrokeCheckButtonContext } from "../components/providers/Stroke/StrokeCheckButtonProvider";
+import { StrokeCheckButtonContext } from '../components/providers/Stroke/StrokeCheckButtonProvider';
+import { StrokeActivateSwitchContext } from '../components/providers/Stroke/StrokeActivateSwitchProvider';
 
 export default function StrokeArea() {
   const { open, setOpen } = useContext(StrokeCheckButtonContext);
+  const { checked, setChecked } = useContext(StrokeActivateSwitchContext);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
 
   const handleClick = () => {
     setOpen(!open);
@@ -17,8 +24,8 @@ export default function StrokeArea() {
 
   return (
     <>
-      <div className="row border-bottom mx-4 h4">
-        <div className="ms-2">
+      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+        <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
               id="textLabel"
@@ -32,7 +39,14 @@ export default function StrokeArea() {
               sx={{ display: open ? 'block' : 'none' }}
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
+        </div>
+        <div className='pt-1'>
           <label className="h6" onClick={handleClick}>ストローク</label>
+        </div>
+        <div className='ms-auto'>
+          <Switch
+            checked={checked}
+            onChange={handleChange}/>
         </div>
       </div>
       <Collapse in={open}>

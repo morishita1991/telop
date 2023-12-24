@@ -29,6 +29,9 @@ import { GradationRightColorContext } from './providers/Gradation/GradationRight
 import { GradationSliderContext } from './providers/Gradation/GradationSliderProvider';
 import { GradationPatternRadioButtonContext } from './providers/Gradation/GradationPatternRadioButtonProvider';
 import { GradationAngleRangeBarContext } from './providers/Gradation/GradationAngleRangeBarProvider';
+import { StrokeActivateSwitchContext } from './providers/Stroke/StrokeActivateSwitchProvider';
+import { ShadowActivateSwitchContext } from './providers/Shadow/ShadowActivateSwitchProvider';
+import { GradationActivateSwitchContext } from './providers/Gradation/GradationActivateSwitchProvider';
 
 
 export default function Canvas() {
@@ -44,16 +47,20 @@ export default function Canvas() {
   const { rangeValue: strokeWidthValue } = useContext(StrokeWidthRangeBarContext);
   const { rangeValue: strokeOpacityValue } = useContext(StrokeOpacityRangeBarContext);
   const { value: strokeEdge } = useContext(StrokeEdgeRadioButtonContext);
+  const { checked: strokeActive } = useContext(StrokeActivateSwitchContext);
   const { rangeValue: shadowDistanceValue } = useContext(ShadowDistanceRangeBarContext);
   const { rangeValue: shadowAngleValue } = useContext(ShadowAngleRangeBarContext);
   const { colorValue: shadowColor } = useContext(ShadowColorContext);
   const { rangeValue: shadowOpacityValue } = useContext(ShadowOpacityRangeBarContext);
+  const { checked: shadowActivate } = useContext(ShadowActivateSwitchContext);
   const { colorValue: gradLeftColor } = useContext(GradationLeftColorContext);
   const { colorValue: gradCenterColor } = useContext(GradationCenterColorContext);
   const { colorValue: gradRightColor } = useContext(GradationRightColorContext);
   const { rangeValue: gradSlideValue } = useContext(GradationSliderContext);
   const { value: gradColorPattern } = useContext(GradationPatternRadioButtonContext);
   const { rangeValue: gradAngleValue } = useContext(GradationAngleRangeBarContext);
+  const { checked: gradationActivate } = useContext(GradationActivateSwitchContext);
+
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = () => {
@@ -70,20 +77,23 @@ export default function Canvas() {
     // 背景
     ctx = createBackGroudColor(bgColorValue, bgOpacityValue, ctx);
     // 影
-    ctx = drawShadow(ctx);
-
+    if (shadowActivate)
+    {
+      ctx = drawShadow(ctx);
+    }
     // テキスト
-    ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, ctx);
-
+    ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, gradationActivate, ctx);
 
     // ストローク
-    ctx = drawStroke(ctx);
-
+    if (strokeActive)
+    {
+      ctx = drawStroke(ctx);
+    }
     function drawStroke(ctx: CanvasRenderingContext2D): CanvasRenderingContext2D {
       if (strokeEdge == 'outer') {
         ctx = drawOuterStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
         // テキスト再描画してストローク内側を塗りつぶす
-        ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, ctx);
+        ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, gradationActivate, ctx);
       }
       if (strokeEdge == 'inner') {
         ctx = drawInnerStroke(textValue, strokeWidthValue, strokeColor, strokeOpacityValue, ctx);
@@ -100,9 +110,8 @@ export default function Canvas() {
       return ctx;
     }
   },
-    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue]
+    [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, strokeActive, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue, shadowActivate, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, gradationActivate]
   );
-
 
 
   return (

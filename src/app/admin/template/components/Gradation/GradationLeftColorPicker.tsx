@@ -1,10 +1,12 @@
 import React, { useId, useContext } from "react";
 import styled from "styled-components";
+import { GradationActivateSwitchContext } from "../providers/Gradation/GradationActivateSwitchProvider";
 import { GradationLeftColorContext } from "../providers/Gradation/GradationLeftColorProvider";
 
 export default function GradationLeftColorPicker() {
   const textInputId = useId();
   const colorInputId = useId();
+  const { checked } = useContext(GradationActivateSwitchContext);
   const { colorValue, setColorValue } = useContext(GradationLeftColorContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length < 8)
@@ -21,6 +23,7 @@ export default function GradationLeftColorPicker() {
         style={{ fontSize: '13px' }}
         value={colorValue}
         onChange={handleChange}
+        disabled={!checked}
       ></SInput>
       <SInput
         type="color"
@@ -29,6 +32,7 @@ export default function GradationLeftColorPicker() {
         name="color"
         value={colorValue}
         onChange={handleChange}
+        disabled={!checked}
       ></SInput>
     </>
   );

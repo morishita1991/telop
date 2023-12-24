@@ -3,6 +3,7 @@ import { StrokeOpacityRangeBarContext } from "../providers/Stroke/StrokeOpacityR
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 import styled from "styled-components";
+import { StrokeActivateSwitchContext } from "../providers/Stroke/StrokeActivateSwitchProvider";
 
 type Props = {
   text: string,
@@ -13,6 +14,7 @@ type Props = {
 
 export default function StrokeOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
+  const { checked } = useContext(StrokeActivateSwitchContext);
   const { rangeValue, setRangeValue } = useContext(StrokeOpacityRangeBarContext);
 
   const handleChange = (event: any) => {
@@ -29,6 +31,7 @@ export default function StrokeOpacityRangeBar(prop: Props) {
             step={step}
             min={min}
             max={max}
+            disabled={!checked}
           ></SInput>
         </div>
         <div className="col-12">
@@ -41,6 +44,7 @@ export default function StrokeOpacityRangeBar(prop: Props) {
               step={step}
               min={min}
               max={max}
+              disabled={!checked}
             />
           </Box>
         </div>

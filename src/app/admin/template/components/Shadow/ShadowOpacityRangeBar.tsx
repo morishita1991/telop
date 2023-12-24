@@ -3,6 +3,7 @@ import { ShadowOpacityRangeBarContext } from "../providers/Shadow/ShadowOpacityR
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 import styled from "styled-components";
+import { ShadowActivateSwitchContext } from "../providers/Shadow/ShadowActivateSwitchProvider";
 
 type Props = {
   text: string,
@@ -13,6 +14,7 @@ type Props = {
 
 export default function ShadowOpacityRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
+  const { checked } = useContext(ShadowActivateSwitchContext);
   const { rangeValue, setRangeValue } = useContext(ShadowOpacityRangeBarContext);
 
   const handleChange = (event: any) => {
@@ -29,6 +31,7 @@ export default function ShadowOpacityRangeBar(prop: Props) {
             step={step}
             min={min}
             max={max}
+            disabled={!checked}
           ></SInput>
         </div>
         <div className="col-12">
@@ -41,6 +44,7 @@ export default function ShadowOpacityRangeBar(prop: Props) {
               step={step}
               min={min}
               max={max}
+              disabled={!checked}
             />
           </Box>
         </div>

@@ -3,6 +3,7 @@ import { GradationAngleRangeBarContext } from "../providers/Gradation/GradationA
 import Box from '@mui/material/Box/Box';
 import Slider from '@mui/material/Slider/Slider';
 import styled from "styled-components";
+import { GradationActivateSwitchContext } from "../providers/Gradation/GradationActivateSwitchProvider";
 
 type Props = {
   text: string,
@@ -13,6 +14,7 @@ type Props = {
 
 export default function GradationAngleRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
+  const { checked } = useContext(GradationActivateSwitchContext);
   const { rangeValue, setRangeValue } = useContext(GradationAngleRangeBarContext);
 
   const handleChange = (event: any) => {
@@ -29,6 +31,7 @@ export default function GradationAngleRangeBar(prop: Props) {
             step={step}
             min={min}
             max={max}
+            disabled={!checked}
           ></SInput>
         </div>
         <div className="col-12">
@@ -40,6 +43,7 @@ export default function GradationAngleRangeBar(prop: Props) {
               step={step}
               min={min}
               max={max}
+              disabled={!checked}
             />
           </Box>
         </div>

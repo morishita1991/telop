@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Collapse from '@mui/material/Collapse/Collapse';
 import IconButton from '@mui/material/IconButton/IconButton';
+import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { GradationCheckButtonContext } from "../components/providers/Gradation/GradationCheckButtonProvider";
 import GradationLeftColorPicker from '../components/Gradation/GradationLeftColorPicker';
@@ -10,10 +11,16 @@ import GradationSlider from '../components/Gradation/GradationSlider';
 import GradationPatternRadioButtons from '../components/Gradation/GradationPatternRadioButtons';
 import { GradationPatternRadioButtonContext } from '../components/providers/Gradation/GradationPatternRadioButtonProvider';
 import GradationAngleRangeBar from '../components/Gradation/GradationAngleRangeBar';
+import { GradationActivateSwitchContext } from '../components/providers/Gradation/GradationActivateSwitchProvider';
 
 export default function GradationArea() {
+  const { checked, setChecked } = useContext(GradationActivateSwitchContext);
   const { open, setOpen } = useContext(GradationCheckButtonContext);
   const { value: pattern } = useContext(GradationPatternRadioButtonContext);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
 
   const handleClick = () => {
     setOpen(!open);
@@ -24,8 +31,8 @@ export default function GradationArea() {
   }
   return (
     <>
-      <div className="row border-bottom mx-4 h4">
-        <div className="ms-2">
+      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+        <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
               id="textLabel"
@@ -39,7 +46,14 @@ export default function GradationArea() {
               sx={{ display: open ? 'block' : 'none' }}
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
+        </div>
+        <div className='pt-1'>
           <label className="h6" onClick={handleClick}>グラデーション</label>
+        </div>
+        <div className='ms-auto'>
+          <Switch
+            checked={checked}
+            onChange={handleChange} />
         </div>
       </div>
       <Collapse in={open}>

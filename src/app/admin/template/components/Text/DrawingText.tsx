@@ -14,6 +14,7 @@ export function drawText(
   gradSlideValue: number,
   gradColorPattern: string,
   gradAngleValue: number,
+  gradationActivate: boolean,
   ctx: CanvasRenderingContext2D
 ): CanvasRenderingContext2D {
   // 不透明度
@@ -21,13 +22,16 @@ export function drawText(
   // フォント
   ctx.font = getCtxFont(textWeightValue, textSizeValue, fontValue);
 
-  // 色
-  // ctx.fillStyle = colorValue;
-
-  // グラデーション
-  ctx = drawGradation(
-    textValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, ctx
-  );
+  if (gradationActivate)
+  {
+    // グラデーション
+    ctx = drawGradation(
+      textValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, ctx
+    );
+  } else {
+    // 色
+    ctx.fillStyle = colorValue;
+  }
 
   ctx.fillText(textValue, baseX, baseY);
   return ctx;

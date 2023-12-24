@@ -2,37 +2,36 @@ import React, { useContext } from 'react';
 import styled from "styled-components";
 import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
 import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
+import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
 import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
 import { ShadowCheckButtonContext } from '../components/providers/Shadow/ShadowCheckButtonProvider';
 import ShadowDistanceRangeBar from '../components/Shadow/ShadowDistanceRangeBar';
 import ShadowAngleRangeBar from '../components/Shadow/ShadowAngleRangeBar';
 import ShadowColorPicker from '../components/Shadow/ShadowColorPicker';
 import ShadowOpacityRangeBar from '../components/Shadow/ShadowOpacityRangeBar';
+import { ShadowActivateSwitchContext } from '../components/providers/Shadow/ShadowActivateSwitchProvider';
 
 const SDiv2 = styled.div`
   max-width: 300px;
 `;
-const SDiv3 = styled.div`
-  max-width: 980px;
-`;
-const SDiv4 = styled.div`
-  max-width: 150px;
-`;
-const SDiv5 = styled.div`
-  max-width: 200px;
-`;
+
 
 export default function ShadowArea() {
   const { open, setOpen } = useContext(ShadowCheckButtonContext);
+  const { checked, setChecked } = useContext(ShadowActivateSwitchContext);
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+  };
+  
   const handleClick = () => {
     setOpen(!open);
   };
 
   return (
     <>
-      <div className="row border-bottom mx-4 h4">
-        <div className="ms-2">
+      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+        <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
               id="textLabel"
@@ -46,7 +45,14 @@ export default function ShadowArea() {
               sx={{ display: open ? 'block' : 'none' }}
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
+        </div>
+        <div className='pt-1'>
           <label className="h6" onClick={handleClick}>影</label>
+        </div>
+        <div className='ms-auto'>
+          <Switch
+            checked={checked}
+            onChange={handleChange}/>
         </div>
       </div>
       <Collapse in={open}>

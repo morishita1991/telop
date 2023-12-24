@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Box from '@mui/material/Box/Box';
 import Slider from '@mui/material/Slider/Slider';
 import { GradationSliderContext } from "../providers/Gradation/GradationSliderProvider";
+import { GradationActivateSwitchContext } from "../providers/Gradation/GradationActivateSwitchProvider";
 
 type Props = {
   min: number,
@@ -11,6 +12,7 @@ type Props = {
 
 export default function GradationSlider(prop: Props) {
   const { min, max, step } = prop;
+  const { checked } = React.useContext(GradationActivateSwitchContext);
   const { rangeValue, setRangeValue } = useContext(GradationSliderContext);
 
   const handleChange = (event: any) => {
@@ -30,6 +32,7 @@ export default function GradationSlider(prop: Props) {
               step={step}
               min={min}
               max={max}
+              disabled={!checked}
             />
           </Box>
         </div>

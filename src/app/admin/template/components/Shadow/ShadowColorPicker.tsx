@@ -1,10 +1,12 @@
 import React, { useId, useContext } from "react";
 import styled from "styled-components";
+import { ShadowActivateSwitchContext } from "../providers/Shadow/ShadowActivateSwitchProvider";
 import { ShadowColorContext } from "../providers/Shadow/ShadowColorProvider";
 
 export default function ShadowColorPicker() {
   const textInputId = useId();
   const colorInputId = useId();
+  const { checked } = useContext(ShadowActivateSwitchContext);
   const { colorValue, setColorValue } = useContext(ShadowColorContext);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length < 8)
@@ -21,6 +23,7 @@ export default function ShadowColorPicker() {
         name="color"
         value={colorValue}
         onChange={handleChange}
+        disabled={!checked}
       ></SInput>
       <SInput
         type="text"
@@ -28,6 +31,7 @@ export default function ShadowColorPicker() {
         id={textInputId}
         value={colorValue}
         onChange={handleChange}
+        disabled={!checked}
       ></SInput>
     </>
   );

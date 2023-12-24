@@ -3,6 +3,7 @@ import { ShadowAngleRangeBarContext } from "../providers/Shadow/ShadowAngleRange
 import Box from '../../../../../../node_modules/@mui/material/Box/Box';
 import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
 import styled from "styled-components";
+import { ShadowActivateSwitchContext } from "../providers/Shadow/ShadowActivateSwitchProvider";
 
 type Props = {
   text: string,
@@ -13,6 +14,7 @@ type Props = {
 
 export default function ShadowAngleRangeBar(prop: Props) {
   const { text, min, max, step } = prop;
+  const { checked } = useContext(ShadowActivateSwitchContext);
   const { rangeValue, setRangeValue } = useContext(ShadowAngleRangeBarContext);
 
   const handleChange = (event: any) => {
@@ -29,6 +31,7 @@ export default function ShadowAngleRangeBar(prop: Props) {
             step={step}
             min={min}
             max={max}
+            disabled={!checked}
           ></SInput>
         </div>
         <div className="col-12">
@@ -40,6 +43,7 @@ export default function ShadowAngleRangeBar(prop: Props) {
               step={step}
               min={min}
               max={max}
+              disabled={!checked}
             />
           </Box>
         </div>

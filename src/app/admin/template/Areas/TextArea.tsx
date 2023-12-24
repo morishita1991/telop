@@ -18,8 +18,8 @@ function TextArea() {
 
   return (
     <>
-      <div className="row border-bottom mx-4 h4">
-        <div className="ms-2">
+      <div className="d-flex flex-row border-bottom mx-4 ms-4 h4">
+        <div className='ms-2'>
           <IconButton onClick={handleClick}>
             <ExpandCircleDownIcon
               id="textLabel"
@@ -33,6 +33,8 @@ function TextArea() {
               sx={{ display: open ? 'block' : 'none' }}
               style={{ transform: 'scale(1, -1)' }} />
           </IconButton>
+        </div>
+        <div className='pt-1'>
           <label className="h6" onClick={handleClick}>テキスト</label>
         </div>
       </div>

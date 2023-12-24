@@ -30,9 +30,13 @@ import { GradationRightColorProvider } from "./components/providers/Gradation/Gr
 import { GradationSliderProvider } from "./components/providers/Gradation/GradationSliderProvider";
 import { GradationPatternRadioButtonProvider } from "./components/providers/Gradation/GradationPatternRadioButtonProvider";
 import { GradationAngleRangeBarProvider } from "./components/providers/Gradation/GradationAngleRangeBarProvider";
+import { StrokeActivateSwitchProvider } from "./components/providers/Stroke/StrokeActivateSwitchProvider";
+import { ShadowActivateSwitchProvider } from "./components/providers/Shadow/ShadowActivateSwitchProvider";
+import { GradationActivateSwitchProvider } from "./components/providers/Gradation/GradationActivateSwitchProvider";
 
 export default function Home() {
   const ProviderTree = buildProvidersTree([
+    GradationActivateSwitchProvider,
     GradationAngleRangeBarProvider,
     GradationPatternRadioButtonProvider,
     GradationSliderProvider,
@@ -40,11 +44,13 @@ export default function Home() {
     GradationCenterColorProvider,
     GradationLeftColorProvider,
     GradationCheckButtonProvider,
+    ShadowActivateSwitchProvider,
     ShadowOpacityRangeBarProvider,
     ShadowColorProvider,
     ShadowAngleRangeBarProvider,
     ShadowCheckButtonProvider,
     ShadowDistanceRangeBarProvider,
+    StrokeActivateSwitchProvider,
     StrokeEdgeRadioButtonProvider,
     StrokeCheckButtonProvider,
     StrokeOpacityRangeBarProvider,
@@ -67,14 +73,6 @@ export default function Home() {
         <HeaderArea></HeaderArea>
         <CanvasArea></CanvasArea>
       </ProviderTree>
-      <div className="m-2 ms-5 align-top">
-        <div style={{ maxHeight: '50px' }}>
-          <div className="d-flex flex-row">
-            <input className="btn btn-default align-top" type="checkbox" id="gradationCheckBox" data-bs-toggle="collapse" data-bs-target="#collapseGradationAria" aria-expanded="false" aria-controls="collapseExample" style={{ transform: 'scale(1.5)' }}></input>
-            <label className="form-check-label ms-3 mt-1 h4" htmlFor='gradationCheckBox'>グラデーション</label>
-          </div>
-        </div>
-      </div>
       <div className="border ms-3 mb-5 collapse" id="collapseGradationAria">
         <div className="row border m-3 h5">
         </div>
