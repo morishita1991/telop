@@ -21,8 +21,8 @@ import { ShadowDistanceRangeBarContext } from './providers/Shadow/ShadowDistance
 import { ShadowAngleRangeBarContext } from './providers/Shadow/ShadowAngleRangeBarProvider';
 import { ShadowColorContext } from './providers/Shadow/ShadowColorProvider';
 import { ShadowOpacityRangeBarContext } from './providers/Shadow/ShadowOpacityRangeBarProvider';
-import Button from '../../../../../node_modules/@mui/material/Button/Button';
-import CloudDownloadIcon from '../../../../../node_modules/@mui/icons-material/CloudDownload';
+import Button from '@mui/material/Button/Button';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { GradationLeftColorContext } from './providers/Gradation/GradationLeftColorProvider';
 import { GradationCenterColorContext } from './providers/Gradation/GradationCenterColorProvider';
 import { GradationRightColorContext } from './providers/Gradation/GradationRightColorProvider';

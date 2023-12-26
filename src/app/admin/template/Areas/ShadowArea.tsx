@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
-import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
-import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
-import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
-import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
+import Collapse from '@mui/material/Collapse/Collapse';
+import IconButton from '@mui/material/IconButton/IconButton';
+import Switch from '@mui/material/Switch/Switch';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { ShadowCheckButtonContext } from '../components/providers/Shadow/ShadowCheckButtonProvider';
 import ShadowDistanceRangeBar from '../components/Shadow/ShadowDistanceRangeBar';
 import ShadowAngleRangeBar from '../components/Shadow/ShadowAngleRangeBar';

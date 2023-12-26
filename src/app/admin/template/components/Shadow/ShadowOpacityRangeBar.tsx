@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ShadowOpacityRangeBarContext } from "../providers/Shadow/ShadowOpacityRangeBarProvider";
-import Box from '../../../../../../node_modules/@mui/material/Box/Box';
-import Slider from '../../../../../../node_modules/@mui/material/Slider/Slider';
+import Box from '@mui/material/Box/Box';
+import Slider from '@mui/material/Slider/Slider';
 import styled from "styled-components";
 import { ShadowActivateSwitchContext } from "../providers/Shadow/ShadowActivateSwitchProvider";
 

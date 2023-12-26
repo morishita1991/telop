@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import styled from "styled-components";
 import TextInput from '../components/TextInput';
-import Collapse from '../../../../../node_modules/@mui/material/Collapse/Collapse';
-import IconButton from '../../../../../node_modules/@mui/material/IconButton/IconButton';
-import ExpandCircleDownIcon from '../../../../../node_modules/@mui/icons-material/ExpandCircleDown';
+import Collapse from '@mui/material/Collapse/Collapse';
+import IconButton from '@mui/material/IconButton/IconButton';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import FontSelect from '../components/FontSelect';
 import TextSizeRangeBar from '../components/Text/TextSizeRangeBar';
 import TextWeightRangeBar from '../components/Text/TextWeightRangeBar';

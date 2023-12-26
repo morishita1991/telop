@@ -7,7 +7,6 @@ import TextArea from './TextArea';
 import ShadowArea from "./ShadowArea";
 import StrokeArea from "./StrokeArea";
 import GradationArea from './GradationArea';
-import { StickyNote2 } from '@mui/icons-material';
 
 export default function CanvasArea() {
   return (

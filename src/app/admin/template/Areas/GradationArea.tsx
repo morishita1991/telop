@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Collapse from '@mui/material/Collapse/Collapse';
 import styled from "styled-components";
 import IconButton from '@mui/material/IconButton/IconButton';
-import Switch from '../../../../../node_modules/@mui/material/Switch/Switch';
+import Switch from '@mui/material/Switch';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 import { GradationCheckButtonContext } from "../components/providers/Gradation/GradationCheckButtonProvider";
 import GradationLeftColorPicker from '../components/Gradation/GradationLeftColorPicker';
