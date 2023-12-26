@@ -9,7 +9,7 @@ import { canvasW, canvasH } from '../Areas/Const';
 import download from './Download';
 import { drawText, getCtxFont } from './Text/DrawingText';
 import { drawOuterStroke, drawInnerStroke } from './Stroke/DrawingStroke';
-import { getShadowPosition } from './Shadow/DrawingShadow';
+import { drawShadow, getShadowPosition } from './Shadow/DrawingShadow';
 import createBackGroudColor from './BackGround/BackGroundColor';
 import { BackGroundColorContext } from './providers/BackGround/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/BackGround/BackGroundOpacityRangeBarProvider';
@@ -79,7 +79,7 @@ export default function Canvas() {
     // 影
     if (shadowActivate)
     {
-      ctx = drawShadow(ctx);
+      ctx = drawShadow(textValue, textSizeValue, textWeightValue, fontValue, shadowOpacityValue, shadowAngleValue, shadowDistanceValue, shadowColor, ctx);
     }
     // テキスト
     ctx = drawText(textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, gradationActivate, ctx);
@@ -100,15 +100,6 @@ export default function Canvas() {
       }
       return ctx;
     };
-
-    function drawShadow(ctx: CanvasRenderingContext2D): CanvasRenderingContext2D {
-      ctx.globalAlpha = shadowOpacityValue;
-      ctx.font = getCtxFont(textWeightValue, textSizeValue, fontValue);
-      const { shadowX, shadowY } = getShadowPosition(shadowAngleValue, shadowDistanceValue);
-      ctx.fillStyle = shadowColor;
-      ctx.fillText(textValue, shadowX, shadowY);
-      return ctx;
-    }
   },
     [textValue, textSizeValue, textWeightValue, textOpacityValue, textColor, fontValue, bgColorValue, bgOpacityValue, strokeWidthValue, strokeColor, strokeOpacityValue, strokeEdge, strokeActive, shadowDistanceValue, shadowAngleValue, shadowColor, shadowOpacityValue, shadowActivate, gradLeftColor, gradCenterColor, gradRightColor, gradSlideValue, gradColorPattern, gradAngleValue, gradationActivate]
   );

@@ -33,7 +33,10 @@ export function drawText(
     ctx.fillStyle = colorValue;
   }
 
-  ctx.fillText(textValue, baseX, baseY);
+  // 中央寄せ
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(textValue, canvasW/2, canvasH/2);
   return ctx;
 }
 

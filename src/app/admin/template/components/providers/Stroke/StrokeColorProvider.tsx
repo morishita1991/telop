@@ -9,7 +9,7 @@ export const StrokeColorContext = createContext<ValueType>({} as ValueType);
 
 export const StrokeColorProvider = (props: { children: any; }) => {
   const { children } = props;
-  const [colorValue, setColorValue] = useState('#00CCFF');
+  const [colorValue, setColorValue] = useState('#000000');
   return (
     <StrokeColorContext.Provider value={{colorValue, setColorValue}}>
       {children}

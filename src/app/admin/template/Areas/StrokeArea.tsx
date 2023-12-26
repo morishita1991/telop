@@ -66,7 +66,7 @@ export default function StrokeArea() {
                   <StrokeEdgeRadioButtons></StrokeEdgeRadioButtons>
                 </div>
                 <div className="row ms-3">
-                  <StrokeWidthRangeBar text={'太さ'} min={0} max={20} step={1}></StrokeWidthRangeBar>
+                  <StrokeWidthRangeBar text={'太さ'} min={0} max={50} step={1}></StrokeWidthRangeBar>
                 </div>
                 <div className="row ms-4 mt-5" style={{ maxWidth: '200px' }}>
                   <StrokeColorPicker></StrokeColorPicker>
@@ -74,14 +74,6 @@ export default function StrokeArea() {
                 <div className="row ms-3 mb-2">
                   <StrokeOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></StrokeOpacityRangeBar>
                 </div>
-            </div>
-            <div className="row m-4">
-              <button
-                type="button"
-                className="btn btn-secondary rounded-circle p-0"
-                style={{ width: '2rem', height: '2rem' }}>
-                ＋
-              </button>
             </div>
           </div>
       </Collapse>

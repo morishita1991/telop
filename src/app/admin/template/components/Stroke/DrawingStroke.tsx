@@ -1,4 +1,4 @@
-import { baseX, baseY } from "../../Areas/Const";
+import { baseX, baseY, canvasH, canvasW } from "../../Areas/Const";
 
 export function drawOuterStroke(
   textValue: string,
@@ -11,7 +11,9 @@ export function drawOuterStroke(
     ctx.globalAlpha = strokeOpacityValue;
     ctx.lineWidth  = strokeWidth;
     ctx.strokeStyle = colorValue;
-    ctx.strokeText(textValue, baseX, baseY);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.strokeText(textValue, canvasW/2, canvasH/2);
     return ctx;
 }
 
@@ -29,7 +31,9 @@ export function drawInnerStroke(
   // 合成ルール設定
   const ope = ctx.globalCompositeOperation;
   ctx.globalCompositeOperation = 'source-atop';
-  ctx.strokeText(textValue, baseX, baseY);
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.strokeText(textValue, canvasW/2, canvasH/2);
   ctx.globalCompositeOperation = ope;
   return ctx;
 }

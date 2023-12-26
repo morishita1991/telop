@@ -67,7 +67,7 @@ export default function ShadowArea() {
           <SDiv2 className="mb-5" style={{ minWidth: '300px', maxWidth: '400px' }}>
             <div className="row bg-light m-3 h6">
               <div className="row ms-3 mb-1">
-                <ShadowDistanceRangeBar text={'距離'} min={0} max={100} step={1}></ShadowDistanceRangeBar>
+                <ShadowDistanceRangeBar text={'距離'} min={0} max={200} step={1}></ShadowDistanceRangeBar>
               </div>
               <div className="row ms-3 my-1">
                 <ShadowAngleRangeBar text={'角度'} min={0} max={360} step={1}></ShadowAngleRangeBar>

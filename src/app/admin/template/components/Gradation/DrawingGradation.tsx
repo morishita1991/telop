@@ -47,8 +47,8 @@ export function SetGradationPosition(
   const rad4 = Math.PI - θ; // 左上
 
   // テキストエリアの左上の座標
-  const sx = baseX - Math.abs(metrics.actualBoundingBoxLeft);
-  const sy = baseY - metrics.actualBoundingBoxAscent;
+  const sx = canvasW/2 - Math.abs(metrics.actualBoundingBoxLeft);
+  const sy = canvasH/2 - metrics.actualBoundingBoxAscent;
 
   if (( - Math.PI <= rad && rad < rad1) || (rad4 <= rad && rad <= Math.PI))
   {
