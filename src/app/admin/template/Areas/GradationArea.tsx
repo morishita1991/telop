@@ -14,6 +14,15 @@ import { GradationPatternRadioButtonContext } from '../components/providers/Grad
 import GradationAngleRangeBar from '../components/Gradation/GradationAngleRangeBar';
 import { GradationActivateSwitchContext } from '../components/providers/Gradation/GradationActivateSwitchProvider';
 
+const Div = styled.div`
+    &:hover {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .4s;
+  }
+`;
+
 export default function GradationArea() {
   const { checked, setChecked } = useContext(GradationActivateSwitchContext);
   const { open, setOpen } = useContext(GradationCheckButtonContext);
@@ -26,15 +35,6 @@ export default function GradationArea() {
   const handleClick = () => {
     setOpen(!open);
   };
-
-  const Div = styled.div`
-      &:hover {
-      background-color: #f5f5f5;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: .4s;
-    }
-  `;
 
   const gradCenterColorPicker = () => {
     return pattern === 'three' ? (<GradationCenterColorPicker></GradationCenterColorPicker>) : <></>;

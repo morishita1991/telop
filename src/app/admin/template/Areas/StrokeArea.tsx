@@ -11,6 +11,15 @@ import StrokeWidthRangeBar from '../components/Stroke/StrokeWidthRangeBar';
 import { StrokeCheckButtonContext } from '../components/providers/Stroke/StrokeCheckButtonProvider';
 import { StrokeActivateSwitchContext } from '../components/providers/Stroke/StrokeActivateSwitchProvider';
 
+const Div = styled.div`
+    &:hover {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .4s;
+  }
+`;
+
 export default function StrokeArea() {
   const { open, setOpen } = useContext(StrokeCheckButtonContext);
   const { checked, setChecked } = useContext(StrokeActivateSwitchContext);
@@ -22,15 +31,6 @@ export default function StrokeArea() {
   const handleClick = () => {
     setOpen(!open);
   };
-
-  const Div = styled.div`
-      &:hover {
-      background-color: #f5f5f5;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: .4s;
-    }
-  `;
 
   return (
     <>

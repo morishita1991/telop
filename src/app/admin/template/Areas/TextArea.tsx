@@ -11,20 +11,20 @@ import TextOpacityRangeBar from '../components/Text/TextOpacityRangeBar';
 import TextColorPicker from '../components/Text/TextColorPicker';
 import { TextCheckButtonContext } from '../components/providers/Text/TextCheckButtonProvider';
 
+const Div = styled.div`
+    &:hover {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .4s;
+  }
+`;
+
 function TextArea() {
   const { open, setOpen } = useContext(TextCheckButtonContext);
   const handleClick = () => {
     setOpen(!open);
   };
-
-  const Div = styled.div`
-      &:hover {
-      background-color: #f5f5f5;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: .4s;
-    }
-  `;
 
   return (
     <>

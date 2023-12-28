@@ -7,12 +7,16 @@ import TextArea from './TextArea';
 import ShadowArea from "./ShadowArea";
 import StrokeArea from "./StrokeArea";
 import GradationArea from './GradationArea';
+import dynamic from 'next/dynamic';
+const Konva = dynamic(() => import('../components/Konva'), { ssr: false });
+
 
 export default function CanvasArea() {
   return (
     <>
       <div className="row">
         <div className="col-sm-3">
+          <Konva></Konva>
           <TextArea></TextArea>
           <StrokeArea></StrokeArea>
           <ShadowArea></ShadowArea>
@@ -28,10 +32,10 @@ export default function CanvasArea() {
                 </div>
                 <div className="col-sm-3">
                   <div className="col-12 my-4 h6">
-                    <BackGroundOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></BackGroundOpacityRangeBar>
+                  {/* <BackGroundOpacityRangeBar text={'不透明度'} min={0} max={1} step={0.1}></BackGroundOpacityRangeBar> */}
                   </div>
-                </div>
               </div>
+          </div>
             <Canvas></Canvas>
           </div>
         </div>
