@@ -2,14 +2,15 @@ import React from 'react';
 import { Layer, Stage, Text, Transformer } from 'react-konva';
 
 const TextShape = ({ shapeProps, isSelected, onSelect, onChange }) => {
-  const shapeRef = React.useRef();
-  const trRef = React.useRef();
+  const shapeRef = React.useRef<Text>(null);
+  const trRef: any = React.useRef();
 
   React.useEffect(() => {
+    const current: any = trRef.current;
     if (isSelected) {
       // we need to attach transformer manually
-      trRef.current.nodes([shapeRef.current]);
-      trRef.current.getLayer().batchDraw();
+      current.nodes([shapeRef.current]);
+      current.getLayer().batchDraw();
     }
   }, [isSelected]);
 
@@ -29,14 +30,8 @@ const TextShape = ({ shapeProps, isSelected, onSelect, onChange }) => {
           });
         }}
         onTransformEnd={() => {
-          // transformer is changing scale of the node
-          // and NOT its width or height
-          // but in the store we have only width and height
-          // to match the data better we will reset scale on transform end
-          const node = shapeRef.current;
+          const node: any = shapeRef.current;
           const scaleX = node.scaleX();
-          const scaleY = node.scaleY();
-
           // we will reset it back
           node.scaleX(1);
           node.scaleY(1);
@@ -47,8 +42,24 @@ const TextShape = ({ shapeProps, isSelected, onSelect, onChange }) => {
             fontSize: shapeProps.fontSize * scaleX,
             // set minimal value
             width: Math.max(5, node.width() * scaleX),
-            height: Math.max(node.height() * scaleX),
+            height: Math.max(node.height() * scaleX), // depend on scaleX
           });
+        }}
+        onMouseEnter={e => {
+          const stage = e.target.getStage();
+          if (stage)
+          {
+            const container = stage.container();
+            container.style.cursor = "pointer";
+          }
+        }}
+        onMouseLeave={e => {
+          const stage = e.target.getStage();
+          if (stage)
+          {
+            const container = stage.container();
+            container.style.cursor = "default";
+          }
         }}
       />
       {isSelected && (
@@ -93,13 +104,13 @@ const initialTexts = [
 
 export default function Konva() {
   const [texts, setTexts] = React.useState(initialTexts);
-  const [selectedId, selectShape] = React.useState(null);
+  const [selectedId, selectShape] = React.useState<string>('');
 
   const checkDeselect = (e: any) => {
     // deselect when clicked on empty area
     const clickedOnEmpty = e.target === e.target.getStage();
     if (clickedOnEmpty) {
-      selectShape(null);
+      selectShape('');
     }
   };
 
