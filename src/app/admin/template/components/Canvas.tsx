@@ -1,4 +1,5 @@
 import React, { useRef, useContext, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { TextInputContext } from "./providers/Text/TextInputProvider";
 import { TextSizeRangeBarContext } from './providers/Text/TextSizeRangeBarProvider';
 import { TextWeightRangeBarContext } from './providers/Text/TextWeightRangeBarProvider';
@@ -33,6 +34,7 @@ import { StrokeActivateSwitchContext } from './providers/Stroke/StrokeActivateSw
 import { ShadowActivateSwitchContext } from './providers/Shadow/ShadowActivateSwitchProvider';
 import { GradationActivateSwitchContext } from './providers/Gradation/GradationActivateSwitchProvider';
 
+const Konva = dynamic(() => import('../components/Konva'), { ssr: false });
 
 export default function Canvas() {
   const { textValue } = useContext(TextInputContext);
@@ -109,6 +111,7 @@ export default function Canvas() {
     <>
       <div className="row">
         <canvas id="canvas" width={canvasW} height={canvasH} ref={canvasRef}></canvas>
+        <Konva></Konva>
       </div>
       <div className="d-flex flex-row-reverse mt-4">
         <Button

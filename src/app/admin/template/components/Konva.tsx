@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { Layer, Stage, Text, Transformer } from 'react-konva';
+import { canvasH, canvasW } from '../Areas/Const';
 
-const TextShape = ({ shapeProps, isSelected, onSelect, onChange }) => {
+type TextShapeData = {
+  shapeProps: any,
+  isSelected: any,
+  onSelect: any,
+  onChange: any,
+}
+
+const TextShape = ({ shapeProps, isSelected, onSelect, onChange }: TextShapeData) => {
   const shapeRef = React.useRef<Text>(null);
   const trRef: any = React.useRef();
 
@@ -82,7 +90,7 @@ const TextShape = ({ shapeProps, isSelected, onSelect, onChange }) => {
 
 const initialTexts = [
   {
-    text: "Text 1",
+    text: "ドラッグ&ドロップ 1",
     x: 30,
     y: 30,
     fontSize: 30,
@@ -91,7 +99,7 @@ const initialTexts = [
     id: 'text1',
   },
   {
-    text: "Text 2",
+    text: "ドラッグ&ドロップ 2",
     x: 130,
     y: 130,
     fontSize: 30,
@@ -100,7 +108,6 @@ const initialTexts = [
     id: 'text2',
   },
 ];
-
 
 export default function Konva() {
   const [texts, setTexts] = React.useState(initialTexts);
@@ -117,8 +124,8 @@ export default function Konva() {
   return (
     <>
       <Stage
-        width={1000}
-        height={300}
+        width={canvasW}
+        height={canvasH}
         onMouseDown={checkDeselect}
         onTouchStart={checkDeselect}
       >
