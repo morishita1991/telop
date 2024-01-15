@@ -7,7 +7,6 @@ import { TextOpacityRangeBarContext } from './providers/Text/TextOpacityRangeBar
 import { TextColorContext } from './providers/Text/TextColorProvider';
 import { TextFontContext } from './providers/Text/TextFontProvider';
 import { canvasW, canvasH } from '../Areas/Const';
-import download from './Download';
 import { drawText, getCtxFont } from './Text/DrawingText';
 import { drawOuterStroke, drawInnerStroke } from './Stroke/DrawingStroke';
 import { drawShadow, getShadowPosition } from './Shadow/DrawingShadow';
@@ -63,12 +62,6 @@ export default function Canvas() {
   const { rangeValue: gradAngleValue } = useContext(GradationAngleRangeBarContext);
   const { checked: gradationActivate } = useContext(GradationActivateSwitchContext);
 
-
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const onClickEvent = () => {
-    download(canvasRef.current as HTMLCanvasElement);
-  }
-
   useEffect(() => {
     const canvas = document.getElementById('canvas') as HTMLCanvasElement
     let ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
@@ -110,19 +103,8 @@ export default function Canvas() {
   return (
     <>
       <div className="row">
-        <canvas id="canvas" width={canvasW} height={canvasH} ref={canvasRef}></canvas>
+        <canvas id="canvas" width={canvasW} height={canvasH}></canvas>
         <Konva></Konva>
-      </div>
-      <div className="d-flex flex-row-reverse mt-4">
-        <Button
-          component="label"
-          variant="contained"
-          size="large"
-          color="primary"
-          startIcon={<CloudDownloadIcon />}
-          onClick={onClickEvent}>
-          画像ダウンロード
-        </Button>
       </div>
     </>
   );
