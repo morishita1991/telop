@@ -53,7 +53,7 @@ export default function StrokeArea() {
         <div className='pt-1 flex-fill' onClick={handleClick}>
           <label className="h6" style={{cursor: 'pointer'}} onClick={handleClick}>ストローク</label>
         </div>
-        <div className=''>
+        <div className='ms-auto'>
           <Switch
             checked={checked}
             onChange={handleChange}/>

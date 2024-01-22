@@ -33,6 +33,8 @@ import { GradationAngleRangeBarProvider } from "./components/providers/Gradation
 import { StrokeActivateSwitchProvider } from "./components/providers/Stroke/StrokeActivateSwitchProvider";
 import { ShadowActivateSwitchProvider } from "./components/providers/Shadow/ShadowActivateSwitchProvider";
 import { GradationActivateSwitchProvider } from "./components/providers/Gradation/GradationActivateSwitchProvider";
+import { BackGroundCheckButtonProvider } from "./components/providers/BackGround/BackGroundCheckButtonProvider";
+import { BackGroundActivateSwitchProvider } from "./components/providers/BackGround/BackGroundActivateSwitchProvider";
 
 export default function Home() {
   const ProviderTree = buildProvidersTree([
@@ -56,6 +58,8 @@ export default function Home() {
     StrokeOpacityRangeBarProvider,
     StrokeColorProvider,
     StrokeWidthRangeBarProvider,
+    BackGroundActivateSwitchProvider,
+    BackGroundCheckButtonProvider,
     BackGroundOpacityRangeBarProvider,
     BackGroundColorProvider,
     TextFontProvider,
