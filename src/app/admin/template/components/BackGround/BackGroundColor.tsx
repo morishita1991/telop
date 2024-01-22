@@ -1,6 +1,6 @@
 import { canvasW, canvasH } from '../../Areas/Const';
 
-export default function createBackGroudColor(
+export function createBackGroudColor(
     bgColorValue: string,
     bgOpacityValue: number,
     backgroundActivate: boolean,
@@ -9,12 +9,7 @@ export default function createBackGroudColor(
     if (!ctx) {
       return ctx;
     }
-    // 背景色クリア
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = '#000000';
-    ctx.clearRect(0, 0, canvasW, canvasH);
-    ctx.strokeRect(0, 0, canvasW, canvasH);
-
+    ctx = clearBackGround(ctx);
     if (backgroundActivate)
     {
       // 背景色描画
@@ -25,4 +20,16 @@ export default function createBackGroudColor(
       ctx.strokeRect(0, 0, canvasW, canvasH);
     }
     return ctx;
-  }
+}
+
+export function clearBackGround(
+  ctx: CanvasRenderingContext2D
+): CanvasRenderingContext2D
+{
+  // 背景色クリア
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = '#000000';
+  ctx.clearRect(0, 0, canvasW, canvasH);
+  ctx.strokeRect(0, 0, canvasW, canvasH);
+  return ctx;
+}

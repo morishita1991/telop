@@ -9,7 +9,7 @@ import { canvasW, canvasH } from '../Areas/Const';
 import { drawText } from './Text/DrawingText';
 import { drawOuterStroke, drawInnerStroke } from './Stroke/DrawingStroke';
 import { drawShadow } from './Shadow/DrawingShadow';
-import createBackGroudColor from './BackGround/BackGroundColor';
+import { createBackGroudColor } from './BackGround/BackGroundColor';
 import { BackGroundColorContext } from './providers/BackGround/BackGroundColorProvider';
 import { BackGroundOpacityRangeBarContext } from './providers/BackGround/BackGroundOpacityRangeBarProvider';
 import { StrokeColorContext } from './providers/Stroke/StrokeColorProvider';
