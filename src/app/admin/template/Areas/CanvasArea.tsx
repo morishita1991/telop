@@ -17,10 +17,12 @@ export default function CanvasArea() {
           <GradationArea></GradationArea>
         </div>
         <div className="col-sm-9">
-          <div className="col-sm-5">
-            <BackGroundArea></BackGroundArea>
+          <div className="sticky-top">
+            <div className="col-sm-5">
+              <BackGroundArea></BackGroundArea>
+            </div>
+            <Canvas></Canvas>
           </div>
-          <Canvas></Canvas>
         </div>
       </div>
     </>

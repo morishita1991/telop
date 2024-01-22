@@ -59,7 +59,7 @@ export default function BackGroundArea() {
         </div>
       </Div>
       <Collapse in={open}>
-        <div className="px-4 mx-3 mb-2 bg-light sticky-top" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
+        <div className="px-4 mx-3 mb-2 bg-light" style={{ maxWidth: canvasW, maxHeight: canvasH + 120 }}>
             <div className="row" >
               <div className="col-sm-5" >
                 <div className="row mt-5">
