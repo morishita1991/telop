@@ -72,10 +72,14 @@ export default function Home() {
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col p-24">
+    <main className="flex min-h-screen flex-col p-16">
       <ProviderTree>
-        <HeaderArea></HeaderArea>
-        <CanvasArea></CanvasArea>
+        <div className="mb-16">
+          <HeaderArea></HeaderArea>
+        </div>
+        <div>
+          <CanvasArea></CanvasArea>
+        </div>
       </ProviderTree>
       <div className="border ms-3 mb-5 collapse" id="collapseGradationAria">
         <div className="row border m-3 h5">

@@ -1,17 +1,32 @@
-import React from 'react';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
-const HeaderArea = () => {
+export default function HeaderArea() {
   return (
-    <>
-      <div className="row p-1 m-3">
-        <p className="p-1 h2 mx-auto text-white bg-secondary">テンプレート作成（管理者用）</p>
-        <div className="p-1 h5 text-secondary m-auto">
-          <p>テロップやデザインタイトルを自由に作成できます。</p>
-          <p>文章を入力して好みのデザインを選択すれば、簡単にpng形式でダウンロード可能です。</p>
-        </div>
-      </div>
-    </>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" color="info">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Templates
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
-
-export default HeaderArea;
