@@ -32,6 +32,7 @@ import { StrokeActivateSwitchContext } from './providers/Stroke/StrokeActivateSw
 import { ShadowActivateSwitchContext } from './providers/Shadow/ShadowActivateSwitchProvider';
 import { GradationActivateSwitchContext } from './providers/Gradation/GradationActivateSwitchProvider';
 import { BackGroundActivateSwitchContext } from './providers/BackGround/BackGroundActivateSwitchProvider';
+import { User } from './DAL/User';
 
 // const Konva = dynamic(() => import('../components/Konva'), { ssr: false });
 
@@ -63,14 +64,16 @@ export default function Canvas() {
   const { checked: gradationActivate } = useContext(GradationActivateSwitchContext);
   const { checked: backgroundActivate } = useContext(BackGroundActivateSwitchContext);
 
-
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const onClickEvent = () => {
-    const canvas = canvasRef.current as HTMLCanvasElement;
-    let link = document.createElement("a");
-    link.href = canvas.toDataURL();
-    link.download = "telop.png";
-    link.click();
+    // const canvas = canvasRef.current as HTMLCanvasElement;
+    // let link = document.createElement("a");
+    // link.href = canvas.toDataURL();
+    // link.download = "telop.png";
+    // link.click();
+
+    const user = new User("Alice", "abc@example.com");
+    user.create();
   }
 
   useEffect(() => {
